@@ -1,0 +1,17 @@
+body {
+  overflow-y: overlay;
+}
+
+main {
+  min-height: 80vh;
+}
+
+/* .nav-color {
+  background-color: #32302c;
+}
+
+.btn-color {
+  background-color: #ffc107;
+  color: #32302c;
+  font-weight: 600;
+} */
