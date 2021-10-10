@@ -15,3 +15,76 @@ main {
   color: #32302c;
   font-weight: 600;
 } */
+
+h3 {
+  padding: 1rem 0;
+}
+
+h1 {
+  font-size: 1.8rem;
+  padding: 1rem 0;
+}
+
+h2 {
+  font-size: 1.4rem;
+  padding: 0.5rem 0;
+}
+
+/* carousel */
+
+/* .carousel-item-next,
+.carousel-item-prev,
+.carousel-item.active {
+  display: flex;
+}
+.carousel-caption {
+  position: absolute;
+  top: 0;
+}
+
+.carousel-caption h2 {
+  color: #fff;
+}
+
+.carousel img {
+  height: 300px;
+  padding: 30px;
+  margin: 40px;
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.carousel a {
+  margin: 0 auto;
+} */
+
+.nav-right {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  margin-left: 1rem;
+}
+
+.cart-circle {
+  position: relative;
+  font-size: 0.5rem;
+  color: red;
+  top: -0.7rem;
+  left: -0.2rem;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+  .product-page-section {
+    min-width: 350px;
+  }
+
+  .product-page-section:nth-child(3) {
+    margin: 20px 0 0 50%;
+  }
+}
+
+@media (max-width: 900px) {
+  .carousel-caption h2 {
+    font-size: 2.5vw;
+  }
+}

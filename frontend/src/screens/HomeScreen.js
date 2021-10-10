@@ -1,19 +1,38 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Col, Row } from 'react-bootstrap'
-import Product from '../components/Product'
-import products from '../products'
+import Category from '../components/Category'
+import { listCategories } from '../actions/categoryActions'
+import Loader from '../components/Loader'
+import Message from '../components/Message'
+import Slider from '../components/Slider'
 
 const HomeScreen = () => {
+  const dispatch = useDispatch()
+  const categoryList = useSelector((state) => state.categoryList)
+  const { loading, error, categories } = categoryList
+  useEffect(() => {
+    dispatch(listCategories())
+  }, [dispatch])
   return (
     <>
-      <h4>Latest Stocks on demand</h4>
-      <Row>
-        {products.map((product) => (
-          <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
-            <Product product={product} />
-          </Col>
-        ))}
-      </Row>
+      <Slider />
+      <div className='mt-4 mb-3'>
+        <h2>Shop by category</h2>
+        {loading ? (
+          <Loader />
+        ) : error ? (
+          <Message variant='danger'>{error}</Message>
+        ) : (
+          <Row>
+            {categories.map((category) => (
+              <Col key={category._id} className='col-6' sm={4} md={4} lg={3} xl={3}>
+                <Category category={category} />
+              </Col>
+            ))}
+          </Row>
+        )}
+      </div>
     </>
   )
 }

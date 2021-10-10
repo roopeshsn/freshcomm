@@ -1,0 +1,37 @@
+{
+  "name": "grocery-ecommerce",
+  "version": "1.0.0",
+  "description": "grocery app",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server",
+    "server": "nodemon backend/server",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently npm start \"npm run server\" \"npm run client\"",
+    "data:import": "node backend/seeder",
+    "data:destroy": "node backend/seeder -d"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theroopesh/grocery-ecommerce.git"
+  },
+  "author": "Roopesh Saravanan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theroopesh/grocery-ecommerce/issues"
+  },
+  "homepage": "https://github.com/theroopesh/grocery-ecommerce#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-async-handler": "^1.1.4",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.8",
+    "nodemailer": "^6.6.5"
+  },
+  "devDependencies": {
+    "concurrently": "^6.3.0",
+    "nodemon": "^2.0.13"
+  }
+}
