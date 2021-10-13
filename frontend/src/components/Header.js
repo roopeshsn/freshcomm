@@ -25,16 +25,16 @@ const Header = () => {
           </LinkContainer>
           <Nav className='nav-right'>
             <Nav.Link href='//api.whatsapp.com/send?phone=+918122995372&text=help' target='_blank'>
-              <BsWhatsapp size='2em' />
+              <BsWhatsapp size='1.5em' />
             </Nav.Link>
 
             <Nav.Link href='tel:+91-8122995372'>
-              <FiPhoneCall size='2em' />
+              <FiPhoneCall size='1.5em' />
             </Nav.Link>
 
             <LinkContainer to='/cart'>
               <Nav.Link data-rb-event-key='cart'>
-                <BsCart size='2em' />
+                <BsCart size='1.5em' />
                 {cartItems.length > 0 ? <FaCircle className='cart-circle' /> : ''}
               </Nav.Link>
             </LinkContainer>
@@ -52,9 +52,22 @@ const Header = () => {
               ) : (
                 <LinkContainer to='/login'>
                   <Nav.Link>
-                    <FiUser size='2em' /> Login / Sign Up
+                    <FiUser size='1.5em' /> Login / Sign Up
                   </Nav.Link>
                 </LinkContainer>
+              )}
+              {userInfo && userInfo.isAdmin && (
+                <NavDropdown title='Admin' id='adminmenu'>
+                  <LinkContainer to='/admin/users'>
+                    <NavDropdown.Item>Users</NavDropdown.Item>
+                  </LinkContainer>
+                  <LinkContainer to='/admin/productlist'>
+                    <NavDropdown.Item>Products</NavDropdown.Item>
+                  </LinkContainer>
+                  <LinkContainer to='/admin/orderlist'>
+                    <NavDropdown.Item>Orders</NavDropdown.Item>
+                  </LinkContainer>
+                </NavDropdown>
               )}
             </Nav>
           </Navbar.Collapse>

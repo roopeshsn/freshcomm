@@ -11,14 +11,14 @@ const orderSchema = mongoose.Schema(
       {
         name: { type: String, required: true },
         qty: { type: String, required: true },
-        image: { type: String, required: true },
+        imageSrc: { type: String, required: true },
         price: { type: String, required: true },
         product: { type: mongoose.Schema.Types.ObjectId, required: true, ref: 'Product' },
       },
     ],
     shippingAddress: {
       address: { type: String, required: true },
-      pincode: { type: Number, required: true },
+      pinCode: { type: Number, required: true },
       city: { type: String, required: true },
       state: { type: String, required: true },
       country: { type: String, required: true },
@@ -33,7 +33,7 @@ const orderSchema = mongoose.Schema(
       update_time: { type: String },
       email_address: { type: String },
     },
-    taxPrice: {
+    itemsPrice: {
       type: Number,
       required: true,
       default: 0.0,

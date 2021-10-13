@@ -1,25 +1,26 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col, ListGroup, Form, Button, Card } from 'react-bootstrap'
 import Message from '../components/Message'
 import { addToCart, removeFromCart } from '../actions/cartActions'
+import formatter from '../utils/currencyFormatter'
 
 const CartScreen = ({ match, location, history }) => {
-  const productId = match.params.id
+  // const productId = match.params.id
 
-  const qty = location.search ? Number(location.search.split('=')[1]) : 1
+  // const qty = location.search ? Number(location.search.split('=')[1]) : 1
 
   const dispatch = useDispatch()
 
   const cart = useSelector((state) => state.cart)
   const { cartItems } = cart
 
-  useEffect(() => {
-    if (productId) {
-      dispatch(addToCart(productId, qty))
-    }
-  }, [dispatch, productId, qty])
+  // useEffect(() => {
+  //   if (productId) {
+  //     dispatch(addToCart(productId, qty))
+  //   }
+  // }, [dispatch, productId, qty])
 
   const removeFromCartHandler = (id) => {
     dispatch(removeFromCart(id))
@@ -57,7 +58,7 @@ const CartScreen = ({ match, location, history }) => {
                       </Link>
                     </Col>
                     <Col>
-                      <h6>Rs. {item.price}</h6>
+                      <h6>{formatter(item.price)}</h6>
                     </Col>
                   </Row>
                   <Row>
@@ -97,8 +98,8 @@ const CartScreen = ({ match, location, history }) => {
         <Card className='my-3 p-3 rounded'>
           <ListGroup variant='flush'>
             <ListGroup.Item>
-              <h5>Subtotal ({cartItems.reduce((acc, item) => acc + item.qty, 0)}) items</h5>Rs.{' '}
-              {cartItems.reduce((acc, item) => acc + item.qty * item.price, 0).toFixed(2)}
+              <h5>Subtotal ({cartItems.reduce((acc, item) => acc + item.qty, 0)}) items</h5>
+              {formatter(cartItems.reduce((acc, item) => acc + item.qty * item.price, 0))}
             </ListGroup.Item>
             <ListGroup.Item>
               <Button

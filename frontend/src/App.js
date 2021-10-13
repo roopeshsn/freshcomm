@@ -13,6 +13,11 @@ import ProfileScreen from './screens/ProfileScreen'
 import ShippingScreen from './screens/ShippingScreen'
 import ForgotPasswordScreen from './screens/ForgotPasswordScreen'
 import ResetPasswordScreen from './screens/ResetPasswordScreen'
+import PaymentScreen from './screens/PaymentScreen'
+import PlaceOrderScreen from './screens/PlaceOrderScreen'
+import OrderScreen from './screens/OrderScreen'
+import UsersListScreen from './screens/UsersListScreen'
+import UserEditScreen from './screens/UserEditScreen'
 
 function App() {
   return (
@@ -28,8 +33,13 @@ function App() {
           <Route path='/forgotpassword/:email?' component={ForgotPasswordScreen}></Route>
           <Route path='/resetpassword/:token' component={ResetPasswordScreen}></Route>
           <Route path='/shipping' component={ShippingScreen}></Route>
+          <Route path='/payment' component={PaymentScreen}></Route>
+          <Route path='/placeorder' component={PlaceOrderScreen}></Route>
+          <Route path='/order/:id' component={OrderScreen}></Route>
           <Route path='/categories/:category' component={CategoryScreen} />
           <Route path='/product/:id' component={ProductScreen} />
+          <Route path='/admin/users' component={UsersListScreen} />
+          <Route path='/admin/user/:id' component={UserEditScreen} />
         </Container>
       </main>
       <Footer />

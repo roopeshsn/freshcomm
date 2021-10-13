@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Button, Form } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { resetPassword } from '../actions/userActions'
 import FormContainer from '../components/FormContainer'
 import Loader from '../components/Loader'
@@ -19,6 +20,7 @@ const ResetPasswordScreen = ({ match }) => {
     if (password !== confirmPassword) {
       setPasswordErrorMessage('Passwords do not match')
     } else {
+      setPasswordErrorMessage(null)
       dispatch(resetPassword(token, password))
     }
   }
@@ -30,10 +32,11 @@ const ResetPasswordScreen = ({ match }) => {
       <h1>Reset Password</h1>
       {passwordErrorMessage && <Message variant='danger'>{passwordErrorMessage}</Message>}
       {message && <Message variant='success'>{message}</Message>}
+      {message && <Link to='/login'>Click here to login</Link>}
       {error && <Message variant='danger'>error</Message>}
       {loading && <Loader />}
       <Form onSubmit={submitHandler}>
-        <Form.Group>
+        <Form.Group className='mt-3'>
           <Form.Label name='password'>New password</Form.Label>
           <Form.Control
             type='password'

@@ -6,6 +6,8 @@ import calculateDiscount from '../utils/calculateDiscount'
 import { listProductDetails } from '../actions/productActions'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
+import formatter from '../utils/currencyFormatter'
+import { addToCart } from '../actions/cartActions'
 
 const ProductScreen = ({ match, history }) => {
   const [qty, setQty] = useState(1)
@@ -22,7 +24,9 @@ const ProductScreen = ({ match, history }) => {
   }, [dispatch, match])
 
   const addToCartHandler = () => {
-    history.push(`/cart/${match.params.id}?qty=${qty}`)
+    // history.push(`/cart/${match.params.id}?qty=${qty}`)
+    dispatch(addToCart(product._id, qty))
+    history.push('/cart')
   }
 
   // const firstWord = product.name.split(' ')[0]
@@ -53,7 +57,7 @@ const ProductScreen = ({ match, history }) => {
               <ListGroup.Item>
                 <h4>{product.name}</h4>
               </ListGroup.Item>
-              <ListGroup.Item>Price: Rs {product.price}</ListGroup.Item>
+              <ListGroup.Item>Price: {formatter(product.price)}</ListGroup.Item>
               <ListGroup.Item>Description: {product.description}</ListGroup.Item>
             </ListGroup>
           </Col>
@@ -63,13 +67,15 @@ const ProductScreen = ({ match, history }) => {
                 <ListGroup.Item>
                   <Row>
                     <Col>
-                      Price: <h4 className='d-inline'>Rs {product.price}</h4>{' '}
+                      Price: <h4 className='d-inline'>{formatter(product.price)}</h4>{' '}
                       <div>
                         M.R.P:
-                        <span className='mx-1 text-decoration-line-through'> Rs {product.mrp}</span>
+                        <span className='mx-1 text-decoration-line-through'>
+                          {formatter(product.mrp)}
+                        </span>
                       </div>
                       <div>
-                        You save: <span>Rs {discountPrice}</span>
+                        You save: <span>{formatter(discountPrice)}</span>
                         <span className='mx-2'>({discountPercentage}% off)</span>
                       </div>
                     </Col>
