@@ -1,7 +1,7 @@
 {
-  "name": "grocery-ecommerce",
+  "name": "largegreen",
   "version": "1.0.0",
-  "description": "grocery app",
+  "description": "A daily online grocery store",
   "main": "server.js",
   "scripts": {
     "start": "node backend/server",
@@ -9,14 +9,15 @@
     "client": "npm start --prefix frontend",
     "dev": "concurrently npm start \"npm run server\" \"npm run client\"",
     "data:import": "node backend/seeder",
-    "data:destroy": "node backend/seeder -d"
+    "data:destroy": "node backend/seeder -d",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/theroopesh/grocery-ecommerce.git"
   },
   "author": "Roopesh Saravanan",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/theroopesh/grocery-ecommerce/issues"
   },
@@ -28,6 +29,7 @@
     "express-async-handler": "^1.1.4",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.0.8",
+    "multer": "^1.4.3",
     "nodemailer": "^6.6.5"
   },
   "devDependencies": {

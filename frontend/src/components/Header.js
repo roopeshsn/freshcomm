@@ -6,6 +6,8 @@ import { logout } from '../actions/userActions'
 import { BsWhatsapp, BsCart } from 'react-icons/bs'
 import { FiPhoneCall, FiUser } from 'react-icons/fi'
 import { FaCircle } from 'react-icons/fa'
+import SearchBox from './SearchBox'
+import { Route } from 'react-router'
 
 const Header = () => {
   const dispatch = useDispatch()
@@ -21,14 +23,14 @@ const Header = () => {
       <Navbar bg='light' variant='light' expand='lg' collapseOnSelect>
         <Container>
           <LinkContainer to='/'>
-            <Navbar.Brand>Online Store</Navbar.Brand>
+            <Navbar.Brand>Large Green</Navbar.Brand>
           </LinkContainer>
           <Nav className='nav-right'>
-            <Nav.Link href='//api.whatsapp.com/send?phone=+918122995372&text=help' target='_blank'>
+            <Nav.Link href='//api.whatsapp.com/send?phone=+916369984456&text=help' target='_blank'>
               <BsWhatsapp size='1.5em' />
             </Nav.Link>
 
-            <Nav.Link href='tel:+91-8122995372'>
+            <Nav.Link href='tel:+91-6369984456'>
               <FiPhoneCall size='1.5em' />
             </Nav.Link>
 
@@ -73,6 +75,7 @@ const Header = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
+      <Route render={({ history }) => <SearchBox history={history} />} />
     </header>
   )
 }

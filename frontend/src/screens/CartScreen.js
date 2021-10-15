@@ -54,7 +54,7 @@ const CartScreen = ({ match, location, history }) => {
                   <Row>
                     <Col>
                       <Link to={`/product/${item.product}`}>
-                        <h5>{item.name}</h5>
+                        <Card.Title>{item.name}</Card.Title>
                       </Link>
                     </Col>
                     <Col>

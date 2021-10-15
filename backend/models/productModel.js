@@ -15,7 +15,7 @@ const productSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    brand: {
+    imageAlt: {
       type: String,
       required: true,
     },

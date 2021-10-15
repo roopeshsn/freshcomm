@@ -18,6 +18,11 @@ import PlaceOrderScreen from './screens/PlaceOrderScreen'
 import OrderScreen from './screens/OrderScreen'
 import UsersListScreen from './screens/UsersListScreen'
 import UserEditScreen from './screens/UserEditScreen'
+import ProductListScreen from './screens/ProductListScreen'
+import CreateProductScreen from './screens/CreateProductScreen'
+import ProductEditScreen from './screens/ProductEditScreen'
+import OrderListScreen from './screens/OrderListScreen'
+import SearchScreen from './screens/SearchScreen'
 
 function App() {
   return (
@@ -26,6 +31,7 @@ function App() {
       <main className='py-3'>
         <Container>
           <Route path='/' component={HomeScreen} exact />
+          <Route path='/search/:keyword' component={SearchScreen} />
           <Route path='/cart/:id?' component={CartScreen}></Route>
           <Route path='/login' component={LoginScreen}></Route>
           <Route path='/profile' component={ProfileScreen}></Route>
@@ -40,6 +46,10 @@ function App() {
           <Route path='/product/:id' component={ProductScreen} />
           <Route path='/admin/users' component={UsersListScreen} />
           <Route path='/admin/user/:id' component={UserEditScreen} />
+          <Route path='/admin/productlist' component={ProductListScreen} />
+          <Route path='/admin/createproduct' component={CreateProductScreen} />
+          <Route path='/admin/product/:id/edit' component={ProductEditScreen} />
+          <Route path='/admin/orderlist' component={OrderListScreen} />
         </Container>
       </main>
       <Footer />

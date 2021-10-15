@@ -18,7 +18,7 @@ const HomeScreen = () => {
     <>
       <Slider />
       <div className='mt-4 mb-3'>
-        <h2>Shop by category</h2>
+        <h1>Shop by category</h1>
         {loading ? (
           <Loader />
         ) : error ? (
