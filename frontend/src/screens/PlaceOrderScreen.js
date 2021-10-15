@@ -27,11 +27,8 @@ const PlaceOrderScreen = ({ history }) => {
   cart.shippingPrice = shippingPrice
   cart.totalPrice = totalPrice
 
-  console.log(cart)
-
   const orderCreate = useSelector((state) => state.orderCreate)
   const { order, success, error } = orderCreate
-  console.log(error)
 
   useEffect(() => {
     if (success) {
@@ -125,12 +122,6 @@ const PlaceOrderScreen = ({ history }) => {
                   <Col>{formatter(shippingPrice)}</Col>
                 </Row>
               </ListGroup.Item>
-              {/* <ListGroup.Item>
-                <Row>
-                  <Col>Tax</Col>
-                  <Col>Rs. {cart.taxPrice}</Col>
-                </Row>
-              </ListGroup.Item> */}
               <ListGroup.Item>
                 <Row>
                   <Col>Total</Col>

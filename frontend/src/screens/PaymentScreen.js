@@ -13,7 +13,7 @@ const PaymentScreen = ({ history }) => {
     history.push('/shipping')
   }
 
-  const [paymentMethod, setPaymentMethod] = useState('UPI')
+  const [paymentMethod, setPaymentMethod] = useState('COD')
 
   const dispatch = useDispatch()
 
@@ -33,15 +33,23 @@ const PaymentScreen = ({ history }) => {
           <Col>
             <Form.Check
               type='radio'
-              label='UPI'
-              id='UPI'
+              label='COD (Cash On Delivery)'
+              id='COD'
               name='paymentMethod'
-              value='UPI'
+              value='COD'
               checked
               onChange={(e) => setPaymentMethod(e.target.value)}
             ></Form.Check>
             <Form.Check
-              className='mt-2 mb-3'
+              className='my-3'
+              type='radio'
+              label='UPI'
+              id='UPI'
+              name='paymentMethod'
+              value='UPI'
+              onChange={(e) => setPaymentMethod(e.target.value)}
+            ></Form.Check>
+            <Form.Check
               type='radio'
               label='Razorpay (Will be integrated soon)'
               id='Razorpay'
@@ -52,7 +60,7 @@ const PaymentScreen = ({ history }) => {
           </Col>
         </Form.Group>
 
-        <Button type='submit' variant='primary'>
+        <Button className='my-3' type='submit' variant='primary'>
           Continue
         </Button>
       </Form>

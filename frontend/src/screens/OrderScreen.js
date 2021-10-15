@@ -4,7 +4,7 @@ import { Row, Col, ListGroup, Image, Card, Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
-import { deliverOrder, getOrderDetails } from '../actions/orderActions'
+import { deliverOrder, getOrderDetails, payOrder } from '../actions/orderActions'
 import formatter from '../utils/currencyFormatter'
 
 const OrderScreen = ({ match, history }) => {
@@ -14,6 +14,9 @@ const OrderScreen = ({ match, history }) => {
 
   const orderDetails = useSelector((state) => state.orderDetails)
   const { order, loading, error } = orderDetails
+
+  const orderPay = useSelector((state) => state.orderPay)
+  const { loading: loadingPay, success: successPay } = orderPay
 
   const orderDeliver = useSelector((state) => state.orderDeliver)
   const { loading: loadingDeliver, success: successDeliver } = orderDeliver
@@ -28,10 +31,14 @@ const OrderScreen = ({ match, history }) => {
     if (!order || order._id !== orderId) {
       dispatch(getOrderDetails(orderId))
     }
-  }, [order, orderId, dispatch, history, userInfo])
+  }, [order, orderId, dispatch, history, userInfo, successPay, successDeliver])
 
   const deliverHandler = () => {
     dispatch(deliverOrder(order))
+  }
+
+  const payHandler = () => {
+    dispatch(payOrder(order))
   }
 
   return loading ? (
@@ -76,9 +83,18 @@ const OrderScreen = ({ match, history }) => {
                 {order.paymentMethod}
               </p>
               {order.isPaid ? (
-                <Message variant='success'>Paid on {order.paidAt}</Message>
+                <Message variant='success'>Paid (Updated by our executive)</Message>
               ) : (
                 <Message variant='danger'>Not Paid</Message>
+              )}
+              {order.paymentMethod === 'UPI' && (
+                <>
+                  <p>Send Money to this UPI address</p>
+                  <p>
+                    <strong>kamalev21@okicici</strong>
+                  </p>
+                  <p>After making your payment our executive will confirm your payment status.</p>
+                </>
               )}
             </ListGroup.Item>
 
@@ -137,6 +153,16 @@ const OrderScreen = ({ match, history }) => {
                   <Col>{formatter(order.totalPrice)}</Col>
                 </Row>
               </ListGroup.Item>
+
+              {loadingPay && <Loader />}
+              {userInfo && userInfo.isAdmin && !order.isPaid && (
+                <ListGroup.Item>
+                  <Button type='button' className='btn btn-block' onClick={payHandler}>
+                    Mark As Paid
+                  </Button>
+                </ListGroup.Item>
+              )}
+
               {loadingDeliver && <Loader />}
               {userInfo && userInfo.isAdmin && order.isPaid && !order.isDelivered && (
                 <ListGroup.Item>
@@ -148,6 +174,7 @@ const OrderScreen = ({ match, history }) => {
             </ListGroup>
           </Card>
         </Col>
+        <Col md={4}></Col>
       </Row>
     </>
   )
