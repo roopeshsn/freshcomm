@@ -1,4 +1,5 @@
 const express = require('express')
+const router = express.Router()
 const {
   getProducts,
   getProductById,
@@ -7,7 +8,6 @@ const {
   createProduct,
 } = require('../controllers/productController')
 const { protect, admin } = require('../middleware/authMiddleware')
-const router = express.Router()
 
 router.route('/').get(getProducts).post(protect, admin, createProduct)
 router

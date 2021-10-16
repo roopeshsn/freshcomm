@@ -1,7 +1,6 @@
 const mongoose = require('mongoose')
 const bcrypt = require('bcryptjs')
 const crypto = require('crypto')
-const { reset } = require('nodemon')
 
 const userSchema = mongoose.Schema(
   {
