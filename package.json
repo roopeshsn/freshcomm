@@ -4,7 +4,8 @@
   "description": "A daily online grocery store",
   "main": "server.js",
   "engines": {
-    "node": "^14.16.1"
+    "node": "^14.16.1",
+    "npm": "^7.24.1"
   },
   "scripts": {
     "start": "node backend/server",
