@@ -16,9 +16,9 @@ connectDB()
 const app = express()
 
 app.use(express.json())
-app.get('/', (req, res) => {
-  res.send('API is running....')
-})
+// app.get('/', (req, res) => {
+//   res.send('API is running....')
+// })
 app.use('/api/categories', categoryRoutes)
 app.use('/api/products', productRoutes)
 app.use('/api/users', userRoutes)
