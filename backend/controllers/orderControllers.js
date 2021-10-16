@@ -8,7 +8,6 @@ const Product = require('../models/productModel')
 const addOrderItems = asyncHandler(async (req, res) => {
   const { orderItems, shippingAddress, paymentMethod, itemsPrice, shippingPrice, totalPrice } =
     req.body
-  console.log(req.body)
   // Product price validation
   orderItems.forEach(async (item) => {
     let lookupItem = await Product.findById(item.product)
@@ -24,7 +23,6 @@ const addOrderItems = asyncHandler(async (req, res) => {
   if (orderItems && orderItems.length === 0) {
     res.status(400)
     throw new Error('No order items')
-    return
   } else {
     const order = new Order({
       orderItems,
