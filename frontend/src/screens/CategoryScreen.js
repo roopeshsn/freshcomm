@@ -6,7 +6,7 @@ import { listProductsByCategory } from '../actions/productActions'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
 
-const CategoryScreen = ({ match }) => {
+const CategoryScreen = ({ match, history }) => {
   const dispatch = useDispatch()
   const productList = useSelector((state) => state.productListByCategory)
   const { loading, error, products } = productList
@@ -24,7 +24,7 @@ const CategoryScreen = ({ match }) => {
         <Row>
           {products.map((product) => (
             <Col key={product._id} sm={12} md={6} lg={4} xl={4}>
-              <Product product={product} />
+              <Product product={product} history={history} />
             </Col>
           ))}
         </Row>

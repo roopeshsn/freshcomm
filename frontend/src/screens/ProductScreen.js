@@ -29,7 +29,6 @@ const ProductScreen = ({ match, history }) => {
     history.push('/cart')
   }
 
-  // const firstWord = product.name.split(' ')[0]
   const [discountPrice, discountPercentage] = calculateDiscount(product.mrp, product.price)
 
   return (
@@ -122,11 +121,6 @@ const ProductScreen = ({ match, history }) => {
                       disabled={product.countInStock === 0}
                     >
                       Add to Cart
-                    </Button>
-                  </Row>
-                  <Row>
-                    <Button as={Col} variant='secondary'>
-                      Buy Now
                     </Button>
                   </Row>
                 </ListGroup.Item>

@@ -1,4 +1,3 @@
-import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Form, Button } from 'react-bootstrap'
@@ -18,7 +17,7 @@ const CreateProductScreen = ({ history }) => {
   const [category, setCategory] = useState('')
   const [countInStock, setCountInStock] = useState(0)
   const [description, setDescription] = useState('')
-  const [uploading, setUploading] = useState(false)
+  // const [uploading, setUploading] = useState(false)
 
   const dispatch = useDispatch()
 
@@ -45,28 +44,28 @@ const CreateProductScreen = ({ history }) => {
     }
   }, [success, history])
 
-  const uploadFileHandler = async (e) => {
-    const file = e.target.files[0]
-    const formData = new FormData()
-    formData.append('image', file)
-    setUploading(true)
+  // const uploadFileHandler = async (e) => {
+  //   const file = e.target.files[0]
+  //   const formData = new FormData()
+  //   formData.append('image', file)
+  //   setUploading(true)
 
-    try {
-      const config = {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      }
+  //   try {
+  //     const config = {
+  //       headers: {
+  //         'Content-Type': 'multipart/form-data',
+  //       },
+  //     }
 
-      const { data } = await axios.post('/api/upload', formData, config)
+  //     const { data } = await axios.post('/api/upload', formData, config)
 
-      setImageSrc(data)
-      setUploading(false)
-    } catch (error) {
-      console.error(error)
-      setUploading(false)
-    }
-  }
+  //     setImageSrc(data)
+  //     setUploading(false)
+  //   } catch (error) {
+  //     console.error(error)
+  //     setUploading(false)
+  //   }
+  // }
 
   const submitHandler = (e) => {
     e.preventDefault()
@@ -132,7 +131,7 @@ const CreateProductScreen = ({ history }) => {
             ></Form.Control>
           </Form.Group>
 
-          <Form.Group className='mt-2' controlId='image-file'>
+          {/* <Form.Group className='mt-2' controlId='image-file'>
             <Form.File
               id='image-file'
               size='sm'
@@ -141,7 +140,7 @@ const CreateProductScreen = ({ history }) => {
               onChange={uploadFileHandler}
             ></Form.File>
             {uploading && <Loader />}
-          </Form.Group>
+          </Form.Group> */}
 
           <Form.Group className='my-3' controlId='brand'>
             <Form.Label>Image Alt</Form.Label>
