@@ -15,7 +15,7 @@ const CategoryScreen = ({ match, history }) => {
   }, [dispatch, match])
   return (
     <>
-      <h4>Latest Stocks on demand</h4>
+      <h1>Latest Stocks on demand</h1>
       {loading ? (
         <Loader />
       ) : error ? (

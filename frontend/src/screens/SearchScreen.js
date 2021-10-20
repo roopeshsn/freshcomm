@@ -16,7 +16,7 @@ const SearchScreen = ({ match }) => {
   }, [dispatch, match, keyword])
   return (
     <>
-      <h4>Results based on your search</h4>
+      <h1>Results based on your search</h1>
       {loading ? (
         <Loader />
       ) : error ? (
