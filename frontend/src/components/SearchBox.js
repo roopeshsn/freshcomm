@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Form, Button } from 'react-bootstrap'
+import { Form } from 'react-bootstrap'
 import FormContainer from './FormContainer'
 
 const SearchBox = ({ history }) => {
@@ -7,6 +7,7 @@ const SearchBox = ({ history }) => {
 
   const submitHandler = (e) => {
     e.preventDefault()
+    setKeyword(e.target.value)
     if (keyword.trim()) {
       history.push(`/search/${keyword}`)
     } else {
@@ -20,14 +21,14 @@ const SearchBox = ({ history }) => {
         <Form.Control
           type='text'
           name='search'
-          onChange={(e) => setKeyword(e.target.value)}
+          onChange={(e) => submitHandler(e)}
           placeholder='Search Freshbey.com'
           className='me-2'
         ></Form.Control>
 
-        <Button type='submit' variant='secondary' className='p-2'>
+        {/* <Button type='submit' variant='secondary' className='p-2'>
           Search
-        </Button>
+        </Button> */}
       </Form>
     </FormContainer>
   )
