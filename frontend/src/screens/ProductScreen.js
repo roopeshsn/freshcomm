@@ -8,6 +8,7 @@ import Loader from '../components/Loader'
 import Message from '../components/Message'
 import formatter from '../utils/currencyFormatter'
 import { addToCart } from '../actions/cartActions'
+import capitalizeFirstLetter from '../utils/capitalizeFirstLetter'
 
 const ProductScreen = ({ match, history }) => {
   const [qty, setQty] = useState(1)
@@ -38,7 +39,7 @@ const ProductScreen = ({ match, history }) => {
           <Breadcrumb.Item>Home</Breadcrumb.Item>
         </LinkContainer>
         <LinkContainer to={`/categories/${product.category}`}>
-          <Breadcrumb.Item>{product.category}</Breadcrumb.Item>
+          <Breadcrumb.Item>{capitalizeFirstLetter(product.category)}</Breadcrumb.Item>
         </LinkContainer>
         <Breadcrumb.Item active>{product.name}</Breadcrumb.Item>
       </Breadcrumb>

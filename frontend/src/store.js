@@ -1,6 +1,12 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
+import {
+  carouselCreateReducer,
+  carouselDetailsReducer,
+  carouselListReducer,
+  carouselUpdateReducer,
+} from './reducers/carouselReducers'
 import { categoryListReducer } from './reducers/categoryReducers'
 import {
   productListReducer,
@@ -33,6 +39,10 @@ import {
 } from './reducers/orderReducers'
 
 const reducer = combineReducers({
+  carouselList: carouselListReducer,
+  carouselDetails: carouselDetailsReducer,
+  carouselCreate: carouselCreateReducer,
+  carouselUpdate: carouselUpdateReducer,
   categoryList: categoryListReducer,
   productList: productListReducer,
   productListBySearch: productListBySearchReducer,

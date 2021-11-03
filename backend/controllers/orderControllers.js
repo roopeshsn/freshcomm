@@ -11,7 +11,6 @@ const addOrderItems = asyncHandler(async (req, res) => {
   // Product price validation
   orderItems.forEach(async (item) => {
     let lookupItem = await Product.findById(item.product)
-    console.log(lookupItem)
     if (item.price !== lookupItem.price) {
       res.status(400)
       throw new Error(

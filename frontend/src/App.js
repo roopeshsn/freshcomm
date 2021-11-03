@@ -23,6 +23,9 @@ import CreateProductScreen from './screens/CreateProductScreen'
 import ProductEditScreen from './screens/ProductEditScreen'
 import OrderListScreen from './screens/OrderListScreen'
 import SearchScreen from './screens/SearchScreen'
+import CarouselListScreen from './screens/CarouselListScreen'
+import CarouselEditScreen from './screens/CarouselEditScreen'
+import CreateCarouselScreen from './screens/CreateCarouselScreen'
 
 function App() {
   return (
@@ -50,6 +53,9 @@ function App() {
           <Route path='/admin/createproduct' component={CreateProductScreen} />
           <Route path='/admin/product/:id/edit' component={ProductEditScreen} />
           <Route path='/admin/orderlist' component={OrderListScreen} />
+          <Route path='/admin/carousellist' component={CarouselListScreen} />
+          <Route path='/admin/createcarousel' component={CreateCarouselScreen} />
+          <Route path='/admin/carousel/:id/edit' component={CarouselEditScreen} />
         </Container>
       </main>
       <Footer />
