@@ -11,10 +11,7 @@ import { addToCart } from '../actions/cartActions'
 import capitalizeFirstLetter from '../utils/capitalizeFirstLetter'
 
 const ProductScreen = ({ match, history }) => {
-  const [qty, setQty] = useState(1)
   const dispatch = useDispatch()
-  const productDetails = useSelector((state) => state.productDetails)
-  const { loading, product, error } = productDetails
   useEffect(() => {
     dispatch(listProductDetails(match.params.id))
     // const fetchProduct = async () => {
@@ -23,6 +20,11 @@ const ProductScreen = ({ match, history }) => {
     // }
     // fetchProduct()
   }, [dispatch, match])
+
+  const [qty, setQty] = useState(1)
+  const productDetails = useSelector((state) => state.productDetails)
+  const { loading, product, error } = productDetails
+  const categoryBreadcrumb = capitalizeFirstLetter(product.category)
 
   const addToCartHandler = () => {
     // history.push(`/cart/${match.params.id}?qty=${qty}`)
@@ -39,7 +41,7 @@ const ProductScreen = ({ match, history }) => {
           <Breadcrumb.Item>Home</Breadcrumb.Item>
         </LinkContainer>
         <LinkContainer to={`/categories/${product.category}`}>
-          <Breadcrumb.Item>{capitalizeFirstLetter(product.category)}</Breadcrumb.Item>
+          <Breadcrumb.Item>{categoryBreadcrumb}</Breadcrumb.Item>
         </LinkContainer>
         <Breadcrumb.Item active>{product.name}</Breadcrumb.Item>
       </Breadcrumb>
