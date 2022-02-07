@@ -1,6 +1,7 @@
 # Freshbey
 
 ## http://freshbey.com
+Remember don't include 's' in http. Because SSL certificate is not included
 
 An online ecommerce grocery platform
 
