@@ -1,7 +1,7 @@
 {
-  "name": "largegreen",
+  "name": "freshbey",
   "version": "1.0.0",
-  "description": "A daily online grocery store",
+  "description": "An online grocery ecommerce store",
   "main": "server.js",
   "engines": {
     "node": "14.16.1",
@@ -23,9 +23,9 @@
   "author": "Roopesh Saravanan",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/theroopesh/grocery-ecommerce/issues"
+    "url": "https://github.com/theroopesh/freshbey/issues"
   },
-  "homepage": "https://github.com/theroopesh/grocery-ecommerce#readme",
+  "homepage": "https://github.com/theroopesh/freshbey#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "dotenv": "^10.0.0",
