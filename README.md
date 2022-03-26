@@ -1,7 +1,8 @@
 # Freshbey
 
 ## http://freshbey.com
-Remember don't include 's' in http. Because SSL certificate is not included
+
+Remember don't include 's' in http. Because SSL certificate is not included!
 
 An online ecommerce grocery platform
 
@@ -48,9 +49,19 @@ npm run dev
 npm run server
 ```
 
+## Mail Service
+
+[Mailtrap](https://www.example.com) (A Email Sandbox Service) is used as email inbox to reset password
+
 ## Build & Deploy
 
 Project is deployed on Heroku
+
+```
+git push heroku master
+```
+
+The above command is used to deploy the project on heroku
 
 ### Seed Database
 
