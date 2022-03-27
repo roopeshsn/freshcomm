@@ -1,12 +1,10 @@
-# General Approach
+# Contributing
 
-This is a relaxed and welcoming space for those looking to make their first open source contributions. This is my general approach toward pull requests:
+👍🎉 First off, thanks for taking the time to contribute! 🎉👍
 
-- It doesn't have to be perfect – if it works but needs some optimisation I'll still merge it
-- If there are optimisations that can be made we can open a new issue to address them
-- Expectations will be a little higher for more experienced contributors
+The following is a set of guidelines for contributing to Conception and its packages, which are hosted on GitHub. These are mostly guidelines, not rules. Use your best judgment, and feel free to propose changes to this document in a pull request.
 
-To begin, please check the [issues](https://github.com/theroopesh/freshbey/issues) to see where you can contribute.
+To begin, please check the Issues tab to see where you can contribute.
 
 ## Issue Label/Tagging Breakdown
 
@@ -31,7 +29,7 @@ If something doesn't make sense please ask for clarification or assistance by wr
 
 Before submitting a PR that relates directly to an issue, please write a comment on the relevant issue letting me know you'd like to take it on. Once the issue has been claimed the 'in progress' label will be added. After long periods of inactivity, I'll remove the 'in progress' label so someone else can work on it.
 
-If you've never submitted a pull request before then I would recommend you check out this guide: [How to create a pull request on GitHub.](https://www.digitalocean.com/community/tutorials/how-to-create-a-pull-request-on-github)
+If you've never submitted a pull request before then I would recommend you check out this guide: [Step-by-step guide to contributing on GitHub](https://www.dataschool.io/how-to-contribute-on-github/)
 
 Don't panic if you feel as though your code isn't quite up-to-scratch. This is an opportunity for you to learn and to receive feedback. If your code needs some work then please see this as a positive experience and opportunity to improve.
 
