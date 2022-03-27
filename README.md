@@ -6,7 +6,33 @@ Remember don't include 's' in http. Because SSL certificate is not included!
 
 An online ecommerce grocery platform
 
-## Usage
+## Project Purpose
+
+I am a huge enthusiast of open source. Contributing to open source is a fantastic way to learn and grow. Making open source contributions will require you to have been exposed to a few important concepts, practices, and transferable skills:
+
+- Version control
+- Working with tickets & issues
+- Working with other developers
+- Creating pull requests
+- Experiencing a code review process
+- Setting up a local development environment
+- Contributing code to a pre-existing codebase
+
+## General Idea
+
+Freshbey is an e-commerce platform where you can order grocery items. This project is built for a client but he not paid the said amount. So, after that I make this project as open source. 
+
+## Current State
+
+As of now, Freshbey is built using MERN stack. Additionally React Bootstrap is used for styling and React Redux is used for state management.
+
+## Getting Started - Project setup on your local machine
+
+The easiest and quickest way to get the default project up and running locally is to clone the repo:
+
+```bash
+git clone https://github.com/roopeshsn/freshbey.git
+```
 
 ### ES Modules in Node
 
@@ -63,7 +89,7 @@ git push heroku master
 
 The above command is used to deploy the project on heroku
 
-### Seed Database
+## Seed Database
 
 You can use the following commands to seed the database with some sample users and products as well as destroy all data
 
