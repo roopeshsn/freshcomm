@@ -74,3 +74,7 @@ npm run data:import
 # Destroy data
 npm run data:destroy
 ```
+
+## Contributing
+
+Please check out [CONTRIBUTING.md](CONTRIBUTING.md) for more information regarding how to contribute.
