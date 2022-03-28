@@ -9,6 +9,7 @@ const uploadRoutes = require('./routes/uploadRoutes')
 const categoryRoutes = require('./routes/categoryRoutes')
 const carouselRoutes = require('./routes/carouselRoutes')
 const { notFound, errorHandler } = require('./middleware/errorMiddleware')
+const compression = require('compression')
 
 dotenv.config()
 
@@ -16,6 +17,7 @@ connectDB()
 
 const app = express()
 
+app.use(compression())
 app.use(express.json())
 // app.get('/', (req, res) => {
 //   res.send('API is running....')
