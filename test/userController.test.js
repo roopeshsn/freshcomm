@@ -22,18 +22,39 @@ describe('USERS', () => {
                 password: '@Felex2020'
                
             }
-            
-          chai.request(app)
+             chai.request(app)
               .post('/api/users')
               .send(user)
               .end((err, res) => {
                     res.should.have.status(201);
                     res.should.have.a('object')
-       
+                    res.body.should.have.property('name');
+                    res.body.should.have.property('email');
                 done();
               });
         });
   
     });
+    describe('/POST login user',()=>{
+    it('should login user',(done)=>{
+        let user = {
+            email: "felexonyango@gmail.com",
+            password: '@Felex2020'
+           
+        }
+        chai.request(app)
+        .post('/api/users/login')
+        .send(user)
+        .end((err, res)=>{
+            res.should.have.a('object')
+            done()
+        })
+
+
+
+    })
+
+
+    })
 
 })
