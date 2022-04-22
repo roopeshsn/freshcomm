@@ -49,12 +49,27 @@ describe('USERS', () => {
             res.should.have.a('object')
             done()
         })
+    })
+    })
 
-
-
+    describe('/GET profile ', () => {
+        it('it should  return profile of user user by id', (done) => {
+            let user=new User({ name:"Felex onyango",email:"felexonyango@gmail.com"})
+         user.save((err, user) => {
+            chai.request(app)
+            .get('/api/users/profile')
+            .send(user)
+            .end((err, res) => {
+                  res.should.have.a('object')
+                  done();
+            });
+         })
+     
+        });
     })
 
 
-    })
+
+
 
 })
