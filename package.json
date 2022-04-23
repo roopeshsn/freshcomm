@@ -18,14 +18,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/theroopesh/grocery-ecommerce.git"
+    "url": "git+https://github.com/roopeshsn/freshbey.git"
   },
   "author": "Roopesh Saravanan",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/theroopesh/freshbey/issues"
+    "url": "https://github.com/roopeshsn/freshbey/issues"
   },
-  "homepage": "https://github.com/theroopesh/freshbey#readme",
+  "homepage": "https://github.com/roopeshsn/freshbey#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "compression": "^1.7.4",
