@@ -45,7 +45,11 @@ export const login = (email, password) => async (dispatch) => {
       },
     }
 
-    const { data } = await axios.post('/api/users/login', { email, password }, config)
+    const { data } = await axios.post(
+      '/api/users/login',
+      { email, password },
+      config,
+    )
 
     dispatch({
       type: USER_LOGIN_SUCCESS,
@@ -57,7 +61,9 @@ export const login = (email, password) => async (dispatch) => {
     dispatch({
       type: USER_LOGIN_FAIL,
       payload:
-        error.response && error.response.data.message ? error.response.data.message : error.message,
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
     })
   }
 }
@@ -85,7 +91,11 @@ export const register = (name, email, password) => async (dispatch) => {
       },
     }
 
-    const { data } = await axios.post('/api/users', { name, email, password }, config)
+    const { data } = await axios.post(
+      '/api/users',
+      { name, email, password },
+      config,
+    )
 
     dispatch({
       type: USER_REGISTER_SUCCESS,
@@ -102,7 +112,9 @@ export const register = (name, email, password) => async (dispatch) => {
     dispatch({
       type: USER_REGISTER_FAIL,
       payload:
-        error.response && error.response.data.message ? error.response.data.message : error.message,
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
     })
   }
 }
@@ -119,7 +131,11 @@ export const forgotPassword = (email) => async (dispatch) => {
       },
     }
 
-    const { data } = await axios.post('/api/users/forgotpassword', { email }, config)
+    const { data } = await axios.post(
+      '/api/users/forgotpassword',
+      { email },
+      config,
+    )
 
     dispatch({
       type: USER_FORGOT_PASSWORD_SUCCESS,
@@ -130,7 +146,9 @@ export const forgotPassword = (email) => async (dispatch) => {
     dispatch({
       type: USER_FORGOT_PASSWORD_FAIL,
       payload:
-        error.response && error.response.data.message ? error.response.data.message : error.message,
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
     })
   }
 }
@@ -147,7 +165,11 @@ export const resetPassword = (token, password) => async (dispatch) => {
       },
     }
 
-    const { data } = await axios.patch(`/api/users/resetpassword/${token}`, { password }, config)
+    const { data } = await axios.patch(
+      `/api/users/resetpassword/${token}`,
+      { password },
+      config,
+    )
 
     dispatch({
       type: USER_RESET_PASSWORD_SUCCESS,
@@ -157,7 +179,9 @@ export const resetPassword = (token, password) => async (dispatch) => {
     dispatch({
       type: USER_RESET_PASSWORD_FAIL,
       payload:
-        error.response && error.response.data.message ? error.response.data.message : error.message,
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
     })
   }
 }
@@ -186,7 +210,9 @@ export const getUserDetails = (id) => async (dispatch, getState) => {
     })
   } catch (error) {
     const message =
-      error.response && error.response.data.message ? error.response.data.message : error.message
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message
     if (message === 'Not authorized, token failed') {
       dispatch(logout())
     }
@@ -227,7 +253,9 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
     localStorage.setItem('userInfo', JSON.stringify(data))
   } catch (error) {
     const message =
-      error.response && error.response.data.message ? error.response.data.message : error.message
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message
     if (message === 'Not authorized, token failed') {
       dispatch(logout())
     }
@@ -262,7 +290,9 @@ export const listUsers = () => async (dispatch, getState) => {
     })
   } catch (error) {
     const message =
-      error.response && error.response.data.message ? error.response.data.message : error.message
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message
     // if (message === 'Not authorized, token failed') {
     //   dispatch(logout())
     // }
@@ -294,7 +324,9 @@ export const deleteUser = (id) => async (dispatch, getState) => {
     dispatch({ type: USER_DELETE_SUCCESS })
   } catch (error) {
     const message =
-      error.response && error.response.data.message ? error.response.data.message : error.message
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message
     if (message === 'Not authorized, token failed') {
       dispatch(logout())
     }
@@ -331,7 +363,9 @@ export const updateUser = (user) => async (dispatch, getState) => {
     dispatch({ type: USER_DETAILS_RESET })
   } catch (error) {
     const message =
-      error.response && error.response.data.message ? error.response.data.message : error.message
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message
     if (message === 'Not authorized, token failed') {
       dispatch(logout())
     }

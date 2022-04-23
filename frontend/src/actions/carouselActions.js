@@ -24,7 +24,9 @@ export const listCarousels = () => async (dispatch) => {
     dispatch({
       type: CAROUSEL_LIST_FAIL,
       payload:
-        error.response && error.response.data.message ? error.response.data.message : error.message,
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
     })
   }
 }
@@ -38,7 +40,9 @@ export const listCarouselDetails = (id) => async (dispatch) => {
     dispatch({
       type: CAROUSEL_DETAILS_FAIL,
       payload:
-        error.response && error.response.data.message ? error.response.data.message : error.message,
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
     })
   }
 }
@@ -68,7 +72,9 @@ export const createCarousel = (carousel) => async (dispatch, getState) => {
     })
   } catch (error) {
     const message =
-      error.response && error.response.data.message ? error.response.data.message : error.message
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message
     if (message === 'Not authorized, token failed') {
       dispatch(logout())
     }
@@ -96,7 +102,11 @@ export const updateCarousel = (carousel) => async (dispatch, getState) => {
       },
     }
 
-    const { data } = await axios.put(`/api/carousels/${carousel._id}`, carousel, config)
+    const { data } = await axios.put(
+      `/api/carousels/${carousel._id}`,
+      carousel,
+      config,
+    )
 
     dispatch({
       type: CAROUSEL_UPDATE_SUCCESS,
@@ -105,7 +115,9 @@ export const updateCarousel = (carousel) => async (dispatch, getState) => {
     dispatch({ type: CAROUSEL_DETAILS_SUCCESS, payload: data })
   } catch (error) {
     const message =
-      error.response && error.response.data.message ? error.response.data.message : error.message
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message
     if (message === 'Not authorized, token failed') {
       dispatch(logout())
     }

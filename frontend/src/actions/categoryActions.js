@@ -15,7 +15,9 @@ export const listCategories = () => async (dispatch) => {
     dispatch({
       type: CATEGORY_LIST_FAIL,
       payload:
-        error.response && error.response.data.message ? error.response.data.message : error.message,
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
     })
   }
 }

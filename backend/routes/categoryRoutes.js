@@ -13,7 +13,7 @@ router.get(
   asyncHandler(async (req, res) => {
     const categories = await Category.find({})
     res.json(categories)
-  })
+  }),
 )
 
 // @desc  Fetch products based on category
@@ -23,7 +23,9 @@ router.get(
 router.get(
   '/:category',
   asyncHandler(async (req, res) => {
-    const categorywiseProducts = await Product.find({ category: req.params.category })
+    const categorywiseProducts = await Product.find({
+      category: req.params.category,
+    })
     // const categorywiseProducts = products.filter((p) => p.category === req.params.category)
     if (categorywiseProducts) {
       res.json(categorywiseProducts)
@@ -31,7 +33,7 @@ router.get(
       res.status(404)
       throw new Error('Products not found')
     }
-  })
+  }),
 )
 
 module.exports = router

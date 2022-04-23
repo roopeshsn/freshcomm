@@ -17,16 +17,23 @@ const HomeScreen = () => {
   return (
     <>
       <Slider />
-      <div className='mt-4 mb-3'>
+      <div className="mt-4 mb-3">
         <h1>Shop by category</h1>
         {loading ? (
           <Loader />
         ) : error ? (
-          <Message variant='danger'>{error}</Message>
+          <Message variant="danger">{error}</Message>
         ) : (
           <Row>
             {categories.map((category) => (
-              <Col key={category._id} className='col-6' sm={4} md={4} lg={3} xl={3}>
+              <Col
+                key={category._id}
+                className="col-6"
+                sm={4}
+                md={4}
+                lg={3}
+                xl={3}
+              >
                 <Category category={category} />
               </Col>
             ))}

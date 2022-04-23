@@ -33,18 +33,18 @@ const CarouselListScreen = ({ history }) => {
         <Col>
           <h1>Carousels</h1>
         </Col>
-        <Col className='text-end'>
-          <Button className='my-3' onClick={createCarouselHandler}>
-            <i className='fas fa-plus'></i> Create Carousel
+        <Col className="text-end">
+          <Button className="my-3" onClick={createCarouselHandler}>
+            <i className="fas fa-plus"></i> Create Carousel
           </Button>
         </Col>
       </Row>
       {loading ? (
         <Loader />
       ) : error ? (
-        <Message variant='danger'>{error}</Message>
+        <Message variant="danger">{error}</Message>
       ) : (
-        <Table striped bordered hover responsive className='table-sm'>
+        <Table striped bordered hover responsive className="table-sm">
           <thead>
             <tr>
               <th>ID</th>
@@ -60,14 +60,14 @@ const CarouselListScreen = ({ history }) => {
                 <td>{carousel._id}</td>
                 <td>{carousel.createdAt.substring(0, 10)}</td>
                 <td>
-                  <a href={carousel.imageSrc} target='_blank' rel='noreferrer'>
+                  <a href={carousel.imageSrc} target="_blank" rel="noreferrer">
                     {carousel.imageSrc}
                   </a>
                 </td>
                 <td>{carousel.imageAlt}</td>
                 <td>
                   <LinkContainer to={`/admin/carousel/${carousel._id}/edit`}>
-                    <Button variant='light' className='btn-sm'>
+                    <Button variant="light" className="btn-sm">
                       Edit
                     </Button>
                   </LinkContainer>

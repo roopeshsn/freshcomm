@@ -25,34 +25,38 @@ const ResetPasswordScreen = ({ match }) => {
     }
   }
 
-  const { loading, message, error } = useSelector((state) => state.userResetPassword)
+  const { loading, message, error } = useSelector(
+    (state) => state.userResetPassword,
+  )
 
   return (
     <FormContainer>
       <h1>Reset Password</h1>
-      {passwordErrorMessage && <Message variant='danger'>{passwordErrorMessage}</Message>}
-      {message && <Message variant='success'>{message}</Message>}
-      {message && <Link to='/login'>Click here to login</Link>}
-      {error && <Message variant='danger'>error</Message>}
+      {passwordErrorMessage && (
+        <Message variant="danger">{passwordErrorMessage}</Message>
+      )}
+      {message && <Message variant="success">{message}</Message>}
+      {message && <Link to="/login">Click here to login</Link>}
+      {error && <Message variant="danger">error</Message>}
       {loading && <Loader />}
       <Form onSubmit={submitHandler}>
-        <Form.Group className='mt-3'>
-          <Form.Label name='password'>New password</Form.Label>
+        <Form.Group className="mt-3">
+          <Form.Label name="password">New password</Form.Label>
           <Form.Control
-            type='password'
-            name='password'
+            type="password"
+            name="password"
             onChange={(e) => setPassword(e.target.value)}
           ></Form.Control>
         </Form.Group>
-        <Form.Group className='mt-3'>
-          <Form.Label name='confirmPassword'>Confirm new password</Form.Label>
+        <Form.Group className="mt-3">
+          <Form.Label name="confirmPassword">Confirm new password</Form.Label>
           <Form.Control
-            type='text'
-            name='confirmPassword'
+            type="text"
+            name="confirmPassword"
             onChange={(e) => setConfirmPassword(e.target.value)}
           ></Form.Control>
         </Form.Group>
-        <Button className='d-block my-3' type='submit' variant='primary'>
+        <Button className="d-block my-3" type="submit" variant="primary">
           Continue
         </Button>
       </Form>

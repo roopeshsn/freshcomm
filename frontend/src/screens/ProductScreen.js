@@ -1,7 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { LinkContainer } from 'react-router-bootstrap'
-import { Row, Col, Image, ListGroup, Card, Button, Breadcrumb, Form } from 'react-bootstrap'
+import {
+  Row,
+  Col,
+  Image,
+  ListGroup,
+  Card,
+  Button,
+  Breadcrumb,
+  Form,
+} from 'react-bootstrap'
 import calculateDiscount from '../utils/calculateDiscount'
 import { listProductDetails } from '../actions/productActions'
 import Loader from '../components/Loader'
@@ -32,12 +41,15 @@ const ProductScreen = ({ match, history }) => {
     history.push('/cart')
   }
 
-  const [discountPrice, discountPercentage] = calculateDiscount(product.mrp, product.price)
+  const [discountPrice, discountPercentage] = calculateDiscount(
+    product.mrp,
+    product.price,
+  )
 
   return (
     <>
       <Breadcrumb>
-        <LinkContainer to='/'>
+        <LinkContainer to="/">
           <Breadcrumb.Item>Home</Breadcrumb.Item>
         </LinkContainer>
         <LinkContainer to={`/categories/${product.category}`}>
@@ -48,47 +60,56 @@ const ProductScreen = ({ match, history }) => {
       {loading ? (
         <Loader />
       ) : error ? (
-        <Message variant='danger'>{error}</Message>
+        <Message variant="danger">{error}</Message>
       ) : (
-        <Row className='justify-content-center'>
+        <Row className="justify-content-center">
           <Col md={4} lg={5}>
             <Image src={product.imageSrc} alt={product.name} fluid />
           </Col>
           <Col md={4} lg={4}>
-            <ListGroup variant='flush'>
+            <ListGroup variant="flush">
               <ListGroup.Item>
                 <h4>{product.name}</h4>
               </ListGroup.Item>
               <ListGroup.Item>Price: {formatter(product.price)}</ListGroup.Item>
-              <ListGroup.Item>Description: {product.description}</ListGroup.Item>
+              <ListGroup.Item>
+                Description: {product.description}
+              </ListGroup.Item>
             </ListGroup>
           </Col>
           <Col md={4} lg={3}>
             <Card>
-              <ListGroup variant='flush'>
+              <ListGroup variant="flush">
                 <ListGroup.Item>
                   <Row>
                     <Col>
-                      Price: <h4 className='d-inline'>{formatter(product.price)}</h4>{' '}
+                      Price:{' '}
+                      <h4 className="d-inline">{formatter(product.price)}</h4>{' '}
                       <div>
                         M.R.P:
-                        <span className='mx-1 text-decoration-line-through'>
+                        <span className="mx-1 text-decoration-line-through">
                           {formatter(product.mrp)}
                         </span>
                       </div>
                       <div>
                         You save: <span>{formatter(discountPrice)}</span>
-                        <span className='mx-2'>({discountPercentage}% off)</span>
+                        <span className="mx-2">
+                          ({discountPercentage}% off)
+                        </span>
                       </div>
                     </Col>
                   </Row>
-                  <Row className='mt-2'>
+                  <Row className="mt-2">
                     <Col>
                       <span>Status:</span>
                       {product.countInStock > 0 ? (
-                        <span className='badge rounded-pill bg-success mx-2'>In Stock</span>
+                        <span className="badge rounded-pill bg-success mx-2">
+                          In Stock
+                        </span>
                       ) : (
-                        <span className='badge rounded-pill bg-danger mx-2'>Out of Stock</span>
+                        <span className="badge rounded-pill bg-danger mx-2">
+                          Out of Stock
+                        </span>
                       )}
                     </Col>
                   </Row>
@@ -100,7 +121,7 @@ const ProductScreen = ({ match, history }) => {
                       <Col>Qty</Col>
                       <Col>
                         <Form.Control
-                          as='select'
+                          as="select"
                           value={qty}
                           onChange={(e) => setQty(e.target.value)}
                         >
@@ -116,11 +137,11 @@ const ProductScreen = ({ match, history }) => {
                 )}
 
                 <ListGroup.Item>
-                  <Row className='mb-2'>
+                  <Row className="mb-2">
                     <Button
                       onClick={addToCartHandler}
                       as={Col}
-                      variant='primary'
+                      variant="primary"
                       disabled={product.countInStock === 0}
                     >
                       Add to Cart

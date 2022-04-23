@@ -17,11 +17,11 @@ const Product = ({ product, history }) => {
   }
 
   return (
-    <Card className='my-3 p-3 rounded'>
-      <Row className='align-items-center justify-content-center'>
-        <Col className='col-5' sm={4} md={4} xl={4}>
+    <Card className="my-3 p-3 rounded">
+      <Row className="align-items-center justify-content-center">
+        <Col className="col-5" sm={4} md={4} xl={4}>
           <Link to={`/product/${product._id}`}>
-            <Card.Img src={product.imageSrc} alt='product' />
+            <Card.Img src={product.imageSrc} alt="product" />
           </Link>
         </Col>
         <Col>
@@ -32,21 +32,21 @@ const Product = ({ product, history }) => {
               </div>
             </Link>
             <div>
-              <h6 className='d-inline'>{formatter(product.price)}</h6>
-              <p className='my-1'>
+              <h6 className="d-inline">{formatter(product.price)}</h6>
+              <p className="my-1">
                 <span>M.R.P:</span>
-                <span className='d-inline mx-1 text-decoration-line-through'>
+                <span className="d-inline mx-1 text-decoration-line-through">
                   {formatter(product.mrp)}
                 </span>
-                <span className='my-1'>({discountPercentage}% off)</span>
+                <span className="my-1">({discountPercentage}% off)</span>
               </p>
               {product.countInStock > 0 && (
                 <Row>
                   <Col>
                     <Form.Control
-                      as='select'
+                      as="select"
                       value={qty}
-                      size='sm'
+                      size="sm"
                       onChange={(e) => setQty(e.target.value)}
                     >
                       {[...Array(product.countInStock).keys()].map((x) => (
@@ -57,7 +57,11 @@ const Product = ({ product, history }) => {
                     </Form.Control>
                   </Col>
                   <Col>
-                    <Button variant='primary' size='sm' onClick={addToCartHandler}>
+                    <Button
+                      variant="primary"
+                      size="sm"
+                      onClick={addToCartHandler}
+                    >
                       Add
                     </Button>
                   </Col>

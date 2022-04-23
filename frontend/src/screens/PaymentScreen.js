@@ -29,38 +29,38 @@ const PaymentScreen = ({ history }) => {
       <h1>Payment Method</h1>
       <Form onSubmit={submitHandler}>
         <Form.Group>
-          <Form.Label as='legend'>Select Method</Form.Label>
+          <Form.Label as="legend">Select Method</Form.Label>
           <Col>
             <Form.Check
-              type='radio'
-              label='COD (Cash On Delivery)'
-              id='COD'
-              name='paymentMethod'
-              value='COD'
+              type="radio"
+              label="COD (Cash On Delivery)"
+              id="COD"
+              name="paymentMethod"
+              value="COD"
               checked
               onChange={(e) => setPaymentMethod(e.target.value)}
             ></Form.Check>
             <Form.Check
-              className='my-3'
-              type='radio'
-              label='UPI'
-              id='UPI'
-              name='paymentMethod'
-              value='UPI'
+              className="my-3"
+              type="radio"
+              label="UPI"
+              id="UPI"
+              name="paymentMethod"
+              value="UPI"
               onChange={(e) => setPaymentMethod(e.target.value)}
             ></Form.Check>
             <Form.Check
-              type='radio'
-              label='Razorpay (Will be integrated soon)'
-              id='Razorpay'
-              name='paymentMethod'
-              value='Razorpay'
+              type="radio"
+              label="Razorpay (Will be integrated soon)"
+              id="Razorpay"
+              name="paymentMethod"
+              value="Razorpay"
               onChange={(e) => setPaymentMethod(e.target.value)}
             ></Form.Check>
           </Col>
         </Form.Group>
 
-        <Button className='my-3' type='submit' variant='primary'>
+        <Button className="my-3" type="submit" variant="primary">
           Continue
         </Button>
       </Form>

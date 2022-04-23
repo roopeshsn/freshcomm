@@ -35,7 +35,10 @@ export const productListReducer = (state = { products: [] }, action) => {
   }
 }
 
-export const productListBySearchReducer = (state = { products: [] }, action) => {
+export const productListBySearchReducer = (
+  state = { products: [] },
+  action,
+) => {
   switch (action.type) {
     case PRODUCT_LIST_REQUEST:
       return { loading: true, products: [] }
@@ -48,7 +51,10 @@ export const productListBySearchReducer = (state = { products: [] }, action) => 
   }
 }
 
-export const productListByCategoryReducer = (state = { products: [] }, action) => {
+export const productListByCategoryReducer = (
+  state = { products: [] },
+  action,
+) => {
   switch (action.type) {
     case PRODUCT_LIST_BY_CATEGORY_REQUEST:
       return { loading: true, products: [] }

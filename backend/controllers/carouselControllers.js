@@ -62,4 +62,9 @@ const updateCarousel = asyncHandler(async (req, res) => {
   }
 })
 
-module.exports = { getCarousels, getCarouselById, createCarousel, updateCarousel }
+module.exports = {
+  getCarousels,
+  getCarouselById,
+  createCarousel,
+  updateCarousel,
+}

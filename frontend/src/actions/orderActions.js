@@ -51,7 +51,9 @@ export const createOrder = (order) => async (dispatch, getState) => {
     localStorage.removeItem('cartItems')
   } catch (error) {
     const message =
-      error.response && error.response.data.message ? error.response.data.message : error.message
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message
     if (message === 'Not authorized, token failed') {
       dispatch(logout())
     }
@@ -86,7 +88,9 @@ export const getOrderDetails = (id) => async (dispatch, getState) => {
     })
   } catch (error) {
     const message =
-      error.response && error.response.data.message ? error.response.data.message : error.message
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message
     if (message === 'Not authorized, token failed') {
       dispatch(logout())
     }
@@ -121,7 +125,9 @@ export const listMyOrders = () => async (dispatch, getState) => {
     })
   } catch (error) {
     const message =
-      error.response && error.response.data.message ? error.response.data.message : error.message
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message
     if (message === 'Not authorized, token failed') {
       dispatch(logout())
     }
@@ -156,7 +162,9 @@ export const listOrders = () => async (dispatch, getState) => {
     })
   } catch (error) {
     const message =
-      error.response && error.response.data.message ? error.response.data.message : error.message
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message
     if (message === 'Not authorized, token failed') {
       dispatch(logout())
     }
@@ -183,7 +191,11 @@ export const deliverOrder = (order) => async (dispatch, getState) => {
       },
     }
 
-    const { data } = await axios.put(`/api/orders/${order._id}/deliver`, {}, config)
+    const { data } = await axios.put(
+      `/api/orders/${order._id}/deliver`,
+      {},
+      config,
+    )
 
     dispatch({
       type: ORDER_DELIVER_SUCCESS,
@@ -191,7 +203,9 @@ export const deliverOrder = (order) => async (dispatch, getState) => {
     })
   } catch (error) {
     const message =
-      error.response && error.response.data.message ? error.response.data.message : error.message
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message
     if (message === 'Not authorized, token failed') {
       dispatch(logout())
     }
@@ -226,7 +240,9 @@ export const payOrder = (order) => async (dispatch, getState) => {
     })
   } catch (error) {
     const message =
-      error.response && error.response.data.message ? error.response.data.message : error.message
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message
     if (message === 'Not authorized, token failed') {
       dispatch(logout())
     }

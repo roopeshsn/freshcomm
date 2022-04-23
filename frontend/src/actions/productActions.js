@@ -50,7 +50,9 @@ export const listProductsByCategory = (category) => async (dispatch) => {
     dispatch({
       type: PRODUCT_LIST_BY_CATEGORY_FAIL,
       payload:
-        error.response && error.response.data.message ? error.response.data.message : error.message,
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
     })
   }
 }
@@ -64,7 +66,9 @@ export const listProductDetails = (id) => async (dispatch) => {
     dispatch({
       type: PRODUCT_DETAILS_FAIL,
       payload:
-        error.response && error.response.data.message ? error.response.data.message : error.message,
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
     })
   }
 }
@@ -92,7 +96,9 @@ export const deleteProduct = (id) => async (dispatch, getState) => {
     })
   } catch (error) {
     const message =
-      error.response && error.response.data.message ? error.response.data.message : error.message
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message
     if (message === 'Not authorized, token failed') {
       dispatch(logout())
     }
@@ -128,7 +134,9 @@ export const createProduct = (product) => async (dispatch, getState) => {
     })
   } catch (error) {
     const message =
-      error.response && error.response.data.message ? error.response.data.message : error.message
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message
     if (message === 'Not authorized, token failed') {
       dispatch(logout())
     }
@@ -156,7 +164,11 @@ export const updateProduct = (product) => async (dispatch, getState) => {
       },
     }
 
-    const { data } = await axios.put(`/api/products/${product._id}`, product, config)
+    const { data } = await axios.put(
+      `/api/products/${product._id}`,
+      product,
+      config,
+    )
 
     dispatch({
       type: PRODUCT_UPDATE_SUCCESS,
@@ -165,7 +177,9 @@ export const updateProduct = (product) => async (dispatch, getState) => {
     dispatch({ type: PRODUCT_DETAILS_SUCCESS, payload: data })
   } catch (error) {
     const message =
-      error.response && error.response.data.message ? error.response.data.message : error.message
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message
     if (message === 'Not authorized, token failed') {
       dispatch(logout())
     }

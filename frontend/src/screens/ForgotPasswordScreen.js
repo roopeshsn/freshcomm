@@ -10,7 +10,9 @@ const ForgotPasswordScreen = ({ match }) => {
   const [email, setEmail] = useState('')
   const dispatch = useDispatch()
 
-  const { loading, message, error } = useSelector((state) => state.userForgotPassword)
+  const { loading, message, error } = useSelector(
+    (state) => state.userForgotPassword,
+  )
 
   useEffect(() => {
     if (match.params.email) {
@@ -27,22 +29,22 @@ const ForgotPasswordScreen = ({ match }) => {
     <FormContainer>
       <h1>Password assistance</h1>
       <p>Enter the email address associated with your account.</p>
-      {error && <Message variant='danger'>{error}</Message>}
-      {message && <Message variant='success'>{message}</Message>}
+      {error && <Message variant="danger">{error}</Message>}
+      {message && <Message variant="success">{message}</Message>}
       {loading && <Loader />}
 
       <Form onSubmit={submitHandler}>
         <Form.Group>
-          <Form.Label name='email'>Email Address</Form.Label>
+          <Form.Label name="email">Email Address</Form.Label>
           <Form.Control
-            type='email'
-            name='email'
-            placeholder='Enter email'
+            type="email"
+            name="email"
+            placeholder="Enter email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           ></Form.Control>
         </Form.Group>
-        <Button className='d-block my-3' type='submit' variant='primary'>
+        <Button className="d-block my-3" type="submit" variant="primary">
           Continue
         </Button>
       </Form>

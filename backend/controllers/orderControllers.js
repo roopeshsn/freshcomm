@@ -6,15 +6,21 @@ const Product = require('../models/productModel')
 // @route   POST /api/orders
 // @access  Private
 const addOrderItems = asyncHandler(async (req, res) => {
-  const { orderItems, shippingAddress, paymentMethod, itemsPrice, shippingPrice, totalPrice } =
-    req.body
+  const {
+    orderItems,
+    shippingAddress,
+    paymentMethod,
+    itemsPrice,
+    shippingPrice,
+    totalPrice,
+  } = req.body
   // Product price validation
   orderItems.forEach(async (item) => {
     let lookupItem = await Product.findById(item.product)
     if (item.price !== lookupItem.price) {
       res.status(400)
       throw new Error(
-        'There is a discrepancy between the prices of the items, and whats in the Database, please try again!'
+        'There is a discrepancy between the prices of the items, and whats in the Database, please try again!',
       )
     }
   })
@@ -43,7 +49,10 @@ const addOrderItems = asyncHandler(async (req, res) => {
 // @route   GET /api/orders/:id
 // @access  Private
 const getOrderById = asyncHandler(async (req, res) => {
-  const order = await Order.findById(req.params.id).populate('user', 'name email')
+  const order = await Order.findById(req.params.id).populate(
+    'user',
+    'name email',
+  )
 
   if (order && (req.user.isAdmin || order.user._id.equals(req.user._id))) {
     res.json(order)

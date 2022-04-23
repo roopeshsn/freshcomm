@@ -35,17 +35,17 @@ const CartScreen = ({ match, location, history }) => {
     <Row>
       <h4>Shopping Cart</h4>
       {cartItems.length === 0 ? (
-        <div className='pl-3 pr-2'>
+        <div className="pl-3 pr-2">
           <Message>
-            Your cart is empty <Link to='/'>Go Back</Link>
+            Your cart is empty <Link to="/">Go Back</Link>
           </Message>
         </div>
       ) : (
         <Col sm={12} md={6} lg={4} xl={4}>
           {cartItems.map((item) => (
-            <Card className='my-3 p-3 rounded' key={item.product}>
-              <Row className='align-items-center justify-content-center'>
-                <Col className='col-4'>
+            <Card className="my-3 p-3 rounded" key={item.product}>
+              <Row className="align-items-center justify-content-center">
+                <Col className="col-4">
                   <Link to={`/product/${item.product}`}>
                     <Card.Img src={item.imageSrc} alt={item.name} />
                   </Link>
@@ -64,10 +64,14 @@ const CartScreen = ({ match, location, history }) => {
                   <Row>
                     <Col>
                       <Form.Control
-                        as='select'
-                        size='sm'
+                        as="select"
+                        size="sm"
                         value={item.qty}
-                        onChange={(e) => dispatch(addToCart(item.product, Number(e.target.value)))}
+                        onChange={(e) =>
+                          dispatch(
+                            addToCart(item.product, Number(e.target.value)),
+                          )
+                        }
                       >
                         {[...Array(item.countInStock).keys()].map((x) => (
                           <option key={x + 1} value={x + 1}>
@@ -78,9 +82,9 @@ const CartScreen = ({ match, location, history }) => {
                     </Col>
                     <Col>
                       <Button
-                        type='button'
-                        size='sm'
-                        variant='light'
+                        type="button"
+                        size="sm"
+                        variant="light"
                         onClick={() => removeFromCartHandler(item.product)}
                       >
                         Delete
@@ -95,16 +99,21 @@ const CartScreen = ({ match, location, history }) => {
       )}
 
       <Col md={6} lg={6} xl={4}>
-        <Card className='my-3 p-3 rounded'>
-          <ListGroup variant='flush'>
+        <Card className="my-3 p-3 rounded">
+          <ListGroup variant="flush">
             <ListGroup.Item>
-              <h5>Subtotal ({cartItems.reduce((acc, item) => acc + item.qty, 0)}) items</h5>
-              {formatter(cartItems.reduce((acc, item) => acc + item.qty * item.price, 0))}
+              <h5>
+                Subtotal ({cartItems.reduce((acc, item) => acc + item.qty, 0)})
+                items
+              </h5>
+              {formatter(
+                cartItems.reduce((acc, item) => acc + item.qty * item.price, 0),
+              )}
             </ListGroup.Item>
             <ListGroup.Item>
               <Button
-                type='button'
-                className='btn-block'
+                type="button"
+                className="btn-block"
                 disabled={cartItems.length === 0}
                 onClick={checkoutHandler}
               >

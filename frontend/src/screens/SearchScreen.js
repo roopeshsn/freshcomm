@@ -20,7 +20,7 @@ const SearchScreen = ({ match, history }) => {
       {loading ? (
         <Loader />
       ) : error ? (
-        <Message variant='danger'>{error}</Message>
+        <Message variant="danger">{error}</Message>
       ) : (
         <Row>
           {/* {!products && <Message variant='info'>No products found based on your search</Message>} */}

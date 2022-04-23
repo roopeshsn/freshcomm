@@ -31,31 +31,43 @@ function App() {
   return (
     <Router>
       <Header />
-      <main className='py-3'>
+      <main className="py-3">
         <Container>
-          <Route path='/' component={HomeScreen} exact />
-          <Route path='/search/:keyword' component={SearchScreen} />
-          <Route path='/cart/:id?' component={CartScreen}></Route>
-          <Route path='/login' component={LoginScreen}></Route>
-          <Route path='/profile' component={ProfileScreen}></Route>
-          <Route path='/register' component={RegisterScreen}></Route>
-          <Route path='/forgotpassword/:email?' component={ForgotPasswordScreen}></Route>
-          <Route path='/resetpassword/:token' component={ResetPasswordScreen}></Route>
-          <Route path='/shipping' component={ShippingScreen}></Route>
-          <Route path='/payment' component={PaymentScreen}></Route>
-          <Route path='/placeorder' component={PlaceOrderScreen}></Route>
-          <Route path='/order/:id' component={OrderScreen}></Route>
-          <Route path='/categories/:category' component={CategoryScreen} />
-          <Route path='/product/:id' component={ProductScreen} />
-          <Route path='/admin/users' component={UsersListScreen} />
-          <Route path='/admin/user/:id' component={UserEditScreen} />
-          <Route path='/admin/productlist' component={ProductListScreen} />
-          <Route path='/admin/createproduct' component={CreateProductScreen} />
-          <Route path='/admin/product/:id/edit' component={ProductEditScreen} />
-          <Route path='/admin/orderlist' component={OrderListScreen} />
-          <Route path='/admin/carousellist' component={CarouselListScreen} />
-          <Route path='/admin/createcarousel' component={CreateCarouselScreen} />
-          <Route path='/admin/carousel/:id/edit' component={CarouselEditScreen} />
+          <Route path="/" component={HomeScreen} exact />
+          <Route path="/search/:keyword" component={SearchScreen} />
+          <Route path="/cart/:id?" component={CartScreen}></Route>
+          <Route path="/login" component={LoginScreen}></Route>
+          <Route path="/profile" component={ProfileScreen}></Route>
+          <Route path="/register" component={RegisterScreen}></Route>
+          <Route
+            path="/forgotpassword/:email?"
+            component={ForgotPasswordScreen}
+          ></Route>
+          <Route
+            path="/resetpassword/:token"
+            component={ResetPasswordScreen}
+          ></Route>
+          <Route path="/shipping" component={ShippingScreen}></Route>
+          <Route path="/payment" component={PaymentScreen}></Route>
+          <Route path="/placeorder" component={PlaceOrderScreen}></Route>
+          <Route path="/order/:id" component={OrderScreen}></Route>
+          <Route path="/categories/:category" component={CategoryScreen} />
+          <Route path="/product/:id" component={ProductScreen} />
+          <Route path="/admin/users" component={UsersListScreen} />
+          <Route path="/admin/user/:id" component={UserEditScreen} />
+          <Route path="/admin/productlist" component={ProductListScreen} />
+          <Route path="/admin/createproduct" component={CreateProductScreen} />
+          <Route path="/admin/product/:id/edit" component={ProductEditScreen} />
+          <Route path="/admin/orderlist" component={OrderListScreen} />
+          <Route path="/admin/carousellist" component={CarouselListScreen} />
+          <Route
+            path="/admin/createcarousel"
+            component={CreateCarouselScreen}
+          />
+          <Route
+            path="/admin/carousel/:id/edit"
+            component={CarouselEditScreen}
+          />
         </Container>
       </main>
       <Footer />

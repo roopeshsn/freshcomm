@@ -55,7 +55,16 @@ const deleteProduct = asyncHandler(async (req, res) => {
 // @route   POST /api/products
 // @access  Private/Admin
 const createProduct = asyncHandler(async (req, res) => {
-  const { name, price, mrp, description, imageSrc, imageAlt, category, countInStock } = req.body
+  const {
+    name,
+    price,
+    mrp,
+    description,
+    imageSrc,
+    imageAlt,
+    category,
+    countInStock,
+  } = req.body
   console.log(req.user)
   const product = new Product({
     name,
@@ -77,7 +86,16 @@ const createProduct = asyncHandler(async (req, res) => {
 // @route   PUT /api/products/:id
 // @access  Private/Admin
 const updateProduct = asyncHandler(async (req, res) => {
-  const { name, price, mrp, description, imageSrc, imageAlt, category, countInStock } = req.body
+  const {
+    name,
+    price,
+    mrp,
+    description,
+    imageSrc,
+    imageAlt,
+    category,
+    countInStock,
+  } = req.body
 
   const product = await Product.findById(req.params.id)
 
@@ -99,4 +117,10 @@ const updateProduct = asyncHandler(async (req, res) => {
   }
 })
 
-module.exports = { getProducts, getProductById, deleteProduct, createProduct, updateProduct }
+module.exports = {
+  getProducts,
+  getProductById,
+  deleteProduct,
+  createProduct,
+  updateProduct,
+}

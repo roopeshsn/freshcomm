@@ -32,42 +32,46 @@ const LoginScreen = ({ location, history }) => {
   return (
     <FormContainer>
       <h1>Sign In</h1>
-      {error && <Message variant='danger'>{error}</Message>}
+      {error && <Message variant="danger">{error}</Message>}
       {loading && <Loader />}
       <Form onSubmit={submitHandler}>
-        <Form.Group controlId='email'>
+        <Form.Group controlId="email">
           <Form.Label>Email Address</Form.Label>
           <Form.Control
-            type='email'
-            placeholder='Enter email'
+            type="email"
+            placeholder="Enter email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           ></Form.Control>
         </Form.Group>
 
-        <Form.Group className='my-3' controlId='password'>
+        <Form.Group className="my-3" controlId="password">
           <Form.Label>Password</Form.Label>
           <Form.Control
-            type='password'
-            placeholder='Enter password'
+            type="password"
+            placeholder="Enter password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           ></Form.Control>
         </Form.Group>
 
-        <Button className='d-block' type='submit' variant='primary'>
+        <Button className="d-block" type="submit" variant="primary">
           Sign In
         </Button>
       </Form>
 
-      <Row className='py-3 d-block'>
+      <Row className="py-3 d-block">
         <Col>
           Need help?{' '}
-          <Link to={email ? `/forgotpassword/${email}` : '/forgotpassword'}>Forgot Password</Link>
+          <Link to={email ? `/forgotpassword/${email}` : '/forgotpassword'}>
+            Forgot Password
+          </Link>
         </Col>
-        <Col className='my-2'>
+        <Col className="my-2">
           New Customer?{' '}
-          <Link to={redirect ? `/register?redirect=${redirect}` : '/register'}>Register</Link>
+          <Link to={redirect ? `/register?redirect=${redirect}` : '/register'}>
+            Register
+          </Link>
         </Col>
       </Row>
     </FormContainer>

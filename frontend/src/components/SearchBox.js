@@ -17,13 +17,13 @@ const SearchBox = ({ history }) => {
 
   return (
     <FormContainer>
-      <Form onSubmit={submitHandler} className='my-3 d-flex'>
+      <Form onSubmit={submitHandler} className="my-3 d-flex">
         <Form.Control
-          type='text'
-          name='search'
+          type="text"
+          name="search"
           onChange={(e) => submitHandler(e)}
-          placeholder='Search Freshbey.com'
-          className='me-2'
+          placeholder="Search Freshbey.com"
+          className="me-2"
         ></Form.Control>
 
         {/* <Button type='submit' variant='secondary' className='p-2'>

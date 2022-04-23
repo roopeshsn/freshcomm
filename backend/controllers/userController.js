@@ -119,7 +119,9 @@ const forgotPassword = asyncHandler(async (req, res) => {
   const resetToken = user.createPasswordResetToken()
   await user.save()
 
-  const resetURL = `${req.protocol}://${req.get('host')}/resetpassword/${resetToken}`
+  const resetURL = `${req.protocol}://${req.get(
+    'host',
+  )}/resetpassword/${resetToken}`
 
   const message = `Forgot your password? Create a new password for you account by visiting this URL: ${resetURL}.\nIf you didn't forget your password, please ignore this email!`
 
@@ -145,7 +147,10 @@ const forgotPassword = asyncHandler(async (req, res) => {
 
 const resetPassword = asyncHandler(async (req, res) => {
   // decrypt token
-  const hashedToken = crypto.createHash('sha256').update(req.params.token).digest('hex')
+  const hashedToken = crypto
+    .createHash('sha256')
+    .update(req.params.token)
+    .digest('hex')
   const user = await User.findOne({
     passwordResetToken: hashedToken,
     passwordResetExpires: { $gt: Date.now() },

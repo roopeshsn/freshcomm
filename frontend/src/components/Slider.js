@@ -17,21 +17,25 @@ const Slider = () => {
       {loading ? (
         <Loader />
       ) : error ? (
-        <Message variant='danger'>{error}</Message>
+        <Message variant="danger">{error}</Message>
       ) : (
         <Carousel
-          pause='hover'
-          className='bg-light'
-          variant='light'
+          pause="hover"
+          className="bg-light"
+          variant="light"
           touch
           indicators
           controls
           slide
         >
           {carousels.map((carousel) => (
-            <Carousel.Item key={carousel._id} className='h-100 w-100' interval={5000}>
+            <Carousel.Item
+              key={carousel._id}
+              className="h-100 w-100"
+              interval={5000}
+            >
               <Image
-                className='d-block w-100'
+                className="d-block w-100"
                 src={carousel.imageSrc}
                 alt={carousel.imageAlt}
                 fluid

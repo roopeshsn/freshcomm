@@ -4,7 +4,11 @@ import { Row, Col, ListGroup, Image, Card, Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
-import { deliverOrder, getOrderDetails, payOrder } from '../actions/orderActions'
+import {
+  deliverOrder,
+  getOrderDetails,
+  payOrder,
+} from '../actions/orderActions'
 import formatter from '../utils/currencyFormatter'
 
 const OrderScreen = ({ match, history }) => {
@@ -44,16 +48,16 @@ const OrderScreen = ({ match, history }) => {
   return loading ? (
     <Loader />
   ) : error ? (
-    <Message variant='danger'>{error}</Message>
+    <Message variant="danger">{error}</Message>
   ) : (
     <>
-      <p className='ms-4'>
+      <p className="ms-4">
         <strong>Order {order._id}</strong>
       </p>
 
       <Row>
         <Col md={8}>
-          <ListGroup variant='flush'>
+          <ListGroup variant="flush">
             <ListGroup.Item>
               <h2>Shipping</h2>
               <p>
@@ -70,9 +74,11 @@ const OrderScreen = ({ match, history }) => {
                 {order.shippingAddress.country}
               </p>
               {order.isDelivered ? (
-                <Message variant='success'>Delivered on {order.deliveredAt}</Message>
+                <Message variant="success">
+                  Delivered on {order.deliveredAt}
+                </Message>
               ) : (
-                <Message variant='danger'>Not Delivered</Message>
+                <Message variant="danger">Not Delivered</Message>
               )}
             </ListGroup.Item>
 
@@ -83,9 +89,11 @@ const OrderScreen = ({ match, history }) => {
                 {order.paymentMethod}
               </p>
               {order.isPaid ? (
-                <Message variant='success'>Paid (Updated by our executive)</Message>
+                <Message variant="success">
+                  Paid (Updated by our executive)
+                </Message>
               ) : (
-                <Message variant='danger'>Not Paid</Message>
+                <Message variant="danger">Not Paid</Message>
               )}
               {order.paymentMethod === 'UPI' && (
                 <>
@@ -93,7 +101,10 @@ const OrderScreen = ({ match, history }) => {
                   <p>
                     <strong>kamalev21@okicici</strong>
                   </p>
-                  <p>After making your payment our executive will confirm your payment status.</p>
+                  <p>
+                    After making your payment our executive will confirm your
+                    payment status.
+                  </p>
                 </>
               )}
             </ListGroup.Item>
@@ -103,17 +114,27 @@ const OrderScreen = ({ match, history }) => {
               {order.orderItems.length === 0 ? (
                 <Message>Order is empty</Message>
               ) : (
-                <ListGroup variant='flush'>
+                <ListGroup variant="flush">
                   {order.orderItems.map((item, index) => (
                     <ListGroup.Item key={index}>
-                      <Row className='align-items-center'>
-                        <Col className='col-3 col-sm-3 col-md-3 col-lg-2 col-xl-2' md={1}>
-                          <Image src={item.imageSrc} alt={item.imageAlt} fluid rounded />
+                      <Row className="align-items-center">
+                        <Col
+                          className="col-3 col-sm-3 col-md-3 col-lg-2 col-xl-2"
+                          md={1}
+                        >
+                          <Image
+                            src={item.imageSrc}
+                            alt={item.imageAlt}
+                            fluid
+                            rounded
+                          />
                         </Col>
-                        <Col className='col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9 text-center'>
+                        <Col className="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9 text-center">
                           <Row>
                             <Col md={4}>
-                              <Link to={`/product/${item.product}`}>{item.name}</Link>
+                              <Link to={`/product/${item.product}`}>
+                                {item.name}
+                              </Link>
                             </Col>
                             <Col md={4}>
                               {item.qty} x {formatter(item.price)} ={' '}
@@ -131,7 +152,7 @@ const OrderScreen = ({ match, history }) => {
         </Col>
         <Col md={4}>
           <Card>
-            <ListGroup variant='flush'>
+            <ListGroup variant="flush">
               <ListGroup.Item>
                 <h2>Order Summary</h2>
               </ListGroup.Item>
@@ -157,20 +178,31 @@ const OrderScreen = ({ match, history }) => {
               {loadingPay && <Loader />}
               {userInfo && userInfo.isAdmin && !order.isPaid && (
                 <ListGroup.Item>
-                  <Button type='button' className='btn btn-block' onClick={payHandler}>
+                  <Button
+                    type="button"
+                    className="btn btn-block"
+                    onClick={payHandler}
+                  >
                     Mark As Paid
                   </Button>
                 </ListGroup.Item>
               )}
 
               {loadingDeliver && <Loader />}
-              {userInfo && userInfo.isAdmin && order.isPaid && !order.isDelivered && (
-                <ListGroup.Item>
-                  <Button type='button' className='btn btn-block' onClick={deliverHandler}>
-                    Mark As Delivered
-                  </Button>
-                </ListGroup.Item>
-              )}
+              {userInfo &&
+                userInfo.isAdmin &&
+                order.isPaid &&
+                !order.isDelivered && (
+                  <ListGroup.Item>
+                    <Button
+                      type="button"
+                      className="btn btn-block"
+                      onClick={deliverHandler}
+                    >
+                      Mark As Delivered
+                    </Button>
+                  </ListGroup.Item>
+                )}
             </ListGroup>
           </Card>
         </Col>
