@@ -18,7 +18,7 @@ describe('USERS', () => {
         it('it should  register user', (done) => {
             let user = {
                 name: 'Felex onyango',
-                email: "felexonyango@gmail.com",
+                email: "felex@gmail.com",
                 password: '@Felex2020'
                
             }
@@ -38,7 +38,7 @@ describe('USERS', () => {
     describe('/POST login user',()=>{
     it('should login user',(done)=>{
         let user = {
-            email: "felexonyango@gmail.com",
+            email: "felex@gmail.com",
             password: '@Felex2020'
            
         }
@@ -54,7 +54,7 @@ describe('USERS', () => {
 
     describe('/GET profile ', () => {
         it('it should  return profile of user user by id', (done) => {
-            let user=new User({ name:"Felex onyango",email:"felexonyango@gmail.com"})
+            let user=new User({ name:"Felex onyango",email:"felex@gmail.com"})
          user.save((err, user) => {
             chai.request(app)
             .get('/api/users/profile')
@@ -69,7 +69,7 @@ describe('USERS', () => {
     })
     describe('PUT /api/users/profile',()=>{
         it('should update user profile',(done)=>{
-            let user=new User({ name:"Felex onyango",email:"felexonyango19@gmail.com"})
+            let user=new User({ name:"Felex onyango",email:"felexonyango@gmail.com"})
         user.save((err, user) => {
          chai.request(app)
             .put('/api/users/profile')
@@ -86,7 +86,7 @@ describe('USERS', () => {
         describe('/api/users/forgotpassword',()=>{
             it('should forget password of a user',(done)=>{
                 let user = {
-                    email: "felexonyango19@gmail.com",
+                    email: "felexonyango@gmail.com",
                 }
                 chai.request(app)
                 .post('/api/users/forgotpassword')
