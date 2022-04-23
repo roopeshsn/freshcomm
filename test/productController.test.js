@@ -13,7 +13,7 @@ describe('PRODUCT TESTS', () => {
         });        
     })
     describe("/GET /api/products",()=>{
-     it("should return all products", (done) => {
+     it("Should return all products", (done) => {
          chai.request(app)
          .get('/api/products')
          .end((err, res)=>{ 
