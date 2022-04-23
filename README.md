@@ -103,7 +103,7 @@ npm run data:destroy
 
 Please check out [CONTRIBUTING.md](CONTRIBUTING.md) for more information regarding how to contribute.
 
-## Thanks to our contributors
+## Our Contributors ✨
 
 <a href="https://github.com/roopeshsn/freshbey/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=roopeshsn/freshbey" />
