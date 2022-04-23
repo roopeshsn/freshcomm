@@ -1,15 +1,14 @@
-const mongoose = require('mongoose')
-const dotenv = require('dotenv')
-const users = require('./data/users')
-const products = require('./data/products')
-const categories = require('./data/categories')
-const carousels = require('./data/carousels')
-const User = require('./models/userModel')
-const Carousel = require('./models/carouselModel')
-const Category = require('./models/categoryModel')
-const Product = require('./models/productModel')
-const Order = require('./models/orderModel')
-const connectDB = require('./config/db')
+const dotenv = require("dotenv")
+const users = require("./data/users")
+const products = require("./data/products")
+const categories = require("./data/categories")
+const carousels = require("./data/carousels")
+const User = require("./models/userModel")
+const Carousel = require("./models/carouselModel")
+const Category = require("./models/categoryModel")
+const Product = require("./models/productModel")
+const Order = require("./models/orderModel")
+const connectDB = require("./config/db")
 
 dotenv.config()
 
@@ -36,7 +35,7 @@ const importData = async () => {
     await Carousel.insertMany(sampleCarousels)
     await Category.insertMany(sampleCategories)
     await Product.insertMany(sampleProducts)
-    console.log('Data Imported!')
+    console.log("Data Imported!")
     process.exit()
   } catch (error) {
     console.error(error)
@@ -51,7 +50,7 @@ const destroyData = async () => {
     await Category.deleteMany()
     await Carousel.deleteMany()
     await User.deleteMany()
-    console.log('Data Destroyed!')
+    console.log("Data Destroyed!")
     process.exit()
   } catch (error) {
     console.error(error)
@@ -59,7 +58,7 @@ const destroyData = async () => {
   }
 }
 
-if (process.argv[2] === '-d') {
+if (process.argv[2] === "-d") {
   destroyData()
 } else {
   importData()
