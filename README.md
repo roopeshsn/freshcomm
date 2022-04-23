@@ -108,3 +108,6 @@ Please check out [CONTRIBUTING.md](CONTRIBUTING.md) for more information regardi
 <a href="https://github.com/roopeshsn/freshbey/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=roopeshsn/freshbey" />
 </a>
+
+## License
+MIT, see [LICENSE](LICENSE)
