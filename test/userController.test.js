@@ -67,9 +67,21 @@ describe('USERS', () => {
      
         });
     })
+    describe('/Update  userProile',()=>{
+        it('should update user profile',(done)=>{
+            let user=new User({ name:"Felex onyango",email:"felexonyango19@gmail.com"})
+        user.save((err, user) => {
+         chai.request(app)
+            .put('/api/users/profile')
+            .send(user)
+            .end((err, res)=>{
+                res.should.have.a('object')
+                done()
+            })
 
-
-
-
+        })
+           
+        })
+        })
 
 })
