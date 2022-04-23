@@ -108,5 +108,17 @@ describe('USERS', () => {
              
                 });
             })
+            describe('/DELETE UserId ', () => {
+                it('it should  delete the user by id', (done) => {
+                    const id = 1;
+                chai.request(app)
+                 .delete(`/api/users/${id}`)
+                    .end((err, res) => {
+                          res.should.have.a('object')
+                          done();
+                    })
+             
+                });
+            })
 
 })
