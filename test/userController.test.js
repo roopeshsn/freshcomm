@@ -120,5 +120,17 @@ describe('USERS', () => {
              
                 });
             })
+            describe('/GET UserId ', () => {
+                it('it should  get the user by id', (done) => {
+                    const id = 2;
+                chai.request(app)
+                 .delete(`/api/users/${id}`)
+                    .end((err, res) => {
+                          res.should.have.a('object')
+                          done();
+                    })
+             
+                });
+            })
 
 })
