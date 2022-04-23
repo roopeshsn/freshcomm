@@ -12,7 +12,7 @@ describe('ORDER TESTS', () => {
            done();           
         });        
     })
-    describe("/POST /api/orders",()=>{
+    describe("/POST /api/order",()=>{
         it("should create order", (done) => {
             let order = new Order({
                 orderItems: [
