@@ -67,7 +67,7 @@ describe('USERS', () => {
      
         });
     })
-    describe('/Update  userProile',()=>{
+    describe('/Update  userProfile',()=>{
         it('should update user profile',(done)=>{
             let user=new User({ name:"Felex onyango",email:"felexonyango19@gmail.com"})
         user.save((err, user) => {
@@ -83,5 +83,19 @@ describe('USERS', () => {
            
         })
         })
+        describe('/POST forgot password of user',()=>{
+            it('should forget password of a user',(done)=>{
+                let user = {
+                    email: "felexonyango19@gmail.com",
+                }
+                chai.request(app)
+                .post('/api/users/forgotpassword')
+                .send(user)
+                .end((err, res)=>{
+                    res.should.have.a('object')
+                    done()
+                })
+            })
+            })
 
 })
