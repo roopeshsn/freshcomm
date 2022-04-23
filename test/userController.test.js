@@ -132,5 +132,22 @@ describe('USERS', () => {
              
                 });
             })
+            describe('PUT /api/users/:id', () => {
+                it('it should  update the user by id', (done) => {
+                    const id = 2;
+                    let user={
+                        name:"Felex tabu",
+                        email:"felex@gmail.com",
+                    }
+                chai.request(app)
+                 .patch(`/api/users/${id}`)
+                 .send(user)
+                    .end((err, res) => {
+                          res.should.have.a('object')
+                          done();
+                    })
+             
+                });
+            })
 
 })
