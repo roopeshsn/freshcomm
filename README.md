@@ -1,10 +1,8 @@
 # Freshbey
 
-## http://freshbey.com
+## https://freshbey.herokuapp.com/
 
-Remember don't include 's' in http. Because SSL certificate is not included!
-
-An online ecommerce grocery platform
+An online grocery store | e-commerce
 
 ## Project Purpose
 
@@ -20,7 +18,7 @@ I am a huge enthusiast of open source. Contributing to open source is a fantasti
 
 ## General Idea
 
-Freshbey is an e-commerce platform where you can order grocery items. This project is built for a client but he not paid the said amount. So, after that I make this project as open source. 
+Freshbey is an e-commerce platform where you can order grocery items. This project is built for a client but he not paid the said amount. So, after that I make this project as open source.
 
 ## Current State
 
