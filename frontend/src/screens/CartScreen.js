@@ -41,7 +41,7 @@ const CartScreen = ({ match, location, history }) => {
           </Message>
         </div>
       ) : (
-        <Col sm={12} md={6} lg={4} xl={4}>
+        <Col sm={12} md={6} lg={6} xl={6}>
           {cartItems.map((item) => (
             <Card className="my-3 p-3 rounded" key={item.product}>
               <Row className="align-items-center justify-content-center">
@@ -98,7 +98,7 @@ const CartScreen = ({ match, location, history }) => {
         </Col>
       )}
 
-      <Col md={6} lg={6} xl={4}>
+      <Col md={6} lg={6} xl={6}>
         <Card className="my-3 p-3 rounded">
           <ListGroup variant="flush">
             <ListGroup.Item>
