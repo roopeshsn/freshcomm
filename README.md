@@ -2,7 +2,7 @@
 
 ## https://freshbey.herokuapp.com/
 
-[homepage-freshbey](https://user-images.githubusercontent.com/70762571/167148047-072b0ec8-be7d-471e-96c2-708276398692.png)
+![homepage-freshbey](https://user-images.githubusercontent.com/70762571/167148307-718dabc9-057d-4296-853a-6da097d800d4.png)
 
 An online grocery store | e-commerce
 
