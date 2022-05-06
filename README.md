@@ -2,9 +2,12 @@
 
 ## https://freshbey.herokuapp.com/
 
+[homepage-freshbey](https://user-images.githubusercontent.com/70762571/167148047-072b0ec8-be7d-471e-96c2-708276398692.png)
+
 An online grocery store | e-commerce
 
-## Project Purpose
+## Project Purpose!
+
 
 I am a huge enthusiast of open source. Contributing to open source is a fantastic way to learn and grow. Making open source contributions will require you to have been exposed to a few important concepts, practices, and transferable skills:
 
