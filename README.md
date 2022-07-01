@@ -21,11 +21,11 @@ I am a huge enthusiast of open source. Contributing to open source is a fantasti
 
 ## General Idea
 
-Freshbey is an e-commerce platform where you can order grocery items. This project is built for a client but he not paid the said amount. So, after that I make this project as open source.
+Freshbey is an e-commerce platform where users can order grocery items. I built this project originally for a client but they did not pay the agreed amount. After that, I made this project open source.
 
 ## Current State
 
-As of now, Freshbey is built using MERN stack. Additionally React Bootstrap is used for styling and React Redux is used for state management.
+As of now, Freshbey is built using MERN stack. Additionally, React Bootstrap is used for styling and React Redux is used for state management.
 
 ## Getting Started - Project setup on your local machine
 
@@ -37,9 +37,9 @@ git clone https://github.com/roopeshsn/freshbey.git
 
 ### ES Modules in Node
 
-We use ECMAScript Modules in the backend in this project. Be sure to have at least Node v14.6+ or you will need to add the "--experimental-modules" flag.
+We use ECMAScript Modules in the backend of this project. Be sure to have at least Node v14.6+ or you will need to add the "--experimental-modules" flag.
 
-Also, when importing a file (not a package), be sure to add .js at the end or you will get a "module not found" error
+Also, when importing a file (not a package), be sure to add .js at the end or you will get a "module not found" error.
 
 <!-- You can also install and setup Babel if you would like -->
 
@@ -78,21 +78,21 @@ npm run server
 
 ## Mail Service
 
-[Mailtrap](https://www.example.com) (A Email Sandbox Service) is used as email inbox to reset password
+[Mailtrap](https://www.example.com) (A Email Sandbox Service) is used as an email inbox to reset passwords.
 
 ## Build & Deploy
 
-Project is deployed on Heroku
+The project is deployed on Heroku
 
 ```
 git push heroku master
 ```
 
-The above command is used to deploy the project on heroku
+The above command is used to deploy the project on Heroku
 
 ## Seed Database
 
-You can use the following commands to seed the database with some sample users and products as well as destroy all data
+You can use the following commands to seed the database with some sample users and products as well as destroy all data:
 
 ```
 # Import data
