@@ -74,7 +74,7 @@ Create a .env file in then root and add the following
 ```
 NODE_ENV = production
 PORT = 5000
-MONGODB_URI = mongodb+srv://admin:WLHWG8uKb5p5q2T7@cluster0.p2u97.mongodb.net/myFirstDatabase?retryWrites=true&w=majoritymyFirstDatabase?retryWrites=true&w=majority
+MONGODB_URI = mongodb+srv://admin:WLHWG8uKb5p5q2T7@cluster0.p2u97.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 JWT_SECRET = roopeshthemass123@
 EMAIL_USERNAME = 2ebcd460696ef8
 EMAIL_PASSWORD = cb7e54cd13fa8b
