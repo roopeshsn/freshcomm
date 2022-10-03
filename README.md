@@ -59,14 +59,6 @@ Finally, fetch the upstream's latest code from the main branch.
 git fetch upstream master
 ```
 
-### ES Modules in Node
-
-We use ECMAScript Modules in the backend of this project. Be sure to have at least Node v14.6+ or you will need to add the "--experimental-modules" flag.
-
-Also, when importing a file (not a package), be sure to add .js at the end or you will get a "module not found" error.
-
-<!-- You can also install and setup Babel if you would like -->
-
 ### Env Variables
 
 Create a .env file in then root and add the following
@@ -83,32 +75,25 @@ EMAIL_PORT =
 ```
 
 ###  Add data in .env file
-#
 
-
-### MONGODB_URI
-
+#### MONGODB_URI
 
 For getting URI go to [MongoDB Site](www.mongodb.com) and make a account there and you will get a uri like this
-
 `
  mongodb+srv://admin=(ADMIN_INFO_TO_BE_INSERTED).mongodb.net/myFirstDatabase?retryWrites=true&w=majoritymyFirstDatabase?retryWrites=true&w=majority
 `
 
-### JWT_SECRET
+#### JWT_SECRET
 
+Add any string like YOUR_NAME_ANY_SIGN (eg-chrismathew@123) is used to create a private key which will authenticate 
 
-   Add any string like YOUR_NAME_ANY_SIGN (eg-chrismathew@123) is used to create a private key which will authenticate 
-
-
-### EMAIL_USERNAME , EMAIL_PASSWORD , EMAIL_HOST , EMAIL_PORT
-
+#### EMAIL_USERNAME, EMAIL_PASSWORD, EMAIL_HOST, EMAIL_PORT
 
 To get this crendentails go to [Mailtrap](https://mailtrap.io) and there sign up for free and you will get all this crendentails there and choose nodemailer in dropdown section there like below 
 
 ![dropdown section](https://user-images.githubusercontent.com/91003905/193517826-5647ca92-131c-46e2-85de-fb29e53269ba.png)  
  
-#### You will get info like this 
+##### You will get info like this
 ```
 var transport = nodemailer.createTransport({
   host: "smtp.mailtrap.io",
@@ -119,7 +104,6 @@ var transport = nodemailer.createTransport({
   }
 });
 ```
-
 
 ### Install Dependencies (frontend & backend)
 
