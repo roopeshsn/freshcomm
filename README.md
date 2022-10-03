@@ -8,7 +8,6 @@ An online grocery store | e-commerce
 
 ## Project Purpose!
 
-
 I am a huge enthusiast of open source. Contributing to open source is a fantastic way to learn and grow. Making open source contributions will require you to have been exposed to a few important concepts, practices, and transferable skills:
 
 - Version control
@@ -29,10 +28,32 @@ As of now, Freshbey is built using MERN stack. Additionally, React Bootstrap is 
 
 ## Getting Started - Project setup on your local machine
 
-The easiest and quickest way to get the default project up and running locally is to clone the repo:
+The easiest and quickest way to get the default project up and running locally is
+to clone the repo:
 
 ```bash
 git clone https://github.com/roopeshsn/freshbey.git
+```
+
+Navigate to the cloned repository on your local system
+
+```bash
+cd freshbey
+```
+
+Add remotes to the parent repository. This will help you fetch the code from the
+parent repo to avoid any merge conflicts later.
+
+```bash
+git remote add upstream https://github.com/roopeshsn/freshbey.git
+```
+
+To verify, use the command `git remote -v` to check if you have two remotes - origin and upstream set up.
+
+Finally, fetch the upstream's latest code from the main branch.
+
+```bash
+git fetch upstream main
 ```
 
 ### ES Modules in Node
