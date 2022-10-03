@@ -98,6 +98,28 @@ const products = [
     mrp: 35,
     countInStock: 5,
   },
+  {
+    name: 'Mushroom',
+    imageSrc: 'https://i.ibb.co/h1LGnH0/mushroom-freshbey.webp',
+    description:
+      'Buttom mushrooms are very small sized mushrooms with smooth round caps and short stems. They have a mild flavour with a good texture that becomes more fragrant and meaty when cooked.',
+    imageAlt: 'mushroom image',
+    category: 'exotic',
+    price: 49,
+    mrp: 99,
+    countInStock: 21,
+  },
+  {
+    name: 'Moong Green',
+    imageSrc: 'https://i.ibb.co/6HXts8S/sprouts-freshbey.webp',
+    description:
+      'Bean sprouts are the young shoots of the mung bean with petite pale yellow to pale green leaves attached on a silvery bright white shoot.',
+    imageAlt: 'moong green image',
+    category: 'sprouts',
+    price: 24,
+    mrp: 50,
+    countInStock: 11,
+  },
 ]
 
 module.exports = products
