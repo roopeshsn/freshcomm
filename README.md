@@ -59,14 +59,6 @@ Finally, fetch the upstream's latest code from the main branch.
 git fetch upstream master
 ```
 
-### ES Modules in Node
-
-We use ECMAScript Modules in the backend of this project. Be sure to have at least Node v14.6+ or you will need to add the "--experimental-modules" flag.
-
-Also, when importing a file (not a package), be sure to add .js at the end or you will get a "module not found" error.
-
-<!-- You can also install and setup Babel if you would like -->
-
 ### Env Variables
 
 Create a .env file in then root and add the following
@@ -74,12 +66,43 @@ Create a .env file in then root and add the following
 ```
 NODE_ENV = production
 PORT = 5000
-MONGODB_URI = mongodb+srv://admin:WLHWG8uKb5p5q2T7@cluster0.p2u97.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
-JWT_SECRET = roopeshthemass123@
-EMAIL_USERNAME = 2ebcd460696ef8
-EMAIL_PASSWORD = cb7e54cd13fa8b
-EMAIL_HOST = smtp.mailtrap.io
-EMAIL_PORT = 2525
+MONGODB_URI = 
+JWT_SECRET = 
+EMAIL_USERNAME = 
+EMAIL_PASSWORD = 
+EMAIL_HOST = 
+EMAIL_PORT =
+```
+
+###  Add data in .env file
+
+#### MONGODB_URI
+
+For getting URI go to [MongoDB Site](www.mongodb.com) and make a account there and you will get a uri like this
+`
+ mongodb+srv://admin=(ADMIN_INFO_TO_BE_INSERTED).mongodb.net/myFirstDatabase?retryWrites=true&w=majoritymyFirstDatabase?retryWrites=true&w=majority
+`
+
+#### JWT_SECRET
+
+Add any string like YOUR_NAME_ANY_SIGN (eg-chrismathew@123) is used to create a private key which will authenticate 
+
+#### EMAIL_USERNAME, EMAIL_PASSWORD, EMAIL_HOST, EMAIL_PORT
+
+To get this crendentails go to [Mailtrap](https://mailtrap.io) and there sign up for free and you will get all this crendentails there and choose nodemailer in dropdown section there like below 
+
+![dropdown section](https://user-images.githubusercontent.com/91003905/193517826-5647ca92-131c-46e2-85de-fb29e53269ba.png)  
+ 
+##### You will get info like this
+```
+var transport = nodemailer.createTransport({
+  host: "smtp.mailtrap.io",
+  port: 2525,
+  auth: {
+    user: "99195eec06f5",
+    pass: "d26fe4c7d762"
+  }
+});
 ```
 
 ### Install Dependencies (frontend & backend)
