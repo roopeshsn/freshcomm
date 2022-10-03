@@ -26,13 +26,16 @@ Freshbey is an e-commerce platform where users can order grocery items. I built 
 
 As of now, Freshbey is built using MERN stack. Additionally, React Bootstrap is used for styling and React Redux is used for state management.
 
-## Getting Started - Project setup on your local machine
+## Getting Started
 
-The easiest and quickest way to get the default project up and running locally is
-to clone the repo:
+### Setting up the repository
+
+Fork the repository at - [roopeshsn/freshbey](https://github.com/roopeshsn/freshbey) to your GitHub account.
+
+Then clone the forked repository, by typing the following line in your local terminal/powershell. Remember to replace `<your-username>` with your actual GitHub username.
 
 ```bash
-git clone https://github.com/roopeshsn/freshbey.git
+git clone https://github.com/<your-username>/freshbey.git
 ```
 
 Navigate to the cloned repository on your local system
@@ -53,7 +56,7 @@ To verify, use the command `git remote -v` to check if you have two remotes - or
 Finally, fetch the upstream's latest code from the main branch.
 
 ```bash
-git fetch upstream main
+git fetch upstream master
 ```
 
 ### ES Modules in Node
