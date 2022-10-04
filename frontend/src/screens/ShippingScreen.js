@@ -4,8 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import FormContainer from '../components/FormContainer';
 import { saveShippingAddress } from '../actions/cartActions';
 import CheckoutSteps from '../components/CheckoutSteps';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
 import { locations } from './LocationsAvailable'; // Locations is an Array of objects, which includes a hierarchy of countries > States > cities
 
 const ShippingScreen = ({ history }) => {
