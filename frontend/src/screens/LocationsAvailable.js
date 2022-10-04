@@ -11185,6 +11185,5 @@ export const locations = {
         },
       ],
     },
-    
   ],
 }
