@@ -66,36 +66,35 @@ git fetch upstream master
 Create a .env file in then root and add the following
 
 ```
-NODE_ENV = production
+NODE_ENV = development
 PORT = 5000
-MONGODB_URI = 
-JWT_SECRET = 
-EMAIL_USERNAME = 
-EMAIL_PASSWORD = 
-EMAIL_HOST = 
+MONGODB_URI =
+JWT_SECRET =
+EMAIL_USERNAME =
+EMAIL_PASSWORD =
+EMAIL_HOST =
 EMAIL_PORT =
 ```
 
-###  Add data in .env file
+### Add data in .env file
 
 #### MONGODB_URI
 
 For getting URI go to [MongoDB Site](www.mongodb.com) and make a account there and you will get a uri like this
-`
- mongodb+srv://admin=(ADMIN_INFO_TO_BE_INSERTED).mongodb.net/myFirstDatabase?retryWrites=true&w=majoritymyFirstDatabase?retryWrites=true&w=majority
-`
+` mongodb+srv://admin=(ADMIN_INFO_TO_BE_INSERTED).mongodb.net/myFirstDatabase?retryWrites=true&w=majoritymyFirstDatabase?retryWrites=true&w=majority`
 
 #### JWT_SECRET
 
-Add any string like YOUR_NAME_ANY_SIGN (eg-chrismathew@123) is used to create a private key which will authenticate 
+Add any string like YOUR_NAME_ANY_SIGN (eg-chrismathew@123) is used to create a private key which will authenticate
 
 #### EMAIL_USERNAME, EMAIL_PASSWORD, EMAIL_HOST, EMAIL_PORT
 
-To get this crendentails go to [Mailtrap](https://mailtrap.io) and there sign up for free and you will get all this crendentails there and choose nodemailer in dropdown section there like below 
+To get this crendentails go to [Mailtrap](https://mailtrap.io) and there sign up for free and you will get all this crendentails there and choose nodemailer in dropdown section there like below
 
-![dropdown section](https://user-images.githubusercontent.com/91003905/193517826-5647ca92-131c-46e2-85de-fb29e53269ba.png)  
- 
+![dropdown section](https://user-images.githubusercontent.com/91003905/193517826-5647ca92-131c-46e2-85de-fb29e53269ba.png)
+
 ##### You will get info like this
+
 ```
 var transport = nodemailer.createTransport({
   host: "smtp.mailtrap.io",
@@ -123,6 +122,18 @@ npm run dev
 
 # Run backend only
 npm run server
+```
+
+Server should be running on `PORT` specified in env file (or `5000` by default)
+
+To test, type `localhost:PORT/` in your browser and following output should appear.
+
+```
+{
+  message: 'Welcome to Freshbey Backend',
+  version: process.env.VERSION,
+  license: 'MIT',
+}
 ```
 
 ## Mail Service
