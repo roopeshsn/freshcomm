@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 const orderSchema = mongoose.Schema(
   {
@@ -22,7 +22,7 @@ const orderSchema = mongoose.Schema(
     ],
     shippingAddress: {
       address: { type: String, required: true },
-      pinCode: { type: Number, required: true },
+      pinCode: { type: String, required: true }, // PinCode type is String (because: Different Countries uses PinCode as AlphaNumeric or Numeric as well - anujverma-eng)
       city: { type: String, required: true },
       state: { type: String, required: true },
       country: { type: String, required: true },
@@ -72,8 +72,8 @@ const orderSchema = mongoose.Schema(
   {
     timestamps: true,
   },
-)
+);
 
-const Order = mongoose.model('Order', orderSchema)
+const Order = mongoose.model('Order', orderSchema);
 
-module.exports = Order
+module.exports = Order;
