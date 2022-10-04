@@ -78,22 +78,26 @@ EMAIL_PORT =
 
 ### Add data in .env file
 
+The backend folder in this repository serves as the codebase for the API server which connects to a MongoDB instance to store and retrieve user, products, orders data.
+
 #### MONGODB_URI
 
-For getting URI go to [MongoDB Site](www.mongodb.com) and make a account there and you will get a uri like this
-` mongodb+srv://admin=(ADMIN_INFO_TO_BE_INSERTED).mongodb.net/myFirstDatabase?retryWrites=true&w=majoritymyFirstDatabase?retryWrites=true&w=majority`
+MongoDB version = 5.0.12. You can either spin up a local/Docker instance or can use MongoDB Atlas (Recommended). 
+
+Here's the similar URI which can be used to connect with the cluster
+`mongodb+srv://admin:<password>@cluster0.p2u97.mongodb.net/freshbey?retryWrites=true&w=majority`
+
+Replace <password> with the password for the admin user.
 
 #### JWT_SECRET
 
-Add any string like YOUR_NAME_ANY_SIGN (eg-chrismathew@123) is used to create a private key which will authenticate
+Add any string like YOUR_NAME_ANY_SIGN (eg. chrismathew7) is used to create a private key which will authenticate.
 
 #### EMAIL_USERNAME, EMAIL_PASSWORD, EMAIL_HOST, EMAIL_PORT
 
-To get this crendentails go to [Mailtrap](https://mailtrap.io) and there sign up for free and you will get all this crendentails there and choose nodemailer in dropdown section there like below
+To get this credentials you need a [Mailtrap](https://mailtrap.io) account. Mailtrap is an Email testing tool. We can simulate this for the forget and reset password functions.
 
-![dropdown section](https://user-images.githubusercontent.com/91003905/193517826-5647ca92-131c-46e2-85de-fb29e53269ba.png)
-
-##### You will get info like this
+Select Nodemailer from integrations. You will get credentials similar to this,
 
 ```
 var transport = nodemailer.createTransport({
