@@ -1,10 +1,12 @@
 # Freshbey
 
-## https://freshbey.herokuapp.com/
+## An online grocery store - `E-commerce template`
+
+![freshbey_social_preview_page-0001](https://user-images.githubusercontent.com/70762571/193757464-b8984e3d-01c2-4ab4-846a-d15aa592bc44.jpg)
+
+### Here's the homepage of [Freshbey](https://freshbey.herokuapp.com/) ✨
 
 ![homepage-freshbey](https://user-images.githubusercontent.com/70762571/167148307-718dabc9-057d-4296-853a-6da097d800d4.png)
-
-An online grocery store | e-commerce
 
 ## Project Purpose!
 
@@ -24,7 +26,7 @@ Freshbey is an e-commerce platform where users can order grocery items. I built 
 
 ## Current State
 
-As of now, Freshbey is built using MERN stack. Additionally, React Bootstrap is used for styling and React Redux is used for state management.
+As of now, Freshbey is built using MERN stack. Additionally, [React Bootstrap](https://react-bootstrap.github.io/) along with [Bootswatch Zephyr](https://bootswatch.com/zephyr/) theme is used for styling and [React Redux](https://react-redux.js.org/) is used for state management.
 
 ## Getting Started
 
@@ -64,36 +66,35 @@ git fetch upstream master
 Create a .env file in then root and add the following
 
 ```
-NODE_ENV = production
+NODE_ENV = development
 PORT = 5000
-MONGODB_URI = 
-JWT_SECRET = 
-EMAIL_USERNAME = 
-EMAIL_PASSWORD = 
-EMAIL_HOST = 
+MONGODB_URI =
+JWT_SECRET =
+EMAIL_USERNAME =
+EMAIL_PASSWORD =
+EMAIL_HOST =
 EMAIL_PORT =
 ```
 
-###  Add data in .env file
+### Add data in .env file
 
 #### MONGODB_URI
 
 For getting URI go to [MongoDB Site](www.mongodb.com) and make a account there and you will get a uri like this
-`
- mongodb+srv://admin=(ADMIN_INFO_TO_BE_INSERTED).mongodb.net/myFirstDatabase?retryWrites=true&w=majoritymyFirstDatabase?retryWrites=true&w=majority
-`
+` mongodb+srv://admin=(ADMIN_INFO_TO_BE_INSERTED).mongodb.net/myFirstDatabase?retryWrites=true&w=majoritymyFirstDatabase?retryWrites=true&w=majority`
 
 #### JWT_SECRET
 
-Add any string like YOUR_NAME_ANY_SIGN (eg-chrismathew@123) is used to create a private key which will authenticate 
+Add any string like YOUR_NAME_ANY_SIGN (eg-chrismathew@123) is used to create a private key which will authenticate
 
 #### EMAIL_USERNAME, EMAIL_PASSWORD, EMAIL_HOST, EMAIL_PORT
 
-To get this crendentails go to [Mailtrap](https://mailtrap.io) and there sign up for free and you will get all this crendentails there and choose nodemailer in dropdown section there like below 
+To get this crendentails go to [Mailtrap](https://mailtrap.io) and there sign up for free and you will get all this crendentails there and choose nodemailer in dropdown section there like below
 
-![dropdown section](https://user-images.githubusercontent.com/91003905/193517826-5647ca92-131c-46e2-85de-fb29e53269ba.png)  
- 
+![dropdown section](https://user-images.githubusercontent.com/91003905/193517826-5647ca92-131c-46e2-85de-fb29e53269ba.png)
+
 ##### You will get info like this
+
 ```
 var transport = nodemailer.createTransport({
   host: "smtp.mailtrap.io",
@@ -123,9 +124,25 @@ npm run dev
 npm run server
 ```
 
+Server should be running on `PORT` specified in env file (or `5000` by default)
+
+To test, type `localhost:PORT/` in your browser and following output should appear.
+
+```
+{
+  message: 'Welcome to Freshbey Backend',
+  version: process.env.VERSION,
+  license: 'MIT',
+}
+```
+
 ## Mail Service
 
 [Mailtrap](https://www.example.com) (A Email Sandbox Service) is used as an email inbox to reset passwords.
+
+## Image Service
+
+The Images for product, slide, category are manually hosted in [ImgBB](https://imgbb.com/)
 
 ## Build & Deploy
 

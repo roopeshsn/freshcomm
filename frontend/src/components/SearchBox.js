@@ -22,7 +22,7 @@ const SearchBox = ({ history }) => {
           type="text"
           name="search"
           onChange={(e) => submitHandler(e)}
-          placeholder="Search Freshbey.com"
+          placeholder="Search Freshbey"
           className="me-2"
         ></Form.Control>
 
