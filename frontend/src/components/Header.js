@@ -23,7 +23,7 @@ const Header = () => {
       <Navbar bg="light" variant="light" expand="lg" collapseOnSelect>
         <Container>
           <LinkContainer to="/">
-            <Navbar.Brand>FreshBey</Navbar.Brand>
+            <Navbar.Brand id="logo-text">FreshBey</Navbar.Brand>
           </LinkContainer>
           <Nav className="nav-right">
             <Nav.Link
