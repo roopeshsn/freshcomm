@@ -25,7 +25,7 @@ const PlaceOrderScreen = ({ history }) => {
     0,
   )
   const shippingPrice = cartItemsPrice > 400 ? 0 : 50
-  shippingfree = shippingPrice == 50 ? false : True 
+  shippingfree = shippingPrice == 50 ? false : true 
   const totalPrice = cartItemsPrice + shippingPrice
   cart.itemsPrice = cartItemsPrice
   cart.shippingPrice = shippingPrice
