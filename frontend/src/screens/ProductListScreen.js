@@ -98,13 +98,13 @@ const ProductListScreen = ({ history, match }) => {
                 <td>{product.category}</td>
                 <td>
                   <LinkContainer to={`/admin/product/${product._id}/edit`}>
-                    <Button variant="light" className="btn-sm">
+                    <Button variant="light" className="btn-sm m-2 mt-0">
                       <i className="fas fa-edit"></i>
                     </Button>
                   </LinkContainer>
                   <Button
                     variant="danger"
-                    className="btn-sm"
+                    className="btn-sm m-2 mt-0"
                     onClick={() => deleteHandler(product._id)}
                   >
                     <i className="fas fa-trash"></i>
