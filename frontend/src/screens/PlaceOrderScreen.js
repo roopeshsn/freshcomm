@@ -11,7 +11,7 @@ import { createOrder } from '../actions/orderActions'
 
 const PlaceOrderScreen = ({ history }) => {
   const dispatch = useDispatch()
-
+  let shippingfree = false;
   const cart = useSelector((state) => state.cart)
 
   if (!cart.shippingAddress.address) {
@@ -24,7 +24,8 @@ const PlaceOrderScreen = ({ history }) => {
     (acc, item) => acc + item.price * item.qty,
     0,
   )
-  const shippingPrice = cartItemsPrice > 3000 ? 0 : 50
+  const shippingPrice = cartItemsPrice > 400 ? 0 : 50
+  shippingfree = shippingPrice == 50 ? false : True 
   const totalPrice = cartItemsPrice + shippingPrice
   cart.itemsPrice = cartItemsPrice
   cart.shippingPrice = shippingPrice
@@ -123,6 +124,12 @@ const PlaceOrderScreen = ({ history }) => {
             <ListGroup variant="flush">
               <ListGroup.Item>
                 <h2>Order Summary</h2>
+                { shippingfree ? <div className="deliveryfee" style={{color:"#34a853"}}>
+                    Congratulations! Your order is elligible for FREE Delivery.
+                </div> : <div className="deliveryfee" style={{color:"#34a853"}}>
+                    Add &#8377;{400-cartItemsPrice} of eligible items to your order to qualify for FREE Delivery.
+                </div>
+                }
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
