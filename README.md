@@ -1,10 +1,12 @@
 # Freshbey
 
-## https://freshbey.herokuapp.com/
+## An online grocery store - `E-commerce template`
+
+![freshbey_social_preview_page-0001](https://user-images.githubusercontent.com/70762571/193757464-b8984e3d-01c2-4ab4-846a-d15aa592bc44.jpg)
+
+### Here's the homepage of [Freshbey](https://freshbey.herokuapp.com/) ✨
 
 ![homepage-freshbey](https://user-images.githubusercontent.com/70762571/167148307-718dabc9-057d-4296-853a-6da097d800d4.png)
-
-An online grocery store | e-commerce
 
 ## Project Purpose!
 
@@ -24,7 +26,7 @@ Freshbey is an e-commerce platform where users can order grocery items. I built 
 
 ## Current State
 
-As of now, Freshbey is built using MERN stack. Additionally, React Bootstrap is used for styling and React Redux is used for state management.
+As of now, Freshbey is built using MERN stack. Additionally, [React Bootstrap](https://react-bootstrap.github.io/) along with [Bootswatch Zephyr](https://bootswatch.com/zephyr/) theme is used for styling and [React Redux](https://react-redux.js.org/) is used for state management.
 
 ## Getting Started
 
@@ -126,6 +128,10 @@ npm run server
 ## Mail Service
 
 [Mailtrap](https://www.example.com) (A Email Sandbox Service) is used as an email inbox to reset passwords.
+
+## Image Service
+
+The Images for product, slide, category are manually hosted in [ImgBB](https://imgbb.com/)
 
 ## Build & Deploy
 
