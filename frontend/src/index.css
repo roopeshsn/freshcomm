@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@600&display=swap');
+
 :root {
   --bs-blue: #3459e6;
   --bs-indigo: #6610f2;
@@ -156,6 +158,12 @@ h2 {
   color: red;
   top: -0.5rem;
   left: -0.2rem;
+}
+
+#logo-text {
+  color: var(--bs-green);
+  font-size: x-large;
+  font-family: 'League Spartan', sans-serif;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1200px) {
