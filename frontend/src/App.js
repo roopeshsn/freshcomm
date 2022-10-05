@@ -26,6 +26,7 @@ import SearchScreen from './screens/SearchScreen'
 import CarouselListScreen from './screens/CarouselListScreen'
 import CarouselEditScreen from './screens/CarouselEditScreen'
 import CreateCarouselScreen from './screens/CreateCarouselScreen'
+import { CategoryListScreen } from './screens/CategoryListScreen'
 
 function App() {
   return (
@@ -68,6 +69,7 @@ function App() {
             path="/admin/carousel/:id/edit"
             component={CarouselEditScreen}
           />
+          <Route path="/admin/categorylist" component={CategoryListScreen} />
         </Container>
       </main>
       <Footer />
