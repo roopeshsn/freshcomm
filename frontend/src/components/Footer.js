@@ -25,7 +25,7 @@ const Footer = () => {
               </li>
             </ul>
           </Col>
-          <Col className="text-center py-3">Copyright &copy; FreshBey</Col>
+          <Col className="text-center py-3">Copyright &copy; Freshbey</Col>
           <Col className="text-center py-3 d-flex justify-content-center">
             Need help? Visit the
             <Nav.Link
