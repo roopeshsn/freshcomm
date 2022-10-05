@@ -1,20 +1,25 @@
 const path = require('path')
 const express = require('express')
 const multer = require('multer')
+const cloudinary = require("cloudinary").v2
+const { CloudinaryStorage } = require("multer-storage-cloudinary")
+
 
 const router = express.Router()
 
-const storage = multer.diskStorage({
-  destination(req, file, cb) {
-    cb(null, 'uploads/')
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+  secure: true
+});
+
+const storage = new CloudinaryStorage({
+  cloudinary,
+  params: {
+    folder: "Products"
   },
-  filename(req, file, cb) {
-    cb(
-      null,
-      `${file.fieldname}-${Date.now()}${path.extname(file.originalname)}`,
-    )
-  },
-})
+});
 
 function checkFileType(file, cb) {
   const filetypes = /jpg|jpeg|png/
@@ -36,7 +41,7 @@ const upload = multer({
 })
 
 router.post('/', upload.single('image'), (req, res) => {
-  res.send(`/${req.file.path}`)
+  res.send(`${req.file.path}`)
 })
 
 module.exports = router
