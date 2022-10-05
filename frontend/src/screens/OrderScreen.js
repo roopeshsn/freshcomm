@@ -83,7 +83,7 @@ const OrderScreen = ({ match, history }) => {
             </ListGroup.Item>
 
             <ListGroup.Item>
-              <h2>Payment Method</h2>
+              <h2>Payment</h2>
               <p>
                 <strong>Method: </strong>
                 {order.paymentMethod}
