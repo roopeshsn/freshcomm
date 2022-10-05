@@ -23,17 +23,14 @@ const Header = () => {
       <Navbar bg="light" variant="light" expand="lg" collapseOnSelect>
         <Container>
           <LinkContainer to="/">
-            <Navbar.Brand>FreshBey</Navbar.Brand>
+            <Navbar.Brand id="logo-text">Freshbey</Navbar.Brand>
           </LinkContainer>
           <Nav className="nav-right">
-            <Nav.Link
-              href="//api.whatsapp.com/send?phone=+916369984456&text=help"
-              target="_blank"
-            >
+            <Nav.Link href="#" target="_blank">
               <BsWhatsapp size="1.5em" />
             </Nav.Link>
 
-            <Nav.Link href="tel:+91-6369984456">
+            <Nav.Link href="#">
               <FiPhoneCall size="1.5em" />
             </Nav.Link>
 
