@@ -6,7 +6,7 @@ const Footer = () => {
     <footer>
       <Container>
         <Row className="flex-column flex-lg-row">
-          <Col className="py-3">
+          <Col className="py-3 order-1">
             <ul className="list-unstyled d-flex li-separator justify-content-center align-items-center">
               <li className="d-flex px-1">
                 <Nav.Link className="p-0" href="#" target="_blank">
@@ -25,8 +25,10 @@ const Footer = () => {
               </li>
             </ul>
           </Col>
-          <Col className="text-center py-3">Copyright &copy; Freshbey</Col>
-          <Col className="text-center py-3 d-flex justify-content-center">
+          <Col className="text-center py-3 order-3 order-lg-2">
+            Copyright &copy; Freshbey
+          </Col>
+          <Col className="text-center py-3 d-flex justify-content-center order-2 order-lg-2">
             Need help? Visit the
             <Nav.Link
               className="py-0 px-1 text-decoration-underline"
