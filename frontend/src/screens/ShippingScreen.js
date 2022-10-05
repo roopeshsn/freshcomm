@@ -1,10 +1,10 @@
-import React, { useState } from "react"
-import { Form, Button } from "react-bootstrap"
-import { useDispatch, useSelector } from "react-redux"
-import FormContainer from "../components/FormContainer"
-import { saveShippingAddress } from "../actions/cartActions"
-import CheckoutSteps from "../components/CheckoutSteps"
-import { locations } from "./LocationsAvailable" // Locations is an Array of objects, which includes a hierarchy of countries > States > cities
+import React, { useState } from 'react'
+import { Form, Button } from 'react-bootstrap'
+import { useDispatch, useSelector } from 'react-redux'
+import FormContainer from '../components/FormContainer'
+import { saveShippingAddress } from '../actions/cartActions'
+import CheckoutSteps from '../components/CheckoutSteps'
+import { locations } from '../data/LocationsAvailable' // Locations is an Array of objects, which includes a hierarchy of countries > States > cities
 
 const ShippingScreen = ({ history }) => {
   const cart = useSelector((state) => state.cart)
@@ -14,23 +14,23 @@ const ShippingScreen = ({ history }) => {
   const [address, setAddress] = useState(
     shippingAddress.address && shippingAddress.address
       ? shippingAddress.address
-      : "",
+      : '',
   )
   const [pinCode, setPinCode] = useState(
     shippingAddress.pinCode && shippingAddress.pinCode
       ? shippingAddress.pinCode
-      : "",
+      : '',
   )
   const [city, setCity] = useState(
-    shippingAddress.city && shippingAddress.city ? shippingAddress.city : "",
+    shippingAddress.city && shippingAddress.city ? shippingAddress.city : '',
   )
   const [state, setState] = useState(
-    shippingAddress.state && shippingAddress.state ? shippingAddress.state : "",
+    shippingAddress.state && shippingAddress.state ? shippingAddress.state : '',
   )
   const [country, setCountry] = useState(
     shippingAddress.country && shippingAddress.country
       ? shippingAddress.country
-      : "",
+      : '',
   )
 
   // Once we Receive the Country we will find the State from our Country array in Locations Object and find the the States Available in it.
@@ -47,7 +47,7 @@ const ShippingScreen = ({ history }) => {
   const submitHandler = (e) => {
     e.preventDefault()
     dispatch(saveShippingAddress({ address, city, pinCode, state, country }))
-    history.push("/payment")
+    history.push('/payment')
   }
 
   return (
@@ -75,7 +75,7 @@ const ShippingScreen = ({ history }) => {
             required
             onChange={(e) => setCountry(e.target.value)}
           >
-            <option>{"Select Country..."}</option>
+            <option>{'Select Country...'}</option>
             {locations.countries.map((value, key) => {
               return (
                 <option value={value.countryName} key={key}>
@@ -95,7 +95,7 @@ const ShippingScreen = ({ history }) => {
             required
             onChange={(e) => setState(e.target.value)}
           >
-            <option>{"Select State..."}</option>
+            <option>{'Select State...'}</option>
             {statesAvl?.states.map((value, key) => {
               return (
                 <option value={value.stateName} key={key}>
@@ -115,7 +115,7 @@ const ShippingScreen = ({ history }) => {
             required
             onChange={(e) => setCity(e.target.value)}
           >
-            <option>{"Select City..."}</option>
+            <option>{'Select City...'}</option>
             {citiesAvl?.cities.map((value, key) => {
               return (
                 <option value={value} key={key}>
