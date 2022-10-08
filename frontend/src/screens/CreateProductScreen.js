@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import { Form, Button } from 'react-bootstrap'
+import { Row, Col, Card, Form, Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 import FormContainer from '../components/FormContainer'
-// import { PRODUCT_UPDATE_RESET } from '../constants/productConstants'
+import { PRODUCT_CREATE_FAIL } from '../constants/productConstants'
 import { createProduct } from '../actions/productActions'
 
 const CreateProductScreen = ({ history }) => {
@@ -63,7 +63,14 @@ const CreateProductScreen = ({ history }) => {
       setImageSrc(data)
       setUploading(false)
     } catch (error) {
-      console.error(error)
+      const message =error.response && error.response.data.message
+      ? error.response.data.message
+      : error.message
+      dispatch({
+        type: PRODUCT_CREATE_FAIL ,
+        payload: message
+      })
+      setImageSrc('')
       setUploading(false)
     }
   }
@@ -122,25 +129,23 @@ const CreateProductScreen = ({ history }) => {
             ></Form.Control>
           </Form.Group>
 
-          <Form.Group controlId="image">
-            <Form.Label>Image Src</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Enter Image URL"
-              value={imageSrc}
-              onChange={(e) => setImageSrc(e.target.value)}
-            ></Form.Control>
-          </Form.Group>
-
-          <Form.Group className='mt-2' controlId='image-file'>
-            <Form.File
-              id='image-file'
-              size='sm'
-              custom
-              variant='secondary'
-              onChange={uploadFileHandler}
-            ></Form.File>
-            {uploading && <Loader />}
+          <Form.Group controlId='image-file'>
+            <Row>
+              <Col>   
+                <Form.Label>Product Image</Form.Label>
+                <Form.File
+                  id='image-file'
+                  size='sm'
+                  custom
+                  variant='secondary'
+                  onChange={uploadFileHandler}
+                ></Form.File>
+              </Col>
+              <Col>
+                {uploading && <Loader />}
+                {!uploading && imageSrc && <img src={imageSrc} className={'m-2'} width={100} height={100} alt="product" />}
+              </Col>
+            </Row>
           </Form.Group>
 
           <Form.Group className="my-3" controlId="brand">

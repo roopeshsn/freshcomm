@@ -4,9 +4,7 @@ const multer = require('multer')
 const {cloudinary} = require('../config/db')
 const { CloudinaryStorage } = require("multer-storage-cloudinary")
 
-
 const router = express.Router()
-
 
 const storage = new CloudinaryStorage({
   cloudinary,
@@ -23,7 +21,7 @@ function checkFileType(file, cb) {
   if (extname && mimetype) {
     return cb(null, true)
   } else {
-    cb('Images only!')
+    return cb(new Error('Upload Images(.jpg, .jpeg, .png) only!'))
   }
 }
 
