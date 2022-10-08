@@ -25,7 +25,7 @@ const Header = () => {
           <LinkContainer to="/">
             <Navbar.Brand id="logo-text">Freshbey</Navbar.Brand>
           </LinkContainer>
-          <Nav className="nav-right">
+          <Nav className="nav-right mw-100">
             <Nav.Link href="#" target="_blank">
               <BsWhatsapp size="1.5em" />
             </Nav.Link>
@@ -45,9 +45,10 @@ const Header = () => {
               </Nav.Link>
             </LinkContainer>
           </Nav>
+          <Route render={({ history }) => <SearchBox history={history} style={{ display: 'flex',justifyContent: "left", alignSelf: 'left'}} />} />
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="ms-md-auto">
+            <Nav className="ms-md-auto ">
               {userInfo ? (
                 <NavDropdown title={userInfo.name} id="username">
                   <LinkContainer to="/profile">
@@ -87,7 +88,7 @@ const Header = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <Route render={({ history }) => <SearchBox history={history} />} />
+      
     </header>
   )
 }
