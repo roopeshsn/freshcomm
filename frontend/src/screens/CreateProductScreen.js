@@ -63,12 +63,13 @@ const CreateProductScreen = ({ history }) => {
       setImageSrc(data)
       setUploading(false)
     } catch (error) {
-      const message =error.response && error.response.data.message
-      ? error.response.data.message
-      : error.message
+      const message =
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message
       dispatch({
-        type: PRODUCT_CREATE_FAIL ,
-        payload: message
+        type: PRODUCT_CREATE_FAIL,
+        payload: message,
       })
       setImageSrc('')
       setUploading(false)
@@ -129,21 +130,29 @@ const CreateProductScreen = ({ history }) => {
             ></Form.Control>
           </Form.Group>
 
-          <Form.Group controlId='image-file'>
+          <Form.Group controlId="image-file">
             <Row>
-              <Col>   
+              <Col>
                 <Form.Label>Product Image</Form.Label>
                 <Form.File
-                  id='image-file'
-                  size='sm'
+                  id="image-file"
+                  size="sm"
                   custom
-                  variant='secondary'
+                  variant="secondary"
                   onChange={uploadFileHandler}
                 ></Form.File>
               </Col>
               <Col>
                 {uploading && <Loader />}
-                {!uploading && imageSrc && <img src={imageSrc} className={'m-2'} width={100} height={100} alt="product" />}
+                {!uploading && imageSrc && (
+                  <img
+                    src={imageSrc}
+                    className={'m-2'}
+                    width={100}
+                    height={100}
+                    alt="product"
+                  />
+                )}
               </Col>
             </Row>
           </Form.Group>

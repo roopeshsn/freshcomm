@@ -1,17 +1,17 @@
 const path = require('path')
 const express = require('express')
 const multer = require('multer')
-const {cloudinary} = require('../config/db')
-const { CloudinaryStorage } = require("multer-storage-cloudinary")
+const { cloudinary } = require('../config/db')
+const { CloudinaryStorage } = require('multer-storage-cloudinary')
 
 const router = express.Router()
 
 const storage = new CloudinaryStorage({
   cloudinary,
   params: {
-    folder: "Products"
+    folder: 'Products',
   },
-});
+})
 
 function checkFileType(file, cb) {
   const filetypes = /jpg|jpeg|png/

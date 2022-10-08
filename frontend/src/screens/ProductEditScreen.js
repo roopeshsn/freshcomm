@@ -10,7 +10,7 @@ import { listProductDetails, updateProduct } from '../actions/productActions'
 import {
   PRODUCT_DETAILS_RESET,
   PRODUCT_UPDATE_RESET,
-  PRODUCT_UPDATE_FAIL
+  PRODUCT_UPDATE_FAIL,
 } from '../constants/productConstants'
 
 const ProductEditScreen = ({ match, history }) => {
@@ -77,12 +77,13 @@ const ProductEditScreen = ({ match, history }) => {
       setImageSrc(data)
       setUploading(false)
     } catch (error) {
-      const message =error.response && error.response.data.message
-      ? error.response.data.message
-      : error.message
+      const message =
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message
       dispatch({
-        type: PRODUCT_UPDATE_FAIL ,
-        payload: message
+        type: PRODUCT_UPDATE_FAIL,
+        payload: message,
       })
       setImageSrc('')
       setUploading(false)
@@ -148,24 +149,32 @@ const ProductEditScreen = ({ match, history }) => {
               ></Form.Control>
             </Form.Group>
 
-          <Form.Group controlId='image-file'>
-            <Row>
-              <Col>   
-                <Form.Label>Upload Product Image</Form.Label>
-                <Form.File
-                  id='image-file'
-                  size='sm'
-                  custom
-                  variant='secondary'
-                  onChange={uploadFileHandler}
-                ></Form.File>
-              </Col>
-              <Col>
-                {uploading && <Loader />}
-                {!uploading && imageSrc && <img src={imageSrc} className={'m-2'} width={100} height={100} alt="product" />}
-              </Col>
-            </Row>
-          </Form.Group>
+            <Form.Group controlId="image-file">
+              <Row>
+                <Col>
+                  <Form.Label>Upload Product Image</Form.Label>
+                  <Form.File
+                    id="image-file"
+                    size="sm"
+                    custom
+                    variant="secondary"
+                    onChange={uploadFileHandler}
+                  ></Form.File>
+                </Col>
+                <Col>
+                  {uploading && <Loader />}
+                  {!uploading && imageSrc && (
+                    <img
+                      src={imageSrc}
+                      className={'m-2'}
+                      width={100}
+                      height={100}
+                      alt="product"
+                    />
+                  )}
+                </Col>
+              </Row>
+            </Form.Group>
 
             <Form.Group className="my-3" controlId="imageAlt">
               <Form.Label>Image Alt</Form.Label>

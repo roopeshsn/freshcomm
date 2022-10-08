@@ -3,7 +3,11 @@ import { Alert } from 'react-bootstrap'
 
 const Message = ({ className, variant, children }) => {
   return (
-    <Alert className={className} style={{whiteSpace: 'pre-wrap'}} variant={variant}>
+    <Alert
+      className={className}
+      style={{ whiteSpace: 'pre-wrap' }}
+      variant={variant}
+    >
       {children}
     </Alert>
   )

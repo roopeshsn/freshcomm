@@ -77,19 +77,19 @@ const createProduct = asyncHandler(async (req, res) => {
     description,
   })
 
-  try{
+  try {
     const createdProduct = await product.save()
 
     res.status(201).json(createdProduct)
-  }catch(error){
-    if (error.name === "ValidationError") {
-      let errors = '';
+  } catch (error) {
+    if (error.name === 'ValidationError') {
+      let errors = ''
       Object.keys(error.errors).forEach((key) => {
-        errors+=error.errors[key].message+'.\n';
-      });
-      res.status(500).json(errors);
+        errors += error.errors[key].message + '.\n'
+      })
+      res.status(500).json(errors)
+    }
   }
-}
 })
 
 // @desc    Update a product
