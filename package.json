@@ -39,8 +39,8 @@
     "mocha-junit-reporter": "^2.0.2",
     "mongoose": "^6.4.6",
     "multer": "^1.4.3",
-    "nodemailer": "^6.6.5",
-    "react-scripts": "^5.0.1"
+    "nodemailer": "^6.6.5"
+    
   },
   "devDependencies": {
     "chai": "^4.3.6",
