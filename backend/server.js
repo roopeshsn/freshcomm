@@ -9,9 +9,7 @@ const categoryRoutes = require('./routes/categoryRoutes')
 const carouselRoutes = require('./routes/carouselRoutes')
 const { notFound, errorHandler } = require('./middleware/errorMiddleware')
 const compression = require('compression')
-require('dotenv').config({
-  path:'./backend/.env'
-})
+require('dotenv').config()
 
 const app = express()
 const PORT = process.env.PORT || 5000
