@@ -1,6 +1,7 @@
 const asyncHandler = require('express-async-handler')
 const Order = require('../models/orderModel')
 const Product = require('../models/productModel')
+const productController = require('./../controllers/productController')
 
 // @desc    Create new order
 // @route   POST /api/orders
@@ -17,7 +18,8 @@ const addOrderItems = asyncHandler(async (req, res) => {
   // Product price validation
   orderItems.forEach(async (item) => {
     let lookupItem = await Product.findById(item.product)
-    if (item.price !== lookupItem.price) {
+    if (parseFloat( item.price) !== lookupItem.price) {
+      
       res.status(400)
       throw new Error(
         'There is a discrepancy between the prices of the items, and whats in the Database, please try again!',
@@ -91,6 +93,21 @@ const updateOrderToPaid = asyncHandler(async (req, res) => {
   const order = await Order.findById(req.params.id)
 
   if (order) {
+    //below .map() function return an array of promises
+    const updatePromises = order.orderItems.map(async (item)=> {
+      await productController.updateStockCount( req, res, item.product,parseInt( item.qty))
+    })
+    //below function to resolve the array of promises
+    try{
+      await Promise.all( updatePromises)
+    }catch( error){
+      return res.status(404).json({
+        status:'fail',
+        message: error.message
+      })
+    }
+    
+
     order.isPaid = true
     order.paidAt = Date.now()
     const updatedOrder = await order.save()

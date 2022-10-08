@@ -117,10 +117,28 @@ const updateProduct = asyncHandler(async (req, res) => {
   }
 })
 
+const updateStockCount =asyncHandler( async (req, res, id, qty)=>{
+  try{
+    var product = await Product.findById(id)
+  }catch(err){
+    throw new Error(err.message)
+  }
+  
+  if(product.countInStock < qty){
+    throw new Error("We are really sorry. We have not "+qty+" amount of "+
+          product.name+" currently on stock. Either you wait for stock to fullfilled or you can decrease your ordered quantity of "+product.name)
+  }
+  product.countInStock -= qty
+  const updatedProduct = await product.save()
+  return updateProduct
+                                          
+})
+
 module.exports = {
   getProducts,
   getProductById,
   deleteProduct,
   createProduct,
   updateProduct,
+  updateStockCount
 }
