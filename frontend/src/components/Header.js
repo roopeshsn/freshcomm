@@ -45,9 +45,9 @@ const Header = () => {
               </Nav.Link>
             </LinkContainer>
           </Nav>
-          <Route render={({ history }) => <SearchBox  history={history} />} />
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
+          <Route render={({ history }) => <SearchBox  history={history} />} />
             <Nav className="ms-md-auto">
               {userInfo ? (
                 <NavDropdown title={userInfo.name} id="username">
