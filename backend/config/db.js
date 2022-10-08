@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const cloudinary = require('cloudinary').v2
 
 const connectDB = async () => {
   try {
@@ -13,4 +14,15 @@ const connectDB = async () => {
   }
 }
 
-module.exports = connectDB
+//cloudinary config details which will be used further to upload images
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+  secure: true,
+})
+
+module.exports = {
+  connectDB,
+  cloudinary,
+}

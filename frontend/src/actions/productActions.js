@@ -134,8 +134,8 @@ export const createProduct = (product) => async (dispatch, getState) => {
     })
   } catch (error) {
     const message =
-      error.response && error.response.data.message
-        ? error.response.data.message
+      error.response && error.response.data
+        ? error.response.data
         : error.message
     if (message === 'Not authorized, token failed') {
       dispatch(logout())
