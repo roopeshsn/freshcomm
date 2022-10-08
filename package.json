@@ -1,6 +1,6 @@
 {
   "name": "freshbey",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "An online grocery ecommerce store",
   "main": "server.js",
   "engines": {
