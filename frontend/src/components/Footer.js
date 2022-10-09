@@ -10,22 +10,22 @@ const Footer = () => {
             <ul className="list-unstyled d-flex li-separator justify-content-start align-items-start">
               <li className="d-flex pr-1">
                 <Nav.Link className="p-0" href="#" target="_blank">
-                  Returns Policy
+                  Returns
                 </Nav.Link>
               </li>
               <li className="d-flex px-1">
                 <Nav.Link className="p-0" href="#" target="_blank">
-                  Terms of Use
+                  Terms
                 </Nav.Link>
               </li>
               <li className="d-flex px-1">
                 <Nav.Link className="p-0" href="#" target="_blank">
-                  Privacy Policy
+                  Privacy
                 </Nav.Link>
               </li>
               <li>
                 <Nav.Link className="p-0" href="#" target="_blank">
-                  Help Center
+                  Help
                 </Nav.Link>
               </li>
             </ul>
