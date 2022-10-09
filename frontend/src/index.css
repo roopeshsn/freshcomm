@@ -44,11 +44,16 @@
   --bs-black-rgb: 0, 0, 0;
   --bs-body-color-rgb: 73, 80, 87;
   --bs-body-bg-rgb: 255, 255, 255;
-  --bs-font-sans-serif: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-  --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
-    monospace;
-  --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+  --bs-font-sans-serif: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol';
+  --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
+    'Liberation Mono', 'Courier New', monospace;
+  --bs-gradient: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.15),
+    rgba(255, 255, 255, 0)
+  );
   --bs-body-font-family: var(--bs-font-sans-serif);
   --bs-body-font-size: 1rem;
   --bs-body-font-weight: 400;
@@ -63,6 +68,10 @@ body {
 
 main {
   min-height: 80vh;
+}
+
+.small {
+  font-size: 0.825rem;
 }
 
 a {
@@ -166,8 +175,12 @@ h2 {
   font-family: 'League Spartan', sans-serif;
 }
 
+ul {
+  margin-bottom: 0.25rem;
+}
+
 .li-separator > li:not(:last-child)::after {
-  content: "|";
+  content: '|';
   margin-left: 0.25rem;
 }
 
