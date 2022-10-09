@@ -18,8 +18,7 @@ const addOrderItems = asyncHandler(async (req, res) => {
   // Product price validation
   orderItems.forEach(async (item) => {
     let lookupItem = await Product.findById(item.product)
-    if (parseFloat( item.price) !== lookupItem.price) {
-      
+    if (parseFloat(item.price) !== lookupItem.price) {
       res.status(400)
       throw new Error(
         'There is a discrepancy between the prices of the items, and whats in the Database, please try again!',
@@ -94,19 +93,23 @@ const updateOrderToPaid = asyncHandler(async (req, res) => {
 
   if (order) {
     //below .map() function return an array of promises
-    const updatePromises = order.orderItems.map(async (item)=> {
-      await productController.updateStockCount( req, res, item.product,parseInt( item.qty))
+    const updatePromises = order.orderItems.map(async (item) => {
+      await productController.updateStockCount(
+        req,
+        res,
+        item.product,
+        parseInt(item.qty),
+      )
     })
     //below function to resolve the array of promises
-    try{
-      await Promise.all( updatePromises)
-    }catch( error){
+    try {
+      await Promise.all(updatePromises)
+    } catch (error) {
       return res.status(404).json({
-        status:'fail',
-        message: error.message
+        status: 'fail',
+        message: error.message,
       })
     }
-    
 
     order.isPaid = true
     order.paidAt = Date.now()
