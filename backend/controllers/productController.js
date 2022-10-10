@@ -65,7 +65,6 @@ const createProduct = asyncHandler(async (req, res) => {
     category,
     countInStock,
   } = req.body
-  console.log(req.user)
   const product = new Product({
     name,
     price,
@@ -78,8 +77,19 @@ const createProduct = asyncHandler(async (req, res) => {
     description,
   })
 
-  const createdProduct = await product.save()
-  res.status(201).json(createdProduct)
+  try {
+    const createdProduct = await product.save()
+
+    res.status(201).json(createdProduct)
+  } catch (error) {
+    if (error.name === 'ValidationError') {
+      let errors = ''
+      Object.keys(error.errors).forEach((key) => {
+        errors += error.errors[key].message + '.\n'
+      })
+      res.status(500).json(errors)
+    }
+  }
 })
 
 // @desc    Update a product
@@ -117,10 +127,33 @@ const updateProduct = asyncHandler(async (req, res) => {
   }
 })
 
+const updateStockCount = asyncHandler(async (req, res, id, qty) => {
+  try {
+    var product = await Product.findById(id)
+  } catch (err) {
+    throw new Error(err.message)
+  }
+
+  if (product.countInStock < qty) {
+    throw new Error(
+      'We are really sorry. We have not ' +
+        qty +
+        ' amount of ' +
+        product.name +
+        ' currently on stock. Either you wait for stock to fullfilled or you can decrease your ordered quantity of ' +
+        product.name,
+    )
+  }
+  product.countInStock -= qty
+  const updatedProduct = await product.save()
+  return updateProduct
+})
+
 module.exports = {
   getProducts,
   getProductById,
   deleteProduct,
   createProduct,
   updateProduct,
+  updateStockCount,
 }

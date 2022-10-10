@@ -1,10 +1,24 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { Row, Col, ListGroup, Form, Button, Card } from 'react-bootstrap'
+import {
+  Row,
+  Col,
+  ListGroup,
+  Form,
+  Button,
+  Card,
+  ListGroupItem,
+} from 'react-bootstrap'
 import Message from '../components/Message'
 import { addToCart, removeFromCart } from '../actions/cartActions'
 import formatter from '../utils/currencyFormatter'
+import { TiTick } from 'react-icons/ti'
+import { AiFillInfoCircle } from 'react-icons/ai'
+import {
+  freeDeliveryCutoff,
+  deliveryCharge,
+} from '../constants/deliveryChargeConstants'
 
 const CartScreen = ({ match, location, history }) => {
   // const productId = match.params.id
@@ -15,6 +29,13 @@ const CartScreen = ({ match, location, history }) => {
 
   const cart = useSelector((state) => state.cart)
   const { cartItems } = cart
+
+  const cartItemsPrice = cartItems.reduce(
+    (acc, item) => acc + item.qty * item.price,
+    0,
+  )
+  const shippingPrice =
+    cartItemsPrice >= freeDeliveryCutoff ? 0 : deliveryCharge
 
   // useEffect(() => {
   //   if (productId) {
@@ -110,6 +131,34 @@ const CartScreen = ({ match, location, history }) => {
                 cartItems.reduce((acc, item) => acc + item.qty * item.price, 0),
               )}
             </ListGroup.Item>
+            {cartItems.length !== 0 && (
+              <>
+                <ListGroup.Item>
+                  <Row>
+                    <Col>Shipping</Col>
+                    <Col>{formatter(shippingPrice)}</Col>
+                  </Row>
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  {cartItemsPrice < freeDeliveryCutoff ? (
+                    <>
+                      <AiFillInfoCircle size="1.4rem" color="#f4bd61" />
+                      <p className="d-inline mx-2">
+                        Add {formatter(freeDeliveryCutoff - cartItemsPrice)} of
+                        eligible items to your order for FREE delivery.
+                      </p>
+                    </>
+                  ) : (
+                    <>
+                      <TiTick size="1.4rem" color="#34a853" />
+                      <p className="d-inline-block mx-2">
+                        You are eligible for free delivery!
+                      </p>
+                    </>
+                  )}
+                </ListGroup.Item>
+              </>
+            )}
             <ListGroup.Item>
               <Button
                 type="button"

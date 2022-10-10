@@ -6,6 +6,12 @@ import Message from '../components/Message'
 import CheckoutSteps from '../components/CheckoutSteps'
 import formatter from '../utils/currencyFormatter'
 import { createOrder } from '../actions/orderActions'
+import { TiTick } from 'react-icons/ti'
+import { AiFillInfoCircle } from 'react-icons/ai'
+import {
+  freeDeliveryCutoff,
+  deliveryCharge,
+} from '../constants/deliveryChargeConstants'
 // import { ORDER_CREATE_RESET } from '../constants/orderConstants'
 // import { USER_DETAILS_RESET } from '../constants/userConstants'
 
@@ -24,7 +30,9 @@ const PlaceOrderScreen = ({ history }) => {
     (acc, item) => acc + item.price * item.qty,
     0,
   )
-  const shippingPrice = cartItemsPrice > 3000 ? 0 : 50
+
+  const shippingPrice =
+    cartItemsPrice >= freeDeliveryCutoff ? 0 : deliveryCharge
   const totalPrice = cartItemsPrice + shippingPrice
   cart.itemsPrice = cartItemsPrice
   cart.shippingPrice = shippingPrice
@@ -141,6 +149,24 @@ const PlaceOrderScreen = ({ history }) => {
                   <Col>Total</Col>
                   <Col>{formatter(totalPrice)}</Col>
                 </Row>
+              </ListGroup.Item>
+              <ListGroup.Item>
+                {cartItemsPrice < freeDeliveryCutoff ? (
+                  <>
+                    <AiFillInfoCircle size="1.4rem" color="#f4bd61" />
+                    <p className="d-inline mx-2">
+                      Add {formatter(freeDeliveryCutoff - cartItemsPrice)} of
+                      eligible items to your order for FREE delivery.
+                    </p>
+                  </>
+                ) : (
+                  <>
+                    <TiTick size="1.4rem" color="#34a853" />
+                    <p className="d-inline-block mx-2">
+                      You are eligible for free delivery!
+                    </p>
+                  </>
+                )}
               </ListGroup.Item>
               {error && (
                 <ListGroup.Item>

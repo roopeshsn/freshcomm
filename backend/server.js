@@ -1,6 +1,7 @@
 const path = require('path')
 const express = require('express')
-const connectDB = require('./config/db')
+require('dotenv').config()
+const { connectDB } = require('./config/db')
 const productRoutes = require('./routes/productRoutes')
 const userRoutes = require('./routes/userRoutes')
 const orderRoutes = require('./routes/orderRoutes')
@@ -9,7 +10,6 @@ const categoryRoutes = require('./routes/categoryRoutes')
 const carouselRoutes = require('./routes/carouselRoutes')
 const { notFound, errorHandler } = require('./middleware/errorMiddleware')
 const compression = require('compression')
-require('dotenv').config()
 
 const app = express()
 const PORT = process.env.PORT || 5000
@@ -24,7 +24,7 @@ app.use('/api/categories', categoryRoutes)
 app.use('/api/products', productRoutes)
 app.use('/api/users', userRoutes)
 app.use('/api/orders', orderRoutes)
-app.use('/api/update', uploadRoutes)
+app.use('/api/upload', uploadRoutes)
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../frontend/build')))

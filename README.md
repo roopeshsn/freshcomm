@@ -1,10 +1,8 @@
 # Freshbey
 
-## An online grocery store - `E-commerce template`
+An open-source and self-hostable ecommerce application with a focus on developer productivity and ease of customization.
 
-![freshbey_social_preview_page-0001](https://user-images.githubusercontent.com/70762571/193757464-b8984e3d-01c2-4ab4-846a-d15aa592bc44.jpg)
-
-### Here's the homepage of [Freshbey](https://freshbey.herokuapp.com/) ✨
+### Here's the homepage of [Freshbey](https://freshbey.herokuapp.com/) ✨ to showcase the working of the application.
 
 ![homepage-freshbey](https://user-images.githubusercontent.com/70762571/167148307-718dabc9-057d-4296-853a-6da097d800d4.png)
 
@@ -22,7 +20,7 @@ I am a huge enthusiast of open source. Contributing to open source is a fantasti
 
 ## General Idea
 
-Freshbey is an e-commerce platform where users can order grocery items. I built this project originally for a client but they did not pay the agreed amount. After that, I made this project open source.
+Freshbey is an open-source and self-hostable ecommerce application with a focus on developer productivity and ease of customization.
 
 ## Current State
 
@@ -74,6 +72,9 @@ EMAIL_USERNAME =
 EMAIL_PASSWORD =
 EMAIL_HOST =
 EMAIL_PORT =
+CLOUDINARY_CLOUD_NAME =
+CLOUDINARY_API_KEY = 
+CLOUDINARY_API_SECRET = 
 ```
 
 ### Add data in .env file
@@ -109,6 +110,9 @@ var transport = nodemailer.createTransport({
   }
 });
 ```
+  
+#### CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET
+Product images are hosted in Cloudinary. Create an account in Cloudinary and add appopriate credentials in `.env` file.
 
 ### Install Dependencies (frontend & backend)
 
@@ -146,7 +150,7 @@ To test, type `localhost:PORT/` in your browser and following output should appe
 
 ## Image Service
 
-The Images for product, slide, category are manually hosted in [ImgBB](https://imgbb.com/)
+The Images for product, slide, category are manually hosted in [Cloudinary](https://cloudinary.com/)
 
 ## Build & Deploy
 
