@@ -29,11 +29,11 @@ const Header = () => {
             <Navbar.Brand id="logo-text">Freshbey</Navbar.Brand>
           </LinkContainer>
           <Nav className="nav-right">
-            <Nav.Link href="#" target="_blank">
+            <Nav.Link>
               <BsWhatsapp size="1.5em" />
             </Nav.Link>
 
-            <Nav.Link href="#">
+            <Nav.Link>
               <FiPhoneCall size="1.5em" />
             </Nav.Link>
 
