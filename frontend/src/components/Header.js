@@ -8,6 +8,7 @@ import { FiPhoneCall, FiUser } from 'react-icons/fi'
 import { FaCircle } from 'react-icons/fa'
 import SearchBox from './SearchBox'
 import { Route } from 'react-router'
+import { useLocation } from 'react-router'
 
 const Header = () => {
   const dispatch = useDispatch()
@@ -18,6 +19,8 @@ const Header = () => {
   const logoutHandler = () => {
     dispatch(logout())
   }
+  const location = useLocation()
+
   return (
     <header>
       <Navbar bg="light" variant="light" expand="lg" collapseOnSelect>
@@ -37,11 +40,7 @@ const Header = () => {
             <LinkContainer to="/cart">
               <Nav.Link data-rb-event-key="cart">
                 <BsCart size="1.5em" />
-                {cartItems.length > 0 ? (
-                  <FaCircle className="cart-circle" />
-                ) : (
-                  ''
-                )}
+                {cartItems.length > 0 && <FaCircle className="cart-circle" />}
               </Nav.Link>
             </LinkContainer>
           </Nav>
@@ -87,7 +86,15 @@ const Header = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <Route render={({ history }) => <SearchBox history={history} />} />
+
+      {location.pathname === '/login' ||
+      location.pathname === '/register' ||
+      location.pathname === '/forgotpassword' ||
+      location.pathname === '/forgotpassword/:email' ? (
+        ''
+      ) : (
+        <Route render={({ history }) => <SearchBox history={history} />} />
+      )}
     </header>
   )
 }
