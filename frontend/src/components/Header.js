@@ -19,7 +19,7 @@ const Header = () => {
   const logoutHandler = () => {
     dispatch(logout())
   }
-  const location = useLocation();
+  const location = useLocation()
 
   return (
     <header>
@@ -86,8 +86,15 @@ const Header = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      
-      {(location.pathname === '/login' || location.pathname === '/register' || location.pathname === '/forgotpassword' || location.pathname === '/forgotpassword/:email') ? '' : <Route render={({ history }) => <SearchBox history={history} />} />}
+
+      {location.pathname === '/login' ||
+      location.pathname === '/register' ||
+      location.pathname === '/forgotpassword' ||
+      location.pathname === '/forgotpassword/:email' ? (
+        ''
+      ) : (
+        <Route render={({ history }) => <SearchBox history={history} />} />
+      )}
     </header>
   )
 }
