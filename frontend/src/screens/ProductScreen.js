@@ -37,7 +37,7 @@ const ProductScreen = ({ match, history }) => {
 
   const addToCartHandler = () => {
     // history.push(`/cart/${match.params.id}?qty=${qty}`)
-    dispatch(addToCart(product._id, qty))
+    dispatch(addToCart(product._id, parseInt(qty)))
     history.push('/cart')
   }
 
@@ -123,7 +123,7 @@ const ProductScreen = ({ match, history }) => {
                         <Form.Control
                           as="select"
                           value={qty}
-                          onChange={(e) => setQty(e.target.value)}
+                          onChange={(e) => setQty(+e.target.value)}
                         >
                           {[...Array(product.countInStock).keys()].map((x) => (
                             <option key={x + 1} value={x + 1}>
