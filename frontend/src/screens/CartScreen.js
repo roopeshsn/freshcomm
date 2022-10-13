@@ -23,7 +23,7 @@ const CartScreen = ({ match, location, history }) => {
   const { cartItems } = cart
 
   const cartItemsPrice = cartItems.reduce(
-    (acc, item) => acc + +item.qty * +item.price,
+    (acc, item) => acc + parseInt(item.qty) * parseInt(item.price),
     0,
   )
   const shippingPrice =
