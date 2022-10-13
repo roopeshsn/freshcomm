@@ -79,7 +79,7 @@ const CartScreen = ({ match, location, history }) => {
                       <Form.Control
                         as="select"
                         size="sm"
-                        value={+item.qty}
+                        value={parseInt(item.qty)}
                         onChange={(e) =>
                           dispatch(
                             addToCart(item.product, Number(e.target.value)),
@@ -116,7 +116,8 @@ const CartScreen = ({ match, location, history }) => {
           <ListGroup variant="flush">
             <ListGroup.Item>
               <h5>
-                Subtotal ({cartItems.reduce((acc, item) => acc + +item.qty, 0)})
+                Subtotal (
+                {cartItems.reduce((acc, item) => acc + parseInt(item.qty), 0)})
                 items
               </h5>
               {formatter(
