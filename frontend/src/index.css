@@ -183,17 +183,21 @@ ul {
   content: '|';
   margin-left: 0.25rem;
 }
+#adminmenu {
+  padding-right: 0;
+}
+#username {
+  padding-right: 0;
+}
 
 @media only screen and (min-width: 768px) and (max-width: 1200px) {
   .product-page-section {
     min-width: 350px;
   }
-
   .product-page-section:nth-child(3) {
     margin: 20px 0 0 50%;
   }
 }
-
 @media (max-width: 900px) {
   .carousel-caption h2 {
     font-size: 2.5vw;

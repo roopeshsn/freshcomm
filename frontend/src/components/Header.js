@@ -58,7 +58,11 @@ const Header = () => {
             )}
             <Nav className="ms-md-2 ms-md-auto">
               {userInfo ? (
-                <NavDropdown title={userInfo.name} id="username">
+                <NavDropdown
+                  title={userInfo.name}
+                  id="username"
+                  className="me-0"
+                >
                   <LinkContainer to="/profile">
                     <NavDropdown.Item>Profile</NavDropdown.Item>
                   </LinkContainer>
@@ -68,13 +72,13 @@ const Header = () => {
                 </NavDropdown>
               ) : (
                 <LinkContainer to="/login">
-                  <Nav.Link>
+                  <Nav.Link className="pe-0">
                     <FiUser size="1.5em" /> Login / Sign Up
                   </Nav.Link>
                 </LinkContainer>
               )}
               {userInfo && userInfo.isAdmin && (
-                <NavDropdown title="Admin" id="adminmenu">
+                <NavDropdown title="Admin" id="adminmenu" className="me-0">
                   <LinkContainer to="/admin/users">
                     <NavDropdown.Item>Users</NavDropdown.Item>
                   </LinkContainer>
