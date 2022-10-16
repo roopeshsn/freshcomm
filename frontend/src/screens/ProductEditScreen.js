@@ -12,6 +12,8 @@ import {
   PRODUCT_UPDATE_RESET,
   PRODUCT_UPDATE_FAIL,
 } from '../constants/productConstants'
+import { listCategories } from '../actions/categoryActions'
+import Capitalizer from '../utils/capitalizeFirstLetter'
 
 const ProductEditScreen = ({ match, history }) => {
   const productId = match.params.id
@@ -31,12 +33,19 @@ const ProductEditScreen = ({ match, history }) => {
   const productDetails = useSelector((state) => state.productDetails)
   const { loading, error, product } = productDetails
 
+  const categoryList = useSelector((state) => state.categoryList)
+  const { categories } = categoryList
+
   const productUpdate = useSelector((state) => state.productUpdate)
   const {
     loading: loadingUpdate,
     error: errorUpdate,
     success: successUpdate,
   } = productUpdate
+
+  useEffect(() => {
+    dispatch(listCategories())
+  }, [dispatch])
 
   useEffect(() => {
     if (successUpdate) {
@@ -207,11 +216,11 @@ const ProductEditScreen = ({ match, history }) => {
               }}
             >
               <option>--Select One--</option>
-              <option value="vegetables">Vegetables</option>
-              <option value="exotic">Exotic</option>
-              <option value="seasonal">Seasonal</option>
-              <option value="fruits">Fruits</option>
-              <option value="sprouts">Sprouts</option>
+              {
+                categories && categories.map((category)=>{
+                  return <option key={category._id} value={category.name}>{Capitalizer(category.name)}</option>
+                })
+              }
             </Form.Control>
           </Form.Group>
 

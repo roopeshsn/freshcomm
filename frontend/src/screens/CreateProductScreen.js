@@ -8,6 +8,8 @@ import Loader from '../components/Loader'
 import FormContainer from '../components/FormContainer'
 import { PRODUCT_CREATE_FAIL } from '../constants/productConstants'
 import { createProduct } from '../actions/productActions'
+import { listCategories } from '../actions/categoryActions'
+import Capitalizer from '../utils/capitalizeFirstLetter'
 
 const CreateProductScreen = ({ history }) => {
   const [name, setName] = useState('')
@@ -24,7 +26,9 @@ const CreateProductScreen = ({ history }) => {
   const dispatch = useDispatch()
 
   const productCreate = useSelector((state) => state.productCreate)
+  const categoryList = useSelector((state) => state.categoryList)
   const { loading, error, success } = productCreate
+  const { categories } = categoryList
 
   // useEffect(() => {
   //   if (!product.name || product._id !== productId) {
@@ -39,6 +43,10 @@ const CreateProductScreen = ({ history }) => {
   //     setDescription(product.description)
   //   }
   // }, [dispatch, history])
+
+  useEffect(() => {
+    dispatch(listCategories())
+  }, [dispatch])
 
   useEffect(() => {
     if (success) {
@@ -189,11 +197,11 @@ const CreateProductScreen = ({ history }) => {
             }}
           >
             <option>--Select One--</option>
-            <option value="vegetables">Vegetables</option>
-            <option value="exotic">Exotic</option>
-            <option value="seasonal">Seasonal</option>
-            <option value="fruits">Fruits</option>
-            <option value="sprouts">Sprouts</option>
+            {
+              categories && categories.map((category)=>{
+                return <option key={category._id} value={category.name}>{Capitalizer(category.name)}</option>
+              })
+            }
           </Form.Control>
         </Form.Group>
 
