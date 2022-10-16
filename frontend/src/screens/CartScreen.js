@@ -1,15 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import {
-  Row,
-  Col,
-  ListGroup,
-  Form,
-  Button,
-  Card,
-  ListGroupItem,
-} from 'react-bootstrap'
+import { Row, Col, ListGroup, Form, Button, Card } from 'react-bootstrap'
 import Message from '../components/Message'
 import { addToCart, removeFromCart } from '../actions/cartActions'
 import formatter from '../utils/currencyFormatter'
@@ -31,7 +23,7 @@ const CartScreen = ({ match, location, history }) => {
   const { cartItems } = cart
 
   const cartItemsPrice = cartItems.reduce(
-    (acc, item) => acc + item.qty * item.price,
+    (acc, item) => acc + parseInt(item.qty) * parseInt(item.price),
     0,
   )
   const shippingPrice =
@@ -87,7 +79,7 @@ const CartScreen = ({ match, location, history }) => {
                       <Form.Control
                         as="select"
                         size="sm"
-                        value={item.qty}
+                        value={parseInt(item.qty)}
                         onChange={(e) =>
                           dispatch(
                             addToCart(item.product, Number(e.target.value)),
@@ -124,7 +116,8 @@ const CartScreen = ({ match, location, history }) => {
           <ListGroup variant="flush">
             <ListGroup.Item>
               <h5>
-                Subtotal ({cartItems.reduce((acc, item) => acc + item.qty, 0)})
+                Subtotal (
+                {cartItems.reduce((acc, item) => acc + parseInt(item.qty), 0)})
                 items
               </h5>
               {formatter(
