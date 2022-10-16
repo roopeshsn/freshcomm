@@ -31,16 +31,19 @@ const productSchema = mongoose.Schema(
       type: Number,
       required: [true, 'Please Enter Price of Product'],
       default: 0,
+      min: [0, 'Price should be greater than or equal to 0'],
     },
     mrp: {
       type: Number,
       required: [true, 'Please Enter MRP of the Product'],
       default: 0,
+      min: [0, 'MRP should be greater than or equal to 0'],
     },
     countInStock: {
       type: Number,
       required: [true, 'Please Enter Stock of the Product'],
       default: 0,
+      min: [0, 'Count In Stock value should be greater than or equal to 0'],
     },
   },
   {
