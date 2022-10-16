@@ -196,7 +196,7 @@ const CreateProductScreen = ({ history }) => {
               setCategory(e.target.value);
             }}
           >
-            <option>--Select One--</option>
+            <option value="">--Select One--</option>
             {
               categories && categories.map((category)=>{
                 return <option key={category._id} value={category.name}>{Capitalizer(category.name)}</option>
