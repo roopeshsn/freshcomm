@@ -20,6 +20,7 @@ const CreateProductScreen = ({ history }) => {
   const [description, setDescription] = useState('')
   const [uploading, setUploading] = useState(false)
 
+
   const dispatch = useDispatch()
 
   const productCreate = useSelector((state) => state.productCreate)
@@ -177,15 +178,24 @@ const CreateProductScreen = ({ history }) => {
             ></Form.Control>
           </Form.Group>
 
-          <Form.Group className="my-3" controlId="category">
-            <Form.Label>Category</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Enter Category"
-              value={category}
-              onChange={(e) => setCategory(e.target.value)}
-            ></Form.Control>
-          </Form.Group>
+        <Form.Group controlId="Category">
+          <Form.Label>Category</Form.Label>
+          <Form.Control 
+            className='form-select'
+            as="select"
+            value={category}
+            onChange={e => {
+              setCategory(e.target.value);
+            }}
+          >
+            <option>--Select One--</option>
+            <option value="vegetables">Vegetables</option>
+            <option value="exotic">Exotic</option>
+            <option value="seasonal">Seasonal</option>
+            <option value="fruits">Fruits</option>
+            <option value="sprouts">Sprouts</option>
+          </Form.Control>
+        </Form.Group>
 
           <Form.Group controlId="description">
             <Form.Label>Description</Form.Label>
@@ -200,7 +210,7 @@ const CreateProductScreen = ({ history }) => {
           </Form.Group>
 
           <Button className="my-3" type="submit" variant="primary">
-            Update
+            Create
           </Button>
           <Link to="/admin/productlist" className="btn btn-light my-3 ms-3">
             Go Back

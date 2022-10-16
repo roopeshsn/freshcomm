@@ -196,15 +196,24 @@ const ProductEditScreen = ({ match, history }) => {
               ></Form.Control>
             </Form.Group>
 
-            <Form.Group className="my-3" controlId="category">
-              <Form.Label>Category</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Enter Category"
-                value={category}
-                onChange={(e) => setCategory(e.target.value)}
-              ></Form.Control>
-            </Form.Group>
+          <Form.Group controlId="Category">
+            <Form.Label>Category</Form.Label>
+            <Form.Control 
+              className='form-select'
+              as="select"
+              value={category}
+              onChange={e => {
+                setCategory(e.target.value);
+              }}
+            >
+              <option>--Select One--</option>
+              <option value="vegetables">Vegetables</option>
+              <option value="exotic">Exotic</option>
+              <option value="seasonal">Seasonal</option>
+              <option value="fruits">Fruits</option>
+              <option value="sprouts">Sprouts</option>
+            </Form.Control>
+          </Form.Group>
 
             <Form.Group controlId="description">
               <Form.Label>Description</Form.Label>
