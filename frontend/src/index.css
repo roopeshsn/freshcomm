@@ -115,6 +115,11 @@ a:hover {
   border-color: var(--bs-green);
 }
 
+.form-control:focus {
+  border-color: var(--bs-green);
+  box-shadow: 0 0 0 0.2rem rgba(52, 168, 83, 0.25);
+}
+
 .btn-check:focus + .btn-primary,
 .btn-primary:focus {
   color: var(--bs-secondary);
