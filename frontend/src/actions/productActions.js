@@ -24,11 +24,13 @@ import {
 import { logout } from './userActions'
 
 export const listProducts =
-  (keyword = '') =>
+  (keyword = '', sortby) =>
   async (dispatch) => {
     try {
       dispatch({ type: PRODUCT_LIST_REQUEST })
-      const { data } = await axios.get(`/api/products?keyword=${keyword}`)
+      const { data } = await axios.get(`/api/products`, {
+        params: { sortby, keyword },
+      })
       dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data })
     } catch (error) {
       dispatch({
@@ -41,21 +43,26 @@ export const listProducts =
     }
   }
 
-export const listProductsByCategory = (category) => async (dispatch) => {
-  try {
-    dispatch({ type: PRODUCT_LIST_BY_CATEGORY_REQUEST })
-    const { data } = await axios.get(`/api/categories/${category}`)
-    dispatch({ type: PRODUCT_LIST_BY_CATEGORY_SUCCESS, payload: data })
-  } catch (error) {
-    dispatch({
-      type: PRODUCT_LIST_BY_CATEGORY_FAIL,
-      payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message,
-    })
+export const listProductsByCategory =
+  (category, sortby) => async (dispatch) => {
+    try {
+      dispatch({ type: PRODUCT_LIST_BY_CATEGORY_REQUEST })
+      const { data } = await axios.get(`/api/categories/${category}`, {
+        params: {
+          sortby,
+        },
+      })
+      dispatch({ type: PRODUCT_LIST_BY_CATEGORY_SUCCESS, payload: data })
+    } catch (error) {
+      dispatch({
+        type: PRODUCT_LIST_BY_CATEGORY_FAIL,
+        payload:
+          error.response && error.response.data.message
+            ? error.response.data.message
+            : error.message,
+      })
+    }
   }
-}
 
 export const listProductDetails = (id) => async (dispatch) => {
   try {

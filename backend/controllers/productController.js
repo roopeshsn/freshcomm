@@ -5,6 +5,7 @@ const Product = require('../models/productModel')
 // @route  GET /api/products
 // @access  Public
 const getProducts = asyncHandler(async (req, res) => {
+  var sort_type, products
   const keyword = req.query.keyword
     ? {
         name: {
@@ -13,8 +14,20 @@ const getProducts = asyncHandler(async (req, res) => {
         },
       }
     : {}
+  if (req.query.sortby == '0') {
+    sort_type = 'asc'
+  } else if (req.query.sortby == '1') {
+    sort_type = 'desc'
+  } else {
+    products = await Product.find({ ...keyword })
+  }
 
-  const products = await Product.find({ ...keyword })
+  if (sort_type == 'asc' || sort_type == 'desc') {
+    products = await Product.find({ ...keyword }).sort({ price: sort_type })
+  } else if (sort_type) {
+    res.status(404)
+    throw new Error('Wrong sortby filter')
+  }
   if (products) {
     res.json(products)
   } else {

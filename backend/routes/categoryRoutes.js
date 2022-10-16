@@ -23,9 +23,26 @@ router.get(
 router.get(
   '/:category',
   asyncHandler(async (req, res) => {
-    const categorywiseProducts = await Product.find({
-      category: req.params.category,
-    })
+    var sort_type, categorywiseProducts
+    if (req.query.sortby == '0') {
+      sort_type = 'asc'
+    } else if (req.query.sortby == '1') {
+      sort_type = 'desc'
+    } else {
+      categorywiseProducts = await Product.find({
+        category: req.params.category,
+      })
+    }
+
+    if (sort_type == 'asc' || sort_type == 'desc') {
+      categorywiseProducts = await Product.find({
+        category: req.params.category,
+      }).sort({ price: sort_type })
+    } else if (sort_type) {
+      res.status(404)
+      throw new Error('Wrong sortby filter')
+    }
+
     // const categorywiseProducts = products.filter((p) => p.category === req.params.category)
     if (categorywiseProducts) {
       res.json(categorywiseProducts)

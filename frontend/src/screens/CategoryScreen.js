@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Col, Row } from 'react-bootstrap'
+import Form from 'react-bootstrap/Form'
 import { useDispatch, useSelector } from 'react-redux'
 import Product from '../components/Product'
 import { listProductsByCategory } from '../actions/productActions'
@@ -9,13 +10,34 @@ import Message from '../components/Message'
 const CategoryScreen = ({ match, history }) => {
   const dispatch = useDispatch()
   const productList = useSelector((state) => state.productListByCategory)
+  const [sortBy, setSortBy] = useState()
   const { loading, error, products } = productList
   useEffect(() => {
-    dispatch(listProductsByCategory(match.params.category))
-  }, [dispatch, match])
+    dispatch(listProductsByCategory(match.params.category, sortBy))
+  }, [dispatch, match, sortBy])
   return (
     <>
-      <h1>Latest Stocks on demand</h1>
+      <Row>
+        <Col>
+          <h1 className="my-auto">Latest Stocks on demand</h1>
+        </Col>
+        <Col xs={5} md={3} className="my-auto">
+          <Form.Group>
+            <Form.Control
+              as="select"
+              value={sortBy}
+              onChange={(e) => {
+                setSortBy(e.target.value)
+              }}
+            >
+              <option>Sort By: None</option>
+              <option value="0">Sort By: Low To High</option>
+              <option value="1">Sort By: High To Low</option>
+            </Form.Control>
+          </Form.Group>
+        </Col>
+      </Row>
+
       {loading ? (
         <Loader />
       ) : error ? (
