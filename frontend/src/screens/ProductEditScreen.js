@@ -205,23 +205,26 @@ const ProductEditScreen = ({ match, history }) => {
               ></Form.Control>
             </Form.Group>
 
-          <Form.Group controlId="Category">
-            <Form.Label>Category</Form.Label>
-            <Form.Control 
-              className='form-select'
-              as="select"
-              value={category}
-              onChange={e => {
-                setCategory(e.target.value);
-              }}
-            >
-              {
-                categories && categories.map((category)=>{
-                  return <option key={category._id} value={category.name}>{Capitalizer(category.name)}</option>
-                })
-              }
-            </Form.Control>
-          </Form.Group>
+            <Form.Group controlId="Category">
+              <Form.Label>Category</Form.Label>
+              <Form.Control
+                className="form-select"
+                as="select"
+                value={category}
+                onChange={(e) => {
+                  setCategory(e.target.value)
+                }}
+              >
+                {categories &&
+                  categories.map((category) => {
+                    return (
+                      <option key={category._id} value={category.name}>
+                        {Capitalizer(category.name)}
+                      </option>
+                    )
+                  })}
+              </Form.Control>
+            </Form.Group>
 
             <Form.Group controlId="description">
               <Form.Label>Description</Form.Label>

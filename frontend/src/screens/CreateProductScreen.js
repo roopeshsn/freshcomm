@@ -22,7 +22,6 @@ const CreateProductScreen = ({ history }) => {
   const [description, setDescription] = useState('')
   const [uploading, setUploading] = useState(false)
 
-
   const dispatch = useDispatch()
 
   const productCreate = useSelector((state) => state.productCreate)
@@ -186,24 +185,27 @@ const CreateProductScreen = ({ history }) => {
             ></Form.Control>
           </Form.Group>
 
-        <Form.Group controlId="Category">
-          <Form.Label>Category</Form.Label>
-          <Form.Control 
-            className='form-select'
-            as="select"
-            value={category}
-            onChange={e => {
-              setCategory(e.target.value);
-            }}
-          >
-            <option value="">--Select One--</option>
-            {
-              categories && categories.map((category)=>{
-                return <option key={category._id} value={category.name}>{Capitalizer(category.name)}</option>
-              })
-            }
-          </Form.Control>
-        </Form.Group>
+          <Form.Group controlId="Category">
+            <Form.Label>Category</Form.Label>
+            <Form.Control
+              className="form-select"
+              as="select"
+              value={category}
+              onChange={(e) => {
+                setCategory(e.target.value)
+              }}
+            >
+              <option value="">--Select One--</option>
+              {categories &&
+                categories.map((category) => {
+                  return (
+                    <option key={category._id} value={category.name}>
+                      {Capitalizer(category.name)}
+                    </option>
+                  )
+                })}
+            </Form.Control>
+          </Form.Group>
 
           <Form.Group controlId="description">
             <Form.Label>Description</Form.Label>
