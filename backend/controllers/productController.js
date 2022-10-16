@@ -117,11 +117,10 @@ const updateProduct = asyncHandler(async (req, res) => {
     product.imageAlt = imageAlt
     product.category = category
     product.countInStock = countInStock
-    try{
-      const updatedProduct = await product.save();
+    try {
+      const updatedProduct = await product.save()
       res.json(updatedProduct)
-    }
-    catch(error){
+    } catch (error) {
       if (error.name === 'ValidationError') {
         let errors = ''
         Object.keys(error.errors).forEach((key) => {
