@@ -12,6 +12,8 @@ import {
   PRODUCT_UPDATE_RESET,
   PRODUCT_UPDATE_FAIL,
 } from '../constants/productConstants'
+import { listCategories } from '../actions/categoryActions'
+import Capitalizer from '../utils/capitalizeFirstLetter'
 
 const ProductEditScreen = ({ match, history }) => {
   const productId = match.params.id
@@ -31,12 +33,19 @@ const ProductEditScreen = ({ match, history }) => {
   const productDetails = useSelector((state) => state.productDetails)
   const { loading, error, product } = productDetails
 
+  const categoryList = useSelector((state) => state.categoryList)
+  const { categories } = categoryList
+
   const productUpdate = useSelector((state) => state.productUpdate)
   const {
     loading: loadingUpdate,
     error: errorUpdate,
     success: successUpdate,
   } = productUpdate
+
+  useEffect(() => {
+    dispatch(listCategories())
+  }, [dispatch])
 
   useEffect(() => {
     if (successUpdate) {
@@ -196,14 +205,25 @@ const ProductEditScreen = ({ match, history }) => {
               ></Form.Control>
             </Form.Group>
 
-            <Form.Group className="my-3" controlId="category">
+            <Form.Group controlId="Category">
               <Form.Label>Category</Form.Label>
               <Form.Control
-                type="text"
-                placeholder="Enter Category"
+                className="form-select"
+                as="select"
                 value={category}
-                onChange={(e) => setCategory(e.target.value)}
-              ></Form.Control>
+                onChange={(e) => {
+                  setCategory(e.target.value)
+                }}
+              >
+                {categories &&
+                  categories.map((category) => {
+                    return (
+                      <option key={category._id} value={category.name}>
+                        {Capitalizer(category.name)}
+                      </option>
+                    )
+                  })}
+              </Form.Control>
             </Form.Group>
 
             <Form.Group controlId="description">

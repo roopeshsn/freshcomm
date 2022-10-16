@@ -59,8 +59,14 @@ function App() {
             <Route path="/admin/users" component={UsersListScreen} />
             <Route path="/admin/user/:id" component={UserEditScreen} />
             <Route path="/admin/productlist" component={ProductListScreen} />
-            <Route path="/admin/createproduct" component={CreateProductScreen} />
-            <Route path="/admin/product/:id/edit" component={ProductEditScreen} />
+            <Route
+              path="/admin/createproduct"
+              component={CreateProductScreen}
+            />
+            <Route
+              path="/admin/product/:id/edit"
+              component={ProductEditScreen}
+            />
             <Route path="/admin/orderlist" component={OrderListScreen} />
             <Route path="/admin/carousellist" component={CarouselListScreen} />
             <Route

@@ -8,6 +8,8 @@ import Loader from '../components/Loader'
 import FormContainer from '../components/FormContainer'
 import { PRODUCT_CREATE_FAIL } from '../constants/productConstants'
 import { createProduct } from '../actions/productActions'
+import { listCategories } from '../actions/categoryActions'
+import Capitalizer from '../utils/capitalizeFirstLetter'
 
 const CreateProductScreen = ({ history }) => {
   const [name, setName] = useState('')
@@ -23,7 +25,9 @@ const CreateProductScreen = ({ history }) => {
   const dispatch = useDispatch()
 
   const productCreate = useSelector((state) => state.productCreate)
+  const categoryList = useSelector((state) => state.categoryList)
   const { loading, error, success } = productCreate
+  const { categories } = categoryList
 
   // useEffect(() => {
   //   if (!product.name || product._id !== productId) {
@@ -38,6 +42,10 @@ const CreateProductScreen = ({ history }) => {
   //     setDescription(product.description)
   //   }
   // }, [dispatch, history])
+
+  useEffect(() => {
+    dispatch(listCategories())
+  }, [dispatch])
 
   useEffect(() => {
     if (success) {
@@ -177,14 +185,26 @@ const CreateProductScreen = ({ history }) => {
             ></Form.Control>
           </Form.Group>
 
-          <Form.Group className="my-3" controlId="category">
+          <Form.Group controlId="Category">
             <Form.Label>Category</Form.Label>
             <Form.Control
-              type="text"
-              placeholder="Enter Category"
+              className="form-select"
+              as="select"
               value={category}
-              onChange={(e) => setCategory(e.target.value)}
-            ></Form.Control>
+              onChange={(e) => {
+                setCategory(e.target.value)
+              }}
+            >
+              <option value="">--Select One--</option>
+              {categories &&
+                categories.map((category) => {
+                  return (
+                    <option key={category._id} value={category.name}>
+                      {Capitalizer(category.name)}
+                    </option>
+                  )
+                })}
+            </Form.Control>
           </Form.Group>
 
           <Form.Group controlId="description">
@@ -200,7 +220,7 @@ const CreateProductScreen = ({ history }) => {
           </Form.Group>
 
           <Button className="my-3" type="submit" variant="primary">
-            Update
+            Create
           </Button>
           <Link to="/admin/productlist" className="btn btn-light my-3 ms-3">
             Go Back
