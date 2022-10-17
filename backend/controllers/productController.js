@@ -79,7 +79,6 @@ const createProduct = asyncHandler(async (req, res) => {
 
   try {
     const createdProduct = await product.save()
-
     res.status(201).json(createdProduct)
   } catch (error) {
     if (error.name === 'ValidationError') {
@@ -118,9 +117,18 @@ const updateProduct = asyncHandler(async (req, res) => {
     product.imageAlt = imageAlt
     product.category = category
     product.countInStock = countInStock
-
-    const updatedProduct = await product.save()
-    res.json(updatedProduct)
+    try {
+      const updatedProduct = await product.save()
+      res.json(updatedProduct)
+    } catch (error) {
+      if (error.name === 'ValidationError') {
+        let errors = ''
+        Object.keys(error.errors).forEach((key) => {
+          errors += error.errors[key].message + '.\n'
+        })
+        res.status(500).json(errors)
+      }
+    }
   } else {
     res.status(404)
     throw new Error('Product not found')
