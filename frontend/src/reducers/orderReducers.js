@@ -57,6 +57,8 @@ export const orderDetailsReducer = (
         loading: true,
       }
     case ORDER_DETAILS_SUCCESS:
+    case ORDER_PAY_SUCCESS:
+    case ORDER_DELIVER_SUCCESS:
       return {
         loading: false,
         order: action.payload,
