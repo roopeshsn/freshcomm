@@ -26,7 +26,8 @@ import SearchScreen from './screens/SearchScreen'
 import CarouselListScreen from './screens/CarouselListScreen'
 import CarouselEditScreen from './screens/CarouselEditScreen'
 import CreateCarouselScreen from './screens/CreateCarouselScreen'
-import { CategoryListScreen } from './screens/CategoryListScreen'
+import CategoryListScreen  from './screens/CategoryListScreen'
+import CreateCategoryScreen from './screens/CreateCategoryScreen'
 import Error404Screen from './screens/Error404Screen'
 
 function App() {
@@ -78,6 +79,10 @@ function App() {
               component={CarouselEditScreen}
             />
             <Route path="/admin/categorylist" component={CategoryListScreen} />
+            <Route
+              path="/admin/createcategory"
+              component={CreateCategoryScreen}
+            />
             <Route path="*" component={Error404Screen} />
           </Switch>
         </Container>
