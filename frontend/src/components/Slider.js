@@ -22,7 +22,7 @@ const Slider = () => {
         <Carousel
           pause="hover"
           className="bg-light carousel-dark"
-          variant="dark"
+          variant="light"
           touch
           indicators
           controls
