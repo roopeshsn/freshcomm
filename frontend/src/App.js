@@ -28,6 +28,10 @@ import CarouselEditScreen from './screens/CarouselEditScreen'
 import CreateCarouselScreen from './screens/CreateCarouselScreen'
 import { CategoryListScreen } from './screens/CategoryListScreen'
 import Error404Screen from './screens/Error404Screen'
+import Terms from './pages/Terms'
+import Returns from './pages/Returns'
+import Privacy from './pages/Privacy'
+import Help from './pages/Help'
 
 function App() {
   return (
@@ -78,6 +82,10 @@ function App() {
               component={CarouselEditScreen}
             />
             <Route path="/admin/categorylist" component={CategoryListScreen} />
+            <Route path="/terms" component={Terms} />
+            <Route path="/returns" component={Returns} />
+            <Route path="/privacy" component={Privacy} />
+            <Route path="/help" component={Help} />
             <Route path="*" component={Error404Screen} />
           </Switch>
         </Container>
