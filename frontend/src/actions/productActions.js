@@ -79,17 +79,7 @@ export const deleteProduct = (id) => async (dispatch, getState) => {
       type: PRODUCT_DELETE_REQUEST,
     })
 
-    const {
-      userLogin: { userInfo },
-    } = getState()
-
-    const config = {
-      headers: {
-        Authorization: `Bearer ${userInfo.token}`,
-      },
-    }
-
-    await axios.delete(`/api/products/${id}`, config)
+    await axios.delete(`/api/products/${id}`)
 
     dispatch({
       type: PRODUCT_DELETE_SUCCESS,
@@ -115,14 +105,9 @@ export const createProduct = (product) => async (dispatch, getState) => {
       type: PRODUCT_CREATE_REQUEST,
     })
 
-    const {
-      userLogin: { userInfo },
-    } = getState()
-
     const config = {
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${userInfo.token}`,
       },
     }
 
@@ -153,14 +138,9 @@ export const updateProduct = (product) => async (dispatch, getState) => {
       type: PRODUCT_UPDATE_REQUEST,
     })
 
-    const {
-      userLogin: { userInfo },
-    } = getState()
-
     const config = {
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${userInfo.token}`,
       },
     }
 

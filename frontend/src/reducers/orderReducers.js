@@ -99,15 +99,9 @@ export const orderPayReducer = (state = {}, action) => {
 //     dispatch({
 //       type: ORDER_PAY_REQUEST,
 //     })
-
-//     const {
-//       userLogin: { userInfo },
-//     } = getState()
-
 //     const config = {
 //       headers: {
 //         'Content-Type': 'application/json',
-//         Authorization: `Bearer ${userInfo.token}`,
 //       },
 //     }
 
