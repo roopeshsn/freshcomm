@@ -75,11 +75,21 @@ main {
 }
 
 a {
-  color: var(--bs-green);
+  color: var(--bs-gray-700);
 }
 
 a:hover {
   color: var(--bs-green);
+}
+
+.text-link {
+  color: var(--bs-gray-700);
+  text-decoration: underline !important;
+}
+
+.text-link:hover {
+  color: var(--bs-green);
+  text-decoration: underline !important;
 }
 
 .btn-primary {

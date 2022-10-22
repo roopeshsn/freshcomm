@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container, Row, Col, Nav } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
@@ -9,23 +10,32 @@ const Footer = () => {
           <Col>
             <ul className="list-unstyled d-flex li-separator justify-content-start align-items-start">
               <li className="d-flex pr-1">
-                <Nav.Link className="p-0" href="#" target="_blank">
+                <Link className="p-0 text-link" to="/returns">
                   Returns
-                </Nav.Link>
+                </Link>
               </li>
               <li className="d-flex px-1">
-                <Nav.Link className="p-0" href="#" target="_blank">
+                <Link className="p-0 text-link" to="/terms">
                   Terms
-                </Nav.Link>
+                </Link>
               </li>
               <li className="d-flex px-1">
-                <Nav.Link className="p-0" href="#" target="_blank">
+                <Link className="p-0 text-link" to="/privacy">
                   Privacy
-                </Nav.Link>
+                </Link>
+              </li>
+              <li className="d-flex px-1">
+                <Link className="p-0 text-link" to="/help">
+                  Help
+                </Link>
               </li>
               <li>
-                <Nav.Link className="p-0" href="#" target="_blank">
-                  Help
+                <Nav.Link
+                  className="p-0 text-link"
+                  href="https://github.com/roopeshsn/freshbey"
+                  target="_blank"
+                >
+                  GitHub
                 </Nav.Link>
               </li>
             </ul>
