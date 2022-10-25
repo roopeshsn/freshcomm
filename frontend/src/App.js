@@ -26,7 +26,8 @@ import SearchScreen from './screens/SearchScreen'
 import CarouselListScreen from './screens/CarouselListScreen'
 import CarouselEditScreen from './screens/CarouselEditScreen'
 import CreateCarouselScreen from './screens/CreateCarouselScreen'
-import { CategoryListScreen } from './screens/CategoryListScreen'
+import CategoryListScreen  from './screens/CategoryListScreen'
+import CreateCategoryScreen from './screens/CreateCategoryScreen'
 import Error404Screen from './screens/Error404Screen'
 import Terms from './pages/Terms'
 import Returns from './pages/Returns'
@@ -82,6 +83,10 @@ function App() {
               component={CarouselEditScreen}
             />
             <Route path="/admin/categorylist" component={CategoryListScreen} />
+            <Route
+              path="/admin/createcategory"
+              component={CreateCategoryScreen}
+            />
             <Route path="/terms" component={Terms} />
             <Route path="/returns" component={Returns} />
             <Route path="/privacy" component={Privacy} />

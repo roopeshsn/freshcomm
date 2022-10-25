@@ -1,44 +1,63 @@
 import React, { useEffect } from 'react'
-import { Button, Col, Row, Table } from 'react-bootstrap'
-import { useDispatch, useSelector } from 'react-redux'
 import { LinkContainer } from 'react-router-bootstrap'
-import { listCarousels } from '../actions/carouselActions'
-import Loader from '../components/Loader'
+import { Table, Button, Row, Col, ButtonGroup } from 'react-bootstrap'
+import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
+import Loader from '../components/Loader'
+import { deleteCategory, listCategories } from '../actions/categoryActions'
+import formatter from '../utils/currencyFormatter'
+import { CATEGORY_CREATE_RESET } from '../constants/categoryConstants'
 
-const CarouselListScreen = ({ history }) => {
+const CategoryListScreen = ({ history, match }) => {
   const dispatch = useDispatch()
 
-  const carouselList = useSelector((state) => state.carouselList)
-  const { loading, error, carousels } = carouselList
+  const categoryList = useSelector((state) => state.categoryList)
+  const { loading, error, categories } = categoryList
+
+  const categoryDelete = useSelector((state) => state.categoryDelete)
+  const {
+    loading: loadingDelete,
+    error: errorDelete,
+    success: successDelete,
+  } = categoryDelete
 
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
 
   useEffect(() => {
-    if (userInfo && userInfo.isAdmin) {
-      dispatch(listCarousels())
-    } else {
-      history.push('/login')
-    }
-  }, [dispatch, history, userInfo])
+    dispatch({ type: CATEGORY_CREATE_RESET })
 
-  const createCarouselHandler = () => {
-    history.push('/admin/createcarousel')
+    if (!userInfo || !userInfo.isAdmin) {
+      history.push('/login')
+    } else {
+      dispatch(listCategories())
+    }
+  }, [dispatch, history, userInfo, successDelete])
+
+  const deleteHandler = (id) => {
+    if (window.confirm('Are you sure')) {
+      dispatch(deleteCategory(id))
+    }
+  }
+
+  const createCategoryHandler = () => {
+    history.push('/admin/createcategory')
   }
 
   return (
     <>
       <Row>
         <Col>
-          <h1>Carousels</h1>
+          <h1>Categorys</h1>
         </Col>
         <Col className="text-end">
-          <Button className="my-3" onClick={createCarouselHandler}>
-            <i className="fas fa-plus"></i> Create Carousel
+          <Button className="my-3" onClick={createCategoryHandler}>
+            <i className="fas fa-plus"></i> Create Category
           </Button>
         </Col>
       </Row>
+      {loadingDelete && <Loader />}
+      {errorDelete && <Message variant="danger">{errorDelete}</Message>}
       {loading ? (
         <Loader />
       ) : error ? (
@@ -47,30 +66,31 @@ const CarouselListScreen = ({ history }) => {
         <Table striped bordered hover responsive className="table-sm">
           <thead>
             <tr>
-              <th>ID</th>
-              <th>DATE</th>
-              <th>IMAGE SRC</th>
-              <th>IMAGE ALT</th>
+              <th>CATEGORY ID</th>
+              <th>NAME</th>
               <th>OPTIONS</th>
             </tr>
           </thead>
           <tbody>
-            {carousels.map((carousel) => (
-              <tr key={carousel._id}>
-                <td>{carousel._id}</td>
-                <td>{carousel.createdAt.substring(0, 10)}</td>
+            {categories.map((category) => (
+              <tr key={category._id}>
+                <td>{category._id}</td>
+                <td>{category.name}</td>
                 <td>
-                  <a href={carousel.imageSrc} target="_blank" rel="noreferrer">
-                    {carousel.imageSrc}
-                  </a>
-                </td>
-                <td>{carousel.imageAlt}</td>
-                <td>
-                  <LinkContainer to={`/admin/carousel/${carousel._id}/edit`}>
-                    <Button variant="light" className="btn-sm">
-                      Edit
+                  <ButtonGroup>
+                    <LinkContainer to={`/admin/category/${category._id}/edit`}>
+                      <Button variant="light" className="btn-sm m-2 mt-0">
+                        <i className="fas fa-edit"></i>
+                      </Button>
+                    </LinkContainer>
+                    <Button
+                      variant="danger"
+                      className="btn-sm m-2 mt-0"
+                      onClick={() => deleteHandler(category._id)}
+                    >
+                      <i className="fas fa-trash"></i>
                     </Button>
-                  </LinkContainer>
+                  </ButtonGroup>
                 </td>
               </tr>
             ))}
@@ -81,4 +101,5 @@ const CarouselListScreen = ({ history }) => {
   )
 }
 
-export default CarouselListScreen
+export default CategoryListScreen
+

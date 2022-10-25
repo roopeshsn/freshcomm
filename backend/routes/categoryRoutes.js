@@ -2,19 +2,13 @@ const express = require('express')
 const asyncHandler = require('express-async-handler')
 const router = express.Router()
 const Product = require('../models/productModel')
-const Category = require('../models/categoryModel')
+const { getCategories,getCategoryById, createCategory,deleteCategory,updateCategory } = require('../controllers/categoryController')
+const { protect, admin } = require('../middleware/authMiddleware')
 
 // @desc  Fetch all categories
 // @route  GET /api/categories
 // @access  Public
-
-router.get(
-  '/',
-  asyncHandler(async (req, res) => {
-    const categories = await Category.find({})
-    res.json(categories)
-  }),
-)
+router.route('/').get(getCategories).post(protect, admin, createCategory)
 
 // @desc  Fetch products based on category
 // @route  GET /api/categories/:category
@@ -35,5 +29,11 @@ router.get(
     }
   }),
 )
+
+router
+  .route('/:id')
+  .get(getCategoryById)
+  .delete(protect, admin, deleteCategory)
+  .put(protect, admin, updateCategory)
 
 module.exports = router
