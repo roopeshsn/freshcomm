@@ -10,6 +10,7 @@ const {
   deleteUser,
   getUserById,
   updateUser,
+  logoutUser,
 } = require('../controllers/userController')
 const { protect, admin } = require('../middleware/authMiddleware')
 const router = express.Router()
@@ -22,6 +23,7 @@ router
   .put(protect, updateUserProfile)
 router.post('/forgotpassword', forgotPassword)
 router.patch('/resetpassword/:token', resetPassword)
+router.get('/logout', logoutUser)
 router
   .route('/:id')
   .delete(protect, admin, deleteUser)

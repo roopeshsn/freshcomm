@@ -53,14 +53,9 @@ export const createCarousel = (carousel) => async (dispatch, getState) => {
       type: CAROUSEL_CREATE_REQUEST,
     })
 
-    const {
-      userLogin: { userInfo },
-    } = getState()
-
     const config = {
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${userInfo.token}`,
       },
     }
 
@@ -91,14 +86,9 @@ export const updateCarousel = (carousel) => async (dispatch, getState) => {
       type: CAROUSEL_UPDATE_REQUEST,
     })
 
-    const {
-      userLogin: { userInfo },
-    } = getState()
-
     const config = {
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${userInfo.token}`,
       },
     }
 

@@ -1,6 +1,8 @@
 const path = require('path')
 const express = require('express')
+const cors = require('cors')
 require('dotenv').config()
+const cookieParser = require('cookie-parser')
 const { connectDB } = require('./config/db')
 const productRoutes = require('./routes/productRoutes')
 const userRoutes = require('./routes/userRoutes')
@@ -12,6 +14,13 @@ const { notFound, errorHandler } = require('./middleware/errorMiddleware')
 const compression = require('compression')
 
 const app = express()
+app.use(cookieParser())
+app.use(
+  cors({
+    origin: ['http://localhost:3000', 'https://freshbey.herokuapp.com'],
+    credentials: true,
+  }),
+)
 const PORT = process.env.PORT || 5000
 
 // DB connection
