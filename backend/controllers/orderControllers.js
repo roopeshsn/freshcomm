@@ -113,7 +113,12 @@ const updateOrderToPaid = asyncHandler(async (req, res) => {
 
     order.isPaid = true
     order.paidAt = Date.now()
+    
     const updatedOrder = await order.save()
+    await updatedOrder.populate(
+      'user',
+      'name email',
+    )
     res.json(updatedOrder)
   } else {
     res.status(404)
@@ -148,7 +153,10 @@ const updateOrderToDelivered = asyncHandler(async (req, res) => {
     order.deliveredAt = Date.now()
 
     const updatedOrder = await order.save()
-
+    await updatedOrder.populate(
+      'user',
+      'name email',
+    )
     res.json(updatedOrder)
   } else {
     res.status(404)
