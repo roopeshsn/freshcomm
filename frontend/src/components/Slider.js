@@ -21,8 +21,8 @@ const Slider = () => {
       ) : (
         <Carousel
           pause="hover"
-          className="bg-light"
-          variant="light"
+          className="bg-light carousel-dark"
+          variant="dark"
           touch
           indicators
           controls
