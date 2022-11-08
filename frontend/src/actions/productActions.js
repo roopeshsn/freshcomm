@@ -19,6 +19,7 @@ import {
   PRODUCT_UPDATE_REQUEST,
   PRODUCT_UPDATE_SUCCESS,
   PRODUCT_UPDATE_FAIL,
+  PRODUCT_SORT,
 } from '../constants/productConstants'
 
 import { logout } from './userActions'
@@ -169,3 +170,10 @@ export const updateProduct = (product) => async (dispatch, getState) => {
     })
   }
 }
+
+export const sortProductsBy = (payload) => async (dispatch) => {
+    dispatch({
+      type: PRODUCT_SORT,
+      payload
+    });
+  }

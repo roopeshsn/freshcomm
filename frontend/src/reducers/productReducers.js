@@ -20,6 +20,7 @@ import {
   PRODUCT_UPDATE_FAIL,
   PRODUCT_UPDATE_RESET,
   PRODUCT_DETAILS_RESET,
+  PRODUCT_SORT,
 } from '../constants/productConstants'
 
 export const productListReducer = (state = { products: [] }, action) => {
@@ -123,4 +124,13 @@ export const productUpdateReducer = (state = { product: {} }, action) => {
     default:
       return state
   }
+}
+
+export const sortReducer = (state = { sortBy: ""}, action) => {
+  switch (action.type) {
+    case PRODUCT_SORT:
+      return { sortBy: action.payload }
+    default:
+      return state
+    }
 }
