@@ -1,5 +1,6 @@
 export const sorter = (products, type) => {
       let sorter;
+      if(type === "Relevance") return products;
       switch (type) {
         case "A-Z":
           sorter = (a, b) => {
@@ -32,5 +33,5 @@ export const sorter = (products, type) => {
           default:
             break;
       }
-      return products.sort(sorter)
+      return [...products].sort(sorter)
 };

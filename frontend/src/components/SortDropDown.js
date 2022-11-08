@@ -22,6 +22,9 @@ export const SortDropDown = () => {
       title={'Sort By - ' + sortLabel}
       onSelect={handleSort}
     >
+      <Dropdown.Item as="button" eventKey="Relevance">
+        Sort By - Relevance
+      </Dropdown.Item>
       <Dropdown.Item as="button" eventKey="A-Z">
         Sort By - A-Z
       </Dropdown.Item>
