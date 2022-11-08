@@ -14,7 +14,7 @@ const CategoryScreen = ({ match, history }) => {
   const { loading, error, products } = productList
 
   const { sortBy } = useSelector((state) => state.sortProducts)
-  let sorted = sorter(products, sortBy);
+  let sorted = sorter(products, sortBy)
 
   useEffect(() => {
     dispatch(listProductsByCategory(match.params.category))
@@ -29,14 +29,14 @@ const CategoryScreen = ({ match, history }) => {
         <Message variant="danger">{error}</Message>
       ) : (
         <>
-        <SortDropDown/>
-        <Row>
-        {sorted.map((product) => (
-            <Col key={product._id} sm={12} md={6} lg={4} xl={4}>
-              <Product product={product} history={history} />
-            </Col>
-          ))}
-        </Row>
+          <SortDropDown />
+          <Row>
+            {sorted.map((product) => (
+              <Col key={product._id} sm={12} md={6} lg={4} xl={4}>
+                <Product product={product} history={history} />
+              </Col>
+            ))}
+          </Row>
         </>
       )}
     </>

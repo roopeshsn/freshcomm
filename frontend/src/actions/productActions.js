@@ -172,8 +172,8 @@ export const updateProduct = (product) => async (dispatch, getState) => {
 }
 
 export const sortProductsBy = (payload) => async (dispatch) => {
-    dispatch({
-      type: PRODUCT_SORT,
-      payload
-    });
-  }
+  dispatch({
+    type: PRODUCT_SORT,
+    payload,
+  })
+}

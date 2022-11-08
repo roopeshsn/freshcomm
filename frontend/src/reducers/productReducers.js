@@ -126,11 +126,11 @@ export const productUpdateReducer = (state = { product: {} }, action) => {
   }
 }
 
-export const sortReducer = (state = { sortBy: ""}, action) => {
+export const sortReducer = (state = { sortBy: '' }, action) => {
   switch (action.type) {
     case PRODUCT_SORT:
       return { sortBy: action.payload }
     default:
       return state
-    }
+  }
 }

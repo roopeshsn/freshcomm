@@ -8,7 +8,6 @@ import Message from '../components/Message'
 import { SortDropDown } from '../components/SortDropDown'
 import { sorter } from '../utils/sorter'
 
-
 const SearchScreen = ({ match, history }) => {
   const keyword = match.params.keyword
   const dispatch = useDispatch()
@@ -16,7 +15,7 @@ const SearchScreen = ({ match, history }) => {
   const { loading, error, products } = productList
 
   const { sortBy } = useSelector((state) => state.sortProducts)
-  let sorted = sorter(products, sortBy);
+  let sorted = sorter(products, sortBy)
 
   useEffect(() => {
     dispatch(listProducts(keyword))
@@ -29,17 +28,17 @@ const SearchScreen = ({ match, history }) => {
       ) : error ? (
         <Message variant="danger">{error}</Message>
       ) : (
-      <>
-        <SortDropDown/>
-        <Row>
-          {/* {!products && <Message variant='info'>No products found based on your search</Message>} */}
-          {sorted.map((product) => (
-            <Col key={product._id} sm={12} md={6} lg={4} xl={4}>
-              <Product product={product} history={history} />
-            </Col>
-          ))}
-        </Row>
-      </>
+        <>
+          <SortDropDown />
+          <Row>
+            {/* {!products && <Message variant='info'>No products found based on your search</Message>} */}
+            {sorted.map((product) => (
+              <Col key={product._id} sm={12} md={6} lg={4} xl={4}>
+                <Product product={product} history={history} />
+              </Col>
+            ))}
+          </Row>
+        </>
       )}
     </>
   )
