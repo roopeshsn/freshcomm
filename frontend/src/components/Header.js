@@ -44,6 +44,16 @@ const Header = () => {
               </Nav.Link>
             </LinkContainer>
           </Nav>
+          <Nav className="w-100">
+              {location.pathname === '/login' ||
+              location.pathname === '/register' ||
+              location.pathname === '/forgotpassword' ||
+              location.pathname === '/forgotpassword/:email' ? (
+              ''
+              ) : (
+              <Route render={({ history }) => <SearchBox history={history}/>} />
+              )}
+          </Nav>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-md-auto">
@@ -86,15 +96,6 @@ const Header = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-
-      {location.pathname === '/login' ||
-      location.pathname === '/register' ||
-      location.pathname === '/forgotpassword' ||
-      location.pathname === '/forgotpassword/:email' ? (
-        ''
-      ) : (
-        <Route render={({ history }) => <SearchBox history={history} />} />
-      )}
     </header>
   )
 }

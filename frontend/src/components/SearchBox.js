@@ -16,7 +16,7 @@ const SearchBox = ({ history }) => {
   }
 
   return (
-    <FormContainer>
+    <FormContainer md={12}>
       <Form onSubmit={submitHandler} className="my-3 d-flex">
         <Form.Control
           type="text"
