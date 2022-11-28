@@ -14,6 +14,7 @@ const Header = () => {
   const dispatch = useDispatch()
   const userLogin = useSelector((state) => state.userLogin)
   const cart = useSelector((state) => state.cart)
+
   const { cartItems } = cart
   const { userInfo } = userLogin
   const logoutHandler = () => {
@@ -54,7 +55,7 @@ const Header = () => {
               <Route render={({ history }) => <SearchBox history={history}/>} />
               )}
           </Nav>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Toggle aria-controls="basic-navbar-nav"/>
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-md-auto">
               {userInfo ? (
@@ -62,19 +63,8 @@ const Header = () => {
                   <LinkContainer to="/profile">
                     <NavDropdown.Item>Profile</NavDropdown.Item>
                   </LinkContainer>
-                  <NavDropdown.Item onClick={logoutHandler}>
-                    Logout
-                  </NavDropdown.Item>
-                </NavDropdown>
-              ) : (
-                <LinkContainer to="/login">
-                  <Nav.Link>
-                    <FiUser size="1.5em" /> Login / Sign Up
-                  </Nav.Link>
-                </LinkContainer>
-              )}
-              {userInfo && userInfo.isAdmin && (
-                <NavDropdown title="Admin" id="adminmenu">
+                  {userInfo.isAdmin && (
+                <NavDropdown title="Admin" id="adminmenu" flip={true}>
                   <LinkContainer to="/admin/users">
                     <NavDropdown.Item>Users</NavDropdown.Item>
                   </LinkContainer>
@@ -91,6 +81,17 @@ const Header = () => {
                     <NavDropdown.Item>Categories</NavDropdown.Item>
                   </LinkContainer>
                 </NavDropdown>
+              )}
+                  <NavDropdown.Item onClick={logoutHandler}>
+                    Logout
+                  </NavDropdown.Item>
+                </NavDropdown>
+              ) : (
+                <LinkContainer to="/login">
+                  <Nav.Link>
+                    <FiUser size="1.5em" /> Login / Sign Up
+                  </Nav.Link>
+                </LinkContainer>
               )}
             </Nav>
           </Navbar.Collapse>
