@@ -32,6 +32,9 @@ import Terms from './pages/Terms'
 import Returns from './pages/Returns'
 import Privacy from './pages/Privacy'
 import Help from './pages/Help'
+import SecurityScreen from "./screens/SecurityScreen";
+import AddressesScreen from "./screens/AddressesScreen";
+import OrdersScreen from "./screens/OrdersScreen";
 
 function App() {
   return (
@@ -44,7 +47,10 @@ function App() {
             <Route path="/search/:keyword" component={SearchScreen} />
             <Route path="/cart/:id?" component={CartScreen}></Route>
             <Route path="/login" component={LoginScreen}></Route>
-            <Route path="/profile" component={ProfileScreen}></Route>
+            <Route path="/profile/orders" component={OrdersScreen} />
+            <Route path="/profile/security" component={SecurityScreen} />
+            <Route path="/profile/addresses" component={AddressesScreen} />
+            <Route path="/profile" component={ProfileScreen} />
             <Route path="/register" component={RegisterScreen}></Route>
             <Route
               path="/forgotpassword/:email?"
