@@ -1,4 +1,4 @@
-# Freshbey
+# Freshcomm
 
 An open-source and self-hostable ecommerce application with a focus on developer productivity and ease of customization.
 
