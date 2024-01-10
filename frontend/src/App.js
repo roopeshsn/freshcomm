@@ -25,8 +25,10 @@ import OrderListScreen from './screens/OrderListScreen'
 import SearchScreen from './screens/SearchScreen'
 import CarouselListScreen from './screens/CarouselListScreen'
 import CarouselEditScreen from './screens/CarouselEditScreen'
+import CategoryEditScreen from './screens/CategoryEditScreen'
 import CreateCarouselScreen from './screens/CreateCarouselScreen'
-import { CategoryListScreen } from './screens/CategoryListScreen'
+import CategoryListScreen from './screens/CategoryListScreen'
+import CreateCategoryScreen from './screens/CreateCategoryScreen'
 import Error404Screen from './screens/Error404Screen'
 import Terms from './pages/Terms'
 import Returns from './pages/Returns'
@@ -80,6 +82,14 @@ function App() {
             <Route
               path="/admin/carousel/:id/edit"
               component={CarouselEditScreen}
+            />
+            <Route
+              path="/admin/createcategory"
+              component={CreateCategoryScreen}
+            />
+            <Route
+              path="/admin/category/:id/edit"
+              component={CategoryEditScreen}
             />
             <Route path="/admin/categorylist" component={CategoryListScreen} />
             <Route path="/terms" component={Terms} />

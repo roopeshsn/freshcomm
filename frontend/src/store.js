@@ -7,7 +7,12 @@ import {
   carouselListReducer,
   carouselUpdateReducer,
 } from './reducers/carouselReducers'
-import { categoryListReducer } from './reducers/categoryReducers'
+import { 
+  categoryDeleteReducer, 
+  categoryListReducer,
+  categoryCreateReducer,
+  categoryUpdateReducer,
+  categoryDetailsReducer } from './reducers/categoryReducers'
 import {
   productListReducer,
   productDetailsReducer,
@@ -44,6 +49,10 @@ const reducer = combineReducers({
   carouselCreate: carouselCreateReducer,
   carouselUpdate: carouselUpdateReducer,
   categoryList: categoryListReducer,
+  categoryDetails: categoryDetailsReducer,
+  categoryCreate: categoryCreateReducer,
+  categoryUpdate: categoryUpdateReducer,
+  categoryDelete: categoryDeleteReducer,
   productList: productListReducer,
   productListBySearch: productListBySearchReducer,
   productListByCategory: productListByCategoryReducer,
